@@ -1,9 +1,6 @@
-#region Desenho com Feedback Visual
+#region 
 if (sprite_index != -1) {
-    if (pode_construir) {
-        draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, c_lime, 0.6);
-    } else {
-        draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, c_red, 0.6);
-    }
+    var _cor = pode_construir ? c_lime : c_red;
+    draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, _cor, 0.5);
 }
 #endregion

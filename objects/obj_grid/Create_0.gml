@@ -1,34 +1,38 @@
 #region Propriedades da Grid
-colunas_grid = floor(room_width / global.tamanho_celula);
-linhas_grid = floor(room_height / global.tamanho_celula);
+inicializar_grid = function() {
+    colunas_grid = ceil(room_width / global.tamanho_celula);
+    linhas_grid = ceil(room_height / global.tamanho_celula);
 
-grid_mapa = array_create(colunas_grid);
+    grid_mapa = array_create(colunas_grid);
 
-for (var _i = 0; _i < colunas_grid; _i++) {
-    grid_mapa[_i] = array_create(linhas_grid, noone);
-}
+    for (var _i = 0; _i < colunas_grid; _i++) {
+        grid_mapa[_i] = array_create(linhas_grid, noone);
+    }
+};
+
+inicializar_grid();
 #endregion
 
 #region Funcoes de Conversao e Alinhamento
-function obter_grid_x(_pos_x) {
+obter_grid_x = function(_pos_x) {
     return floor(_pos_x / global.tamanho_celula);
-}
+};
 
-function obter_grid_y(_pos_y) {
+obter_grid_y = function(_pos_y) {
     return floor(_pos_y / global.tamanho_celula);
-}
+};
 
-function alinhar_grid_x(_pos_x) {
+alinhar_grid_x = function(_pos_x) {
     return floor(_pos_x / global.tamanho_celula) * global.tamanho_celula;
-}
+};
 
-function alinhar_grid_y(_pos_y) {
+alinhar_grid_y = function(_pos_y) {
     return floor(_pos_y / global.tamanho_celula) * global.tamanho_celula;
-}
+};
 #endregion
 
 #region Funcoes de Leitura e Escrita
-function obter_valor_grid(_pos_x, _pos_y) {
+obter_valor_grid = function(_pos_x, _pos_y) {
     var _gx = obter_grid_x(_pos_x);
     var _gy = obter_grid_y(_pos_y);
     
@@ -36,25 +40,25 @@ function obter_valor_grid(_pos_x, _pos_y) {
         return grid_mapa[_gx][_gy];
     }
     return -1;
-}
+};
 
-function definir_valor_grid(_pos_x, _pos_y, _valor) {
+definir_valor_grid = function(_pos_x, _pos_y, _valor) {
     var _gx = obter_grid_x(_pos_x);
     var _gy = obter_grid_y(_pos_y);
     
     if (_gx >= 0 && _gx < colunas_grid && _gy >= 0 && _gy < linhas_grid) {
         grid_mapa[_gx][_gy] = _valor;
     }
-}
+};
 
-function celula_ocupada(_pos_x, _pos_y) {
+celula_ocupada = function(_pos_x, _pos_y) {
     var _valor = obter_valor_grid(_pos_x, _pos_y);
     return (_valor != noone && _valor != -1);
-}
+};
 #endregion
 
 #region Funcoes de Criacao e Destruicao
-function colocar_objeto_na_celula(_pos_x, _pos_y, _objeto, _camada = "Instances") {
+colocar_objeto_na_celula = function(_pos_x, _pos_y, _objeto, _camada = "Instances") {
     if (!celula_ocupada(_pos_x, _pos_y)) {
         var _x_alinhado = alinhar_grid_x(_pos_x);
         var _y_alinhado = alinhar_grid_y(_pos_y);
@@ -64,9 +68,9 @@ function colocar_objeto_na_celula(_pos_x, _pos_y, _objeto, _camada = "Instances"
         return _instancia;
     }
     return noone;
-}
+};
 
-function destruir_objeto_da_celula(_pos_x, _pos_y) {
+destruir_objeto_da_celula = function(_pos_x, _pos_y) {
     var _instancia = obter_valor_grid(_pos_x, _pos_y);
     
     if (_instancia != noone && _instancia != -1 && instance_exists(_instancia)) {
@@ -75,9 +79,19 @@ function destruir_objeto_da_celula(_pos_x, _pos_y) {
         return true;
     }
     return false;
-}
+};
 
-function limpar_celula(_pos_x, _pos_y) {
+limpar_celula = function(_pos_x, _pos_y) {
     definir_valor_grid(_pos_x, _pos_y, noone);
-}
+};
+
+construir = function(_dados_construcao) {
+    if (instance_exists(obj_construtor_preview)) {
+        instance_destroy(obj_construtor_preview);
+    }
+    
+    var _preview = instance_create_layer(mouse_x, mouse_y, "Instances", obj_construtor_preview);
+    _preview.sprite_index = _dados_construcao.sprite;
+    _preview.objeto_para_construir = _dados_construcao.objeto;
+};
 #endregion

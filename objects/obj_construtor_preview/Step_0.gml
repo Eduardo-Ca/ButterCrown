@@ -1,4 +1,4 @@
-#region validação
+#region Atualizacao e Confirmacao
 x = obj_grid.alinhar_grid_x(mouse_x);
 y = obj_grid.alinhar_grid_y(mouse_y);
 
