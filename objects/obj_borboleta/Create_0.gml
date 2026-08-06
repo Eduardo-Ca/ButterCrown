@@ -6,7 +6,7 @@ forca_impulso = -4.2;
 energia_maxima = 500;
 energia_atual = energia_maxima;
 retorno_x_velocidade = 0.04;
-boost_por_impulso = 1.2;
+boost_por_impulso = 0.8;
 #endregion
 
 #region SISTEMA DE QUIQUES

@@ -1,4 +1,7 @@
+if (global.pausado) exit;
+
 #region TEMPO E SPAWN
+
 if (global.vel_mundo > 0.5) {
     timer_spawn += 1;
     
@@ -23,19 +26,22 @@ if (global.vel_mundo > 0.5) {
             }
         }
         
-        var pos_y = 0;
-        
-        if (item_sorteado.alinhado_chao) {
-            if (instance_exists(obj_chao)) {
-                // Pega a altura da sprite do objeto para compensar a origem no meio
-                var metade_altura = sprite_get_height(object_get_sprite(item_sorteado.objeto)) / 2;
-                pos_y = obj_chao.bbox_top - metade_altura;
+        if (item_sorteado != undefined) {
+            var pos_y = 0;
+            
+            if (item_sorteado.alinhado_chao) {
+                if (instance_exists(obj_chao)) {
+                    var metade_altura = sprite_get_height(object_get_sprite(item_sorteado.objeto)) / 2;
+                    pos_y = obj_chao.bbox_top - metade_altura;
+                }
+            } else {
+                pos_y = irandom_range(item_sorteado.y_min, item_sorteado.y_max);
             }
-        } else {
-            pos_y = irandom_range(item_sorteado.y_min, item_sorteado.y_max);
+            
+ 
+            var inst = instance_create_depth(x, pos_y, depth, item_sorteado.objeto);
+      
         }
-        
-        instance_create_layer(x, pos_y, "Instances", item_sorteado.objeto);
     }
 }
 #endregion
