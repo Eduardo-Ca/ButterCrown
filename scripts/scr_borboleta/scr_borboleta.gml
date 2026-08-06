@@ -1,6 +1,6 @@
 function reagir_impacto_borboleta(_inst_obstaculo, _inst_borboleta, _boost_vel, _pontos_caos, _sprite_fuga = noone) {
     with (_inst_obstaculo) {
-        if (!_inst_borboleta.morto && !assustado) {
+        if (!_inst_borboleta.morto ) {
 
             tremer_tela(6);
             _inst_borboleta.vel_vertical = -5.5;

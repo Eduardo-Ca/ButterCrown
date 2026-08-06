@@ -32,7 +32,7 @@ if (global.vel_mundo > 0.5) {
             if (item_sorteado.alinhado_chao) {
                 if (instance_exists(obj_chao)) {
                     var metade_altura = sprite_get_height(object_get_sprite(item_sorteado.objeto)) / 2;
-                    pos_y = obj_chao.bbox_top - metade_altura;
+                    pos_y = obj_chao.bbox_top - metade_altura +3;
                 } else {
                     pos_y = 448;
                 }
