@@ -1,16 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_camera",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_chao",
+  "eventList":[],
   "managed":true,
-  "name":"obj_camera",
+  "name":"obj_chao",
   "overriddenProperties":[],
   "parent":{
-    "name":"jogo",
-    "path":"folders/objetos/jogo.yy",
+    "name":"cenario",
+    "path":"folders/objetos/cenario.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -35,5 +32,5 @@
     "path":"sprites/Spr_bloco/Spr_bloco.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

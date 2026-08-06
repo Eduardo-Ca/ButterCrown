@@ -1,31 +1,29 @@
-#region Atualizacao da Camera
-controlar_zoom_mouse();
-
-zoom_atual = lerp(zoom_atual, zoom_alvo, suavizacao);
-
-var _passo_zoom_suave = round(zoom_atual * 2) / 2;
-
-var _celulas_h = round(celulas_horizontais_base * _passo_zoom_suave);
-var _celulas_v = round(celulas_verticais_base * _passo_zoom_suave);
-
-var _nova_largura = _celulas_h * global.tamanho_celula;
-var _nova_altura = _celulas_v * global.tamanho_celula;
-
-camera_set_view_size(view_camera[0], _nova_largura, _nova_altura);
-
-if (instance_exists(obj_castelo)) {
-    var _centro_castelo_x = obj_castelo.x + (global.tamanho_celula / 2);
-    var _centro_castelo_y = obj_castelo.y + (global.tamanho_celula / 2);
-
-    var _cam_x = _centro_castelo_x - (_nova_largura / 2);
-    var _cam_y = _centro_castelo_y - (_nova_altura / 2);
-
-    _cam_x = floor(_cam_x / global.tamanho_celula) * global.tamanho_celula;
-    _cam_y = floor(_cam_y / global.tamanho_celula) * global.tamanho_celula;
-
-    _cam_x = clamp(_cam_x, 0, max(0, room_width - _nova_largura));
-    _cam_y = clamp(_cam_y, 0, max(0, room_height - _nova_altura));
-
-    camera_set_view_pos(view_camera[0], _cam_x, _cam_y);
+#region MOVIMENTO
+if (instance_exists(obj_borboleta)) {
+    var borboleta = obj_borboleta;
+    
+    var fator_visio_baixo = 0;
+    var velocidade_lerp = 0.08;
+    
+    if (borboleta.vel_vertical > 0) {
+        fator_visio_baixo = borboleta.vel_vertical * 22;
+        velocidade_lerp = 0.15;
+    } else {
+        fator_visio_baixo = borboleta.vel_vertical * 8;
+        velocidade_lerp = 0.08;
+    }
+    
+    var alvo_y = borboleta.y + fator_visio_baixo;
+    
+    var offset_x = random_range(-shake_intensidade, shake_intensidade);
+    var offset_y = random_range(-shake_intensidade, shake_intensidade);
+    
+    y = lerp(y, alvo_y, velocidade_lerp) + offset_y;
+    x = offset_x;
+    
+    shake_intensidade *= shake_amortecimento;
+    if (shake_intensidade < 0.1) {
+        shake_intensidade = 0;
+    }
 }
 #endregion

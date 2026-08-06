@@ -1,18 +1,22 @@
 {
   "$GMObject":"",
-  "%Name":"obj_camera",
+  "%Name":"obj_balao",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_borboleta","path":"objects/obj_borboleta/obj_borboleta.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_camera",
+  "name":"obj_balao",
   "overriddenProperties":[],
   "parent":{
-    "name":"jogo",
-    "path":"folders/objetos/jogo.yy",
+    "name":"objetos",
+    "path":"folders/objetos/cenario/objetos.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_obstaculo",
+    "path":"objects/obj_obstaculo/obj_obstaculo.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -31,9 +35,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Spr_bloco",
-    "path":"sprites/Spr_bloco/Spr_bloco.yy",
+    "name":"spr_balao",
+    "path":"sprites/spr_balao/spr_balao.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

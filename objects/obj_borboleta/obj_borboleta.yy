@@ -1,16 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"obj_camera",
+  "%Name":"obj_borboleta",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_camera",
+  "name":"obj_borboleta",
   "overriddenProperties":[],
   "parent":{
-    "name":"jogo",
-    "path":"folders/objetos/jogo.yy",
+    "name":"personagens",
+    "path":"folders/objetos/personagens.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -31,9 +31,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Spr_bloco",
-    "path":"sprites/Spr_bloco/Spr_bloco.yy",
+    "name":"spr_buttercrown",
+    "path":"sprites/spr_buttercrown/spr_buttercrown.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }
