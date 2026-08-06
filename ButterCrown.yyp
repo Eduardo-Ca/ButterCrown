@@ -30,7 +30,9 @@
     {"$GMFolder":"","%Name":"pessoas","folderPath":"folders/sprites/personagens/pessoas.yy","name":"pessoas","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"roupas","folderPath":"folders/sprites/personagens/pessoas/roupas.yy","name":"roupas","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
-  "ForcedPrefabProjectReferences":[],
+  "ForcedPrefabProjectReferences":[
+    {"link":"io.gamemaker.gm_filter_vignette-1.0.0","name":"io.gamemaker.gm_filter_vignette-1.0.0","path":"io.gamemaker.gm_filter_vignette-1.0.0.yyp",},
+  ],
   "IncludedFiles":[],
   "isEcma":false,
   "LibraryEmitters":[],
@@ -43,6 +45,7 @@
     {"id":{"name":"obj_borboleta","path":"objects/obj_borboleta/obj_borboleta.yy",},},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"obj_chao","path":"objects/obj_chao/obj_chao.yy",},},
+    {"id":{"name":"obj_clima","path":"objects/obj_clima/obj_clima.yy",},},
     {"id":{"name":"obj_gerador","path":"objects/obj_gerador/obj_gerador.yy",},},
     {"id":{"name":"obj_hud","path":"objects/obj_hud/obj_hud.yy",},},
     {"id":{"name":"obj_jogo","path":"objects/obj_jogo/obj_jogo.yy",},},

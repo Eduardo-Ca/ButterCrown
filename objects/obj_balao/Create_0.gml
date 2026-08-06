@@ -1,7 +1,7 @@
 #region CONFIGURACOES E PROPRIEDADES
 event_inherited();
 
-boost_velocidade = 0.8;
+boost_velocidade = 0.5;
 pontos_caos = 1;
 assustado = false;
 
