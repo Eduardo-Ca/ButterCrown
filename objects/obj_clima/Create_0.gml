@@ -1,5 +1,4 @@
-// Evento CREATE
-#region INICIALIZACAO E CHANCES
+#region INICIALIZACAO E CHANCE
 if (variable_global_exists("clima") && global.clima != "") {
     instance_destroy();
     exit;
@@ -28,10 +27,26 @@ if (sorteio_clima < 30) {
 }
 #endregion
 
-#region CONFIGURACAO DOS CLIMAS
+#region CONFIGURACAO DAS NUVENS
 var gui_w = display_get_gui_width();
 var gui_h = display_get_gui_height() * 2;
 
+qtd_nuvens = 15;
+nuvens = array_create(qtd_nuvens);
+
+for (var i = 0; i < qtd_nuvens; i++) {
+    nuvens[i] = {
+        x: random(gui_w + 400),
+        y: random_range(20, gui_h * 0.4),
+        subimg: irandom(2),
+        escala: random_range(2.5, 4.0),
+        vel: random_range(0.2, 0.6),
+        alpha: random_range(0.2, 0.5)
+    };
+}
+#endregion
+
+#region CONFIGURACAO DOS CLIMAS
 particulas = [];
 raio_alpha = 0;
 

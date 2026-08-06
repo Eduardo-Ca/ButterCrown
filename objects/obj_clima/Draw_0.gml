@@ -17,6 +17,14 @@ switch (global.periodo) {
 }
 #endregion
 
+#region RENDERIZACAO DAS NUVENS
+draw_set_color(c_white);
+for (var i = 0; i < qtd_nuvens; i++) {
+    var n = nuvens[i];
+    draw_sprite_ext(spr_nuvem, n.subimg, n.x, n.y, n.escala, n.escala, 0, c_white, n.alpha);
+}
+#endregion
+
 #region RENDERIZACAO DO CLIMA
 switch (global.clima) {
     case "chuva":

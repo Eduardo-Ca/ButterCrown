@@ -2,10 +2,26 @@
 if (global.pausado) exit;
 #endregion
 
-#region ATUALIZACAO DO CLIMA
+#region ATUALIZACAO DAS NUVENS
 var gui_w = display_get_gui_width();
 var gui_h = display_get_gui_height() * 2;
 
+for (var i = 0; i < qtd_nuvens; i++) {
+    var n = nuvens[i];
+    n.x -= n.vel;
+    
+    if (n.x < -300) {
+        n.x = gui_w + 300;
+        n.y = random_range(20, gui_h * 0.4);
+        n.subimg = irandom(2);
+        n.escala = random_range(2.5, 4.0);
+        n.vel = random_range(0.2, 0.6);
+        n.alpha = random_range(0.2, 0.5);
+    }
+}
+#endregion
+
+#region ATUALIZACAO DO CLIMA
 switch (global.clima) {
     case "chuva":
         for (var i = 0; i < qtd_particulas; i++) {
