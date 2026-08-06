@@ -1,19 +1,22 @@
 {
   "$GMObject":"",
-  "%Name":"obj_obstaculo",
+  "%Name":"obj_pessoa",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_borboleta","path":"objects/obj_borboleta/obj_borboleta.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_obstaculo",
+  "name":"obj_pessoa",
   "overriddenProperties":[],
   "parent":{
-    "name":"cenario",
-    "path":"folders/objetos/cenario.yy",
+    "name":"pessoa",
+    "path":"folders/objetos/personagens/pessoa.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_obstaculo",
+    "path":"objects/obj_obstaculo/obj_obstaculo.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -31,7 +34,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_pessoa",
+    "path":"sprites/spr_pessoa/spr_pessoa.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

@@ -2,7 +2,7 @@
 posicao_x_base = 230;
 vel_vertical = 0;
 gravidade = 0.09;        
-forca_impulso = -4.2;         
+forca_impulso = -3.0;         
 energia_maxima = 500;
 energia_atual = energia_maxima;
 retorno_x_velocidade = 0.04;

@@ -1,5 +1,5 @@
 #region CONFIGURACAO DO SPAWNER
-tempo_spawn_min = 20;
+tempo_spawn_min = 10;
 tempo_spawn_max = 50;
 timer_spawn = 0;
 tempo_atual = irandom_range(tempo_spawn_min, tempo_spawn_max);
@@ -16,7 +16,14 @@ lista_spawns = [
 	    y_min: 400,  
 	    y_max: 700,  
 	    alinhado_chao: false,
-	    chance: 100
-	}
+	    chance: 50
+	},
+	{
+        objeto: obj_pessoa,
+        y_min: y_chao,
+        y_max: y_chao,
+        alinhado_chao: true,
+        chance: 50
+    }
 ];
 #endregion
