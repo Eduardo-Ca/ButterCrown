@@ -1,6 +1,7 @@
 #region VARIAVEIS GLOBAIS DO MUNDO
 global.caos_pontos = 0;
 global.pausado = false;
+
 #endregion
 
 #region CONFIGURACOES VELOCIDADE MUNDO

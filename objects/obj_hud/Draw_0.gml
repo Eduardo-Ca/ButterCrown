@@ -1,3 +1,4 @@
+if (global.pausado) exit;
 draw_set_color(c_white);
 draw_set_alpha(0.15);
 

@@ -1,9 +1,12 @@
-#region CONFIGURACAO DA CAMERA
-shake_intensidade = 0;
-shake_amortecimento = 0.9;
-
-function tremer_tela(_forca) {
-    shake_intensidade = _forca;
-}
+#region CONFIGURACOES DE RESOLUCAO
+largura_base = 576;
+altura_base = 324;
 #endregion
-//obj_camera.tremer_tela(6);
+
+#region SHAKE DE TELA
+shake_intensidade = 0;
+shake_tempo = 0;
+#endregion
+
+//tremer_tela(6);
+

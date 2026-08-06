@@ -1,6 +1,6 @@
 #region COLISAO COM BORBOLETA
 if (!other.morto && !assustado) {
-	obj_camera.tremer_tela(6);
+	tremer_tela(6);
     other.vel_vertical = -5.5;
     other.image_xscale = 1.4;
     other.image_yscale = 0.6;

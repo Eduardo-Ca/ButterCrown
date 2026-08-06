@@ -1,7 +1,7 @@
+
 if (global.pausado) exit;
 
 #region TEMPO E SPAWN
-
 if (global.vel_mundo > 0.5) {
     timer_spawn += 1;
     
@@ -33,14 +33,14 @@ if (global.vel_mundo > 0.5) {
                 if (instance_exists(obj_chao)) {
                     var metade_altura = sprite_get_height(object_get_sprite(item_sorteado.objeto)) / 2;
                     pos_y = obj_chao.bbox_top - metade_altura;
+                } else {
+                    pos_y = 448;
                 }
             } else {
                 pos_y = irandom_range(item_sorteado.y_min, item_sorteado.y_max);
             }
             
- 
-            var inst = instance_create_depth(x, pos_y, depth, item_sorteado.objeto);
-      
+            instance_create_depth(x, pos_y, depth, item_sorteado.objeto);
         }
     }
 }

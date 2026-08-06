@@ -1,3 +1,4 @@
+
 #region HUD INTERFACE
 if (instance_exists(obj_borboleta)) {
     var borboleta = obj_borboleta;

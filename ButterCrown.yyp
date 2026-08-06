@@ -46,6 +46,7 @@
     {"id":{"name":"obj_obstaculo","path":"objects/obj_obstaculo/obj_obstaculo.yy",},},
     {"id":{"name":"obj_pedaco","path":"objects/obj_pedaco/obj_pedaco.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"scr_funcoes_camera","path":"scripts/scr_funcoes_camera/scr_funcoes_camera.yy",},},
     {"id":{"name":"snd_musica_tema_1","path":"sounds/snd_musica_tema_1/snd_musica_tema_1.yy",},},
     {"id":{"name":"snd_musica_tema_2","path":"sounds/snd_musica_tema_2/snd_musica_tema_2.yy",},},
     {"id":{"name":"spr_balao_vazio","path":"sprites/spr_balao_vazio/spr_balao_vazio.yy",},},
