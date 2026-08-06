@@ -2,6 +2,7 @@
 if (assustado) {
     if (other != id) {
         if (variable_instance_exists(other, "assustado")) {
+			tocar_som(snd_pulo);
             other.assustado = true;
         }
         

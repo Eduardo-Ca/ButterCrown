@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_musica_tema_2",
+  "%Name":"snd_golpe",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":75.25877,
+  "duration":0.10204082,
   "exportDir":"",
-  "name":"snd_musica_tema_2",
+  "name":"snd_golpe",
   "parent":{
-    "name":"musicas",
-    "path":"folders/musicas.yy",
+    "name":"efietos",
+    "path":"folders/musicas/efietos.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_musica_tema_2.ogg",
-  "volume":0.9,
+  "soundFile":"snd_golpe.wav",
+  "volume":1.0,
 }

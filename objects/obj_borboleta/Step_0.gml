@@ -8,15 +8,21 @@ if (global.pausado) {
 #endregion
 
 if (!morto) {
-
+	
+	energia_atual = clamp(energia_atual, 0, energia_maxima);
     #region INPUT E IMPULSO
     if ((mouse_check_button_pressed(mb_left) || keyboard_check_pressed(vk_space)) && energia_atual > 0) {
+        tocar_som(snd_pulo);
         vel_vertical = forca_impulso;
         energia_atual -= 1;
         global.vel_mundo = min(global.vel_mundo + boost_por_impulso, global.velocidade_maxima);
         image_xscale = 0.5;
         image_yscale = 1.5;
+		
     }
+	if(mouse_check_button_pressed(mb_left) || energia_atual <= 0){
+			tocar_som(snd_sem_energia);
+	}
     #endregion
 
     #region GRAVIDADE
@@ -39,7 +45,9 @@ if (!morto) {
         
         if (quiques_atuais >= quiques_maximos || global.vel_mundo <= global.vel_minima_parada) {
             morto = true;
+            tocar_som(snd_sem_energia);
         } else {
+            tocar_som(snd_pulo);
             vel_vertical = forca_quique;
         }
     } else {
@@ -63,6 +71,7 @@ if (!morto) {
     #region PARADA NO CHAO
     if (global.vel_mundo <= global.vel_minima_parada && place_meeting(x, y + 1, obj_chao)) {
         morto = true;
+        tocar_som(snd_sem_energia);
     }
     #endregion
 

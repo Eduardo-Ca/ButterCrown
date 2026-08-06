@@ -27,6 +27,16 @@ if (!assustado) {
     tempo_caminhada += 0.5;
     image_angle = sin(tempo_caminhada * 2) * 12;
     y = y_base - abs(sin(tempo_caminhada * 2)) * 3;
+
+    if (!variable_instance_exists(id, "timer_assustado")) {
+        timer_assustado = 360;
+    }
+
+    timer_assustado -= 1;
+    image_alpha = timer_assustado / 360;
+
+    if (timer_assustado <= 0) {
+        instance_destroy();
+    }
 }
 #endregion
-

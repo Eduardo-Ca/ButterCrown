@@ -29,7 +29,7 @@
   "origin":4,
   "parent":{
     "name":"roupas",
-    "path":"folders/sprites/personagens/pessoas/roupas.yy",
+    "path":"folders/sprites/personagens/npcs/roupas.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

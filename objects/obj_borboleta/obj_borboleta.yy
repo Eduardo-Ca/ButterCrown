@@ -9,8 +9,8 @@
   "name":"obj_borboleta",
   "overriddenProperties":[],
   "parent":{
-    "name":"personagens",
-    "path":"folders/objetos/personagens.yy",
+    "name":"npc",
+    "path":"folders/objetos/personagens/npc.yy",
   },
   "parentObjectId":null,
   "persistent":false,

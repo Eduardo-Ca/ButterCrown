@@ -1,18 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_pessoa",
+  "%Name":"obj_bituca",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_borboleta","path":"objects/obj_borboleta/obj_borboleta.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_pessoa",
+  "name":"obj_bituca",
   "overriddenProperties":[],
   "parent":{
-    "name":"npc",
-    "path":"folders/objetos/personagens/npc.yy",
+    "name":"personagens",
+    "path":"folders/objetos/personagens.yy",
   },
   "parentObjectId":{
     "name":"obj_obstaculo",
@@ -36,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_pessoa",
-    "path":"sprites/spr_pessoa/spr_pessoa.yy",
+    "name":"spr_bituca",
+    "path":"sprites/spr_bituca/spr_bituca.yy",
   },
   "spriteMaskId":null,
   "visible":true,

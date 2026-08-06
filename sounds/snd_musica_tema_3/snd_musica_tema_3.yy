@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_musica_tema_2",
+  "%Name":"snd_musica_tema_3",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":75.25877,
+  "duration":61.15991,
   "exportDir":"",
-  "name":"snd_musica_tema_2",
+  "name":"snd_musica_tema_3",
   "parent":{
     "name":"musicas",
     "path":"folders/musicas.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_musica_tema_2.ogg",
-  "volume":0.9,
+  "soundFile":"snd_musica_tema_3.ogg",
+  "volume":1.0,
 }

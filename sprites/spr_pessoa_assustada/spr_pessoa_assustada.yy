@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"pessoas",
-    "path":"folders/sprites/personagens/pessoas.yy",
+    "name":"npcs",
+    "path":"folders/sprites/personagens/npcs.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

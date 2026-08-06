@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_musica_tema_2",
+  "%Name":"snd_pulo",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":75.25877,
+  "duration":0.12750567,
   "exportDir":"",
-  "name":"snd_musica_tema_2",
+  "name":"snd_pulo",
   "parent":{
-    "name":"musicas",
-    "path":"folders/musicas.yy",
+    "name":"efietos",
+    "path":"folders/musicas/efietos.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_musica_tema_2.ogg",
-  "volume":0.9,
+  "soundFile":"snd_pulo.wav",
+  "volume":0.7,
 }

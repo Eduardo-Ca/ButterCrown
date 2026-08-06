@@ -24,6 +24,13 @@ lista_spawns = [
         y_max: y_chao,
         alinhado_chao: true,
         chance: 50
-    }
+    },
+	{
+	    objeto: obj_bituca,
+	    y_min: 300,  
+	    y_max: 800,  
+	    alinhado_chao: false,
+	    chance: 20
+	},
 ];
 #endregion
