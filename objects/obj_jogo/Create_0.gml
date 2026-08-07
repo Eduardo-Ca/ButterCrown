@@ -7,7 +7,7 @@ global.periodo = "";
 #endregion
 
 #region CONFIGURACOES VELOCIDADE MUNDO
-global.vel_mundo = 4;
+global.vel_mundo = 2;
 global.velocidade_maxima = 5;
 global.vel_minima_parada = 0.2;
 global.atrito_ar = 0.01;     

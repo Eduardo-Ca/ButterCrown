@@ -30,7 +30,7 @@ lista_spawns = [
 	    y_min: 300,  
 	    y_max: 800,  
 	    alinhado_chao: false,
-	    chance: 20
+	    chance: 15
 	},
 ];
 #endregion
