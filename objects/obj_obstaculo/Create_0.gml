@@ -14,4 +14,9 @@ atrito_obstaculo = 0.08;
 
 #region log efeitos em cadeia
 nome = "Obstáculo";
+
+#endregion
+
+#region construcao
+construcao = false;
 #endregion

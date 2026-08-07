@@ -33,6 +33,13 @@ lista_spawns = [
         chance: 50
     },
 	{
+        objeto: obj_construcao1,
+        y_min: y_chao,
+        y_max: y_chao,
+        alinhado_chao: true,
+        chance: 8
+    },
+	{
         objeto: obj_cachorro,
         y_min: y_chao,
         y_max: y_chao,

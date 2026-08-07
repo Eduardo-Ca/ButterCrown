@@ -1,6 +1,10 @@
+if (construcao) exit;
+if (other.construcao) exit;
 if (assustado) {
     if (!other.assustado) {
-        other.assustado = true;
+		if(!construcao){
+			other.assustado = true;
+		}
         other.sprite_index = other.sprite_assustado;            
         
         var caos_gerado = pontos_caos / 4;
