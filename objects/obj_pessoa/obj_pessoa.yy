@@ -11,8 +11,8 @@
   "name":"obj_pessoa",
   "overriddenProperties":[],
   "parent":{
-    "name":"npc",
-    "path":"folders/objetos/personagens/npc.yy",
+    "name":"personagens",
+    "path":"folders/objetos/personagens.yy",
   },
   "parentObjectId":{
     "name":"obj_obstaculo",

@@ -32,7 +32,7 @@ if (!assustado) {
     image_angle = (sin(tempo_balanco) * angulo_maximo) + angulo_offset;
     #endregion
 
-} else {
+} else if (!eh_balao_bomba) {
 
     #region FUGA E MOVIMENTO DESCONTROLADO
     tempo_balanco += 0.4;

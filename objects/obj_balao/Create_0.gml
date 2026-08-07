@@ -23,6 +23,8 @@ vel_angulo = 0;
 mola_forca = 0.25;
 mola_amortecimento = 0.82;
 
+eh_balao_bomba = false;
+
 
 linhas_vento = [];
 for (var i = 0; i < 4; i++) {

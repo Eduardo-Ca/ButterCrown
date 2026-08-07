@@ -27,8 +27,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"particula",
-    "path":"folders/sprites/particula.yy",
+    "name":"efeito",
+    "path":"folders/sprites/efeito.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

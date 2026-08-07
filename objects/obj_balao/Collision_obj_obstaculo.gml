@@ -6,7 +6,7 @@ if (assustado) {
             other.assustado = true;
         }
         
-        global.caos_pontos += pontos_caos / 2;
+        global.caos += pontos_caos / 2;
         
         tremer_tela(5);
         

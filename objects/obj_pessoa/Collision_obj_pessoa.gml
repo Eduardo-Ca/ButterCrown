@@ -8,7 +8,7 @@ if (assustado) {
             other.assustado = true;
             other.sprite_index = other.sprite_assustado;
             
-            global.caos_pontos += pontos_caos/4;
+            global.caos += pontos_caos/4;
             
             tremer_tela(2);
         }

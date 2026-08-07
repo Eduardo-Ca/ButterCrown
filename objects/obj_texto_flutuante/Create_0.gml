@@ -2,7 +2,7 @@
 texto = "+1";
 cor = c_lime;
 alpha = 1.0;
-escala = 1.0;
+escala = 2.0;
 
 vel_y = -2.5;       
 gravidade_texto = 0.08; 

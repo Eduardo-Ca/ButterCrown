@@ -1,0 +1,50 @@
+randomise();
+#region VARIAVEIS GLOBAIS DO MUNDO
+global.caos = 0;
+global.pausado = false;
+global.clima = "";
+global.periodo = "";
+#endregion
+
+#region CONFIGURACOES VELOCIDADE MUNDO
+global.vel_mundo = 2;
+global.velocidade_maxima = 5;
+global.vel_minima_parada = 0.2;
+global.atrito_ar = 0.005;     
+global.atrito_chao = 0.06;      
+global.distancia_percorrida = 0;
+#endregion
+
+
+#region upgrade
+#region NIVEIS DOS UPGRADES DA LOJA
+global.upg_energia_nivel = 0;
+global.upg_impulso_nivel = 0;
+global.upg_quiques_nivel = 0;
+global.upg_boost_nivel = 0;
+
+#endregion
+
+#region VALORES BASE E BÔNUS POR NÍVEL
+global.energia_max_base = 5;
+global.energia_max_por_nivel = 1;
+
+global.impulso_base = -2.5;
+global.impulso_por_nivel = -0.2;
+
+global.quiques_max_base = 3;
+global.quiques_max_por_nivel = 1;
+
+global.boost_base = 0.8;
+global.boost_por_nivel = 0.2;
+
+
+#endregion
+
+#region STATUS FINAIS 
+global.energia_maxima = global.energia_max_base + (global.upg_energia_nivel * global.energia_max_por_nivel);
+global.forca_impulso = global.impulso_base + (global.upg_impulso_nivel * global.impulso_por_nivel);
+global.quiques_maximos = global.quiques_max_base + (global.upg_quiques_nivel * global.quiques_max_por_nivel);
+global.boost_por_impulso = global.boost_base + (global.upg_boost_nivel * global.boost_por_nivel);
+#endregion
+#endregion

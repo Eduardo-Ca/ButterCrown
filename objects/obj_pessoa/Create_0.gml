@@ -1,6 +1,7 @@
-
 event_inherited();
 
+leveza = 0.7; 
+boost_velocidade = 0.6;
 #region VARIAVEIS DE ESTADO E ANIMACAO
 image_speed = 0;
 image_index = 0;

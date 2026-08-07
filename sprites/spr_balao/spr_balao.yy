@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"grupo1",
-    "path":"folders/sprites/cenario/objetos/grupo1.yy",
+    "name":"balao",
+    "path":"folders/sprites/cenario/objetos/balao.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

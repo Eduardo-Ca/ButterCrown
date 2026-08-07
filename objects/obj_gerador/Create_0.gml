@@ -19,6 +19,13 @@ lista_spawns = [
 	    chance: 50
 	},
 	{
+	    objeto: obj_balao_bomba,
+	    y_min: 400,  
+	    y_max: 700,  
+	    alinhado_chao: false,
+	    chance: 20
+	},
+	{
         objeto: obj_pessoa,
         y_min: y_chao,
         y_max: y_chao,

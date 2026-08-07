@@ -13,7 +13,7 @@ function reagir_impacto_borboleta(_inst_obstaculo, _inst_borboleta, _boost_vel, 
             image_yscale = 0.7;
             
             global.vel_mundo = clamp(global.vel_mundo + _boost_vel, 0, global.velocidade_maxima);
-            global.caos_pontos += _pontos_caos;
+            global.caos += _pontos_caos;
             
             assustado = true;
             if (_sprite_fuga != noone) {

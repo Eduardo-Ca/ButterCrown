@@ -1,1 +1,0 @@
-global.pausado = !global.pausado;
