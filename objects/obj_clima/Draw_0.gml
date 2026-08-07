@@ -21,7 +21,13 @@ switch (global.periodo) {
 draw_set_color(c_white);
 for (var i = 0; i < qtd_nuvens; i++) {
     var n = nuvens[i];
-    draw_sprite_ext(spr_nuvem, n.subimg, n.x, n.y, n.escala, n.escala, 0, c_white, n.alpha);
+    
+    var cor_nuvem = c_white;
+    if (global.clima == "petalas") {
+        cor_nuvem = make_color_rgb(255, 220, 235);
+    }
+    
+    draw_sprite_ext(spr_nuvem, n.subimg, n.x, n.y, n.escala, n.escala, 0, cor_nuvem, n.alpha);
 }
 #endregion
 
@@ -89,6 +95,32 @@ switch (global.clima) {
             draw_set_color(c_white);
             draw_set_alpha(p.alpha);
             draw_circle(p.x, p.y, p.raio, false);
+        }
+        break;
+
+    case "petalas":
+
+        draw_set_color(make_color_rgb(255, 180, 200));
+        draw_set_alpha(0.12);
+        draw_rectangle(-10, -10, gui_w + 10, gui_h + 10, false);
+
+        for (var i = 0; i < qtd_particulas; i++) {
+            var p = particulas[i];
+            
+            draw_set_color(p.cor);
+            draw_set_alpha(p.alpha);
+            
+   
+            var rad = degtorad(p.rotacao);
+            var cos_r = cos(rad);
+            var sin_r = sin(rad);
+            
+            var x1 = p.x + (-p.tam_x * cos_r - -p.tam_y * sin_r);
+            var y1 = p.y + (-p.tam_x * sin_r + -p.tam_y * cos_r);
+            var x2 = p.x + ( p.tam_x * cos_r -  p.tam_y * sin_r);
+            var y2 = p.y + ( p.tam_x * sin_r +  p.tam_y * cos_r);
+            
+            draw_ellipse(x1, y1, x2, y2, false);
         }
         break;
 }

@@ -77,5 +77,20 @@ switch (global.clima) {
             }
         }
         break;
+
+    case "petalas":
+        for (var i = 0; i < qtd_particulas; i++) {
+            var p = particulas[i];
+            p.y += p.vel_y;
+            p.oscilacao += 0.04;
+            p.x -= p.vel_x + (sin(p.oscilacao) * 1.2); 
+            p.rotacao += p.vel_rot;
+            
+            if (p.y > gui_h + 20 || p.x < -50) {
+                p.y = -20;
+                p.x = random(gui_w + 300);
+            }
+        }
+        break;
 }
 #endregion

@@ -1,10 +1,10 @@
-#region CONFIGURACOES DA LOJA E ESTADOS
-
+#region CONFIGURAÇÕES DA LOJA
 upgrades = [
-    { nome: "Energia Maxima", nivel_global: "upg_energia_nivel", max_lvl: 5, preco_base: 15, esc: 45 },
-    { nome: "Forca do Impulso", nivel_global: "upg_impulso_nivel", max_lvl: 5, preco_base: 15, esc: 35 },
-    { nome: "Qtd. de Quiques", nivel_global: "upg_quiques_nivel", max_lvl: 3, preco_base: 30, esc: 25 },
-    { nome: "Boost Velocidade", nivel_global: "upg_boost_nivel", max_lvl: 5, preco_base: 20, esc: 30 }
+    { nome: "Energia Máxima",        nivel_global: "upg_energia_nivel",    max_lvl: 10, preco_base: 15, esc: 45 },
+    { nome: "Força do Impulso",      nivel_global: "upg_impulso_nivel",    max_lvl: 4, preco_base: 15, esc: 35 },
+    { nome: "Qtd. de Quiques",       nivel_global: "upg_quiques_nivel",    max_lvl: 5, preco_base: 30, esc: 25 },
+    { nome: "Boost Velocidade",      nivel_global: "upg_boost_nivel",      max_lvl: 3, preco_base: 20, esc: 30 },
+    { nome: "Limite de Velocidade",  nivel_global: "upg_limite_vel_nivel", max_lvl: 5, preco_base: 15, esc: 30 }
 ];
 
 total_upgrades = array_length(upgrades);

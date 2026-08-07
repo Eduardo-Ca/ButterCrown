@@ -14,16 +14,18 @@ if (sorteio_horario < 40) {
 }
 
 var sorteio_clima = random(100);
-if (sorteio_clima < 30) {
+if (sorteio_clima < 20) {
     global.clima = "nenhum";
-} else if (sorteio_clima < 55) {
+} else if (sorteio_clima < 40) {
     global.clima = "chuva";
-} else if (sorteio_clima < 75) {
+} else if (sorteio_clima < 55) {
     global.clima = "areia";
-} else if (sorteio_clima < 92) {
+} else if (sorteio_clima < 70) {
     global.clima = "tempestade";
-} else {
+} else if (sorteio_clima < 85) {
     global.clima = "mistico";
+} else {
+    global.clima = "petalas"; 
 }
 #endregion
 
@@ -105,6 +107,26 @@ switch (global.clima) {
                 oscilacao: random(pi * 2),
                 alpha: random_range(0.3, 0.8),
                 cor: make_color_hsv(random_range(130, 200), 255, 255)
+            };
+        }
+        break;
+
+    case "petalas":
+        qtd_particulas = 60;
+        particulas = array_create(qtd_particulas);
+        for (var i = 0; i < qtd_particulas; i++) {
+            particulas[i] = {
+                x: random(gui_w + 300),
+                y: random(gui_h),
+                tam_x: random_range(4, 8),
+                tam_y: random_range(2, 5),
+                vel_y: random_range(1.0, 2.2),
+                vel_x: random_range(1.5, 3.0),
+                oscilacao: random(pi * 2),
+                rotacao: random(360),
+                vel_rot: random_range(-2, 2),
+                alpha: random_range(0.5, 0.9),
+                cor: make_color_rgb(255, random_range(120, 180), random_range(180, 220)) // Variação de rosa
             };
         }
         break;

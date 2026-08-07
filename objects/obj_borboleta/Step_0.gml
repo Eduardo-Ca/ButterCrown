@@ -158,3 +158,14 @@ if (sprite_index == spr_buttercrown_batendo_asas) {
 #endregion
 
 }
+
+#region restro
+	    timer_rastro += 1;
+    if (timer_rastro >= 3) {
+        timer_rastro = 0;
+        
+         criar_rastro_dash(id, 0.05, 0.9, c_yellow);
+        
+       
+    }
+#endregion

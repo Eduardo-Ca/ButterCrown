@@ -19,8 +19,8 @@
   ],
   "name":"menu",
   "parent":{
-    "name":"ButterCrown",
-    "path":"ButterCrown.yyp",
+    "name":"salas",
+    "path":"folders/salas.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

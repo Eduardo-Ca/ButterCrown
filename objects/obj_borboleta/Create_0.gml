@@ -26,5 +26,6 @@ morto = false;
 cooldown_vento_max = 40; 
 cooldown_vento_timer = 0;
 vento_disparado = false;
+timer_rastro = 0;
 #endregion
 

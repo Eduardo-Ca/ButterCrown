@@ -62,7 +62,7 @@
     },
     "name":"spr_buttercrown_batendo_asas",
     "playback":1,
-    "playbackSpeed":11.0,
+    "playbackSpeed":13.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
