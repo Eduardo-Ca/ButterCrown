@@ -9,3 +9,5 @@ timer_fuga = 0;
 direcao_fuga_x = choose(-1, 1);
 vel_fuga_y = 2;
 vel_fuga_x = 0;
+
+tocar_som(snd_vento);

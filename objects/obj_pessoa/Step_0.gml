@@ -35,7 +35,7 @@ if (!assustado) {
     timer_assustado -= 1;
     image_alpha = timer_assustado / 360;
 
-    if (timer_assustado <= 0) {
+    if (timer_assustado <= 0 || image_alpha <= 0.5) {
         instance_destroy();
     }
 }

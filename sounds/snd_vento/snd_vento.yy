@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_up",
+  "%Name":"snd_vento",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.9062812,
+  "duration":1.0890249,
   "exportDir":"",
-  "name":"snd_up",
+  "name":"snd_vento",
   "parent":{
-    "name":"musicas",
-    "path":"folders/musicas.yy",
+    "name":"efietos",
+    "path":"folders/musicas/efietos.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_up.wav",
-  "volume":1.0,
+  "soundFile":"snd_vento.wav",
+  "volume":0.7,
 }
