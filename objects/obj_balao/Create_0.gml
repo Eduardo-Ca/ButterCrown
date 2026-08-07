@@ -1,6 +1,8 @@
 #region CONFIGURACOES E PROPRIEDADES
 event_inherited();
 
+nome = "Balão";
+
 boost_velocidade = 0.5;
 pontos_caos = 1;
 assustado = false;

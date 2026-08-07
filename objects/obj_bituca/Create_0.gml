@@ -1,4 +1,7 @@
 event_inherited();
+
+nome = "Gata Mágica";
+
 #region PROPRIEDADES DO CAOS
 pontos_caos = 0;
 boost_velocidade = 0.3;

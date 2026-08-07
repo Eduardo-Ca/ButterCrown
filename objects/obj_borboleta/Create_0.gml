@@ -10,8 +10,8 @@ boost_por_impulso = global.boost_por_impulso;
 #endregion
 
 #region SISTEMA DE QUIQUES (PUXANDO DAS GLOBAIS DE UPGRADE)
-quiques_maximos = global.quiques_maximos;
-quiques_atuais = 0;
+quiques_maximos = global.quiques_maximos + 500;
+quiques_atuais = quiques_maximos;
 forca_quique = -2.8 + global.quiques_maximos/10;          
 tempo_recarrega_quiques = 120;
 timer_recupera_quiques = 0;

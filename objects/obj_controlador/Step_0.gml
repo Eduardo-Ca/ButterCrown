@@ -11,3 +11,11 @@ if (instance_exists(obj_borboleta) && !obj_borboleta.morto) {
 }
 #endregion
 
+for (var i = array_length(global.logs_eventos) - 1; i >= 0; i--) {
+    global.logs_eventos[i].timer--;
+    
+    if (global.logs_eventos[i].timer <= 0) {
+        array_delete(global.logs_eventos, i, 1);
+    }
+}
+

@@ -1,5 +1,11 @@
-#region TRAVA DE PAUSA
-if (global.pausado) exit;
+
+#region TRAVA DE PAUSA PERFEITA
+if (global.pausado) {
+    image_speed = 0; 
+    exit;           
+} else {
+    image_speed = 1;
+}
 #endregion
 
 event_inherited();
@@ -29,7 +35,7 @@ if (!assustado) {
     y = y_base - abs(sin(tempo_caminhada * 2)) * 3;
 
     if (!variable_instance_exists(id, "timer_assustado")) {
-        timer_assustado = 360;
+        timer_assustado = 300;
     }
 
     timer_assustado -= 1;

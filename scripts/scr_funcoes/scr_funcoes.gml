@@ -33,3 +33,11 @@ function criar_texto_flutuante(_x, _y, _texto, _cor = c_lime, _escala = 1.2) {
 }
 
 //criar_texto_flutuante(x, y - 10, "+1", c_lime, 1.2);
+
+function adicionar_log_cadeia(_texto, _tempo_duracao_segundos = 4) {
+    array_push(global.logs_eventos, {
+        texto: _texto,
+        timer: _tempo_duracao_segundos * game_get_speed(gamespeed_fps)
+    });
+}
+//adicionar_log_cadeia(other.nome + " acertou " + nome + ". Gerou " + string(pontos_caos) + " de caos.", 10);

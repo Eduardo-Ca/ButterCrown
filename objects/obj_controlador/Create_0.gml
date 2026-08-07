@@ -6,3 +6,4 @@ if (!audio_is_playing(snd_musica_tema_1) && !audio_is_playing(snd_musica_tema_2)
     audio_play_sound(musica_sorteada, 10, true);
 }
 #endregion
+

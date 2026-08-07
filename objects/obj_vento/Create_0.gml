@@ -1,5 +1,5 @@
 forca_base_vento = 6;
-vel_vento = 2; 
+vel_vento = 3; 
 direcao = 0;
 
 

@@ -11,3 +11,7 @@ vel_empurrao_x = 0;
 vel_empurrao_y = 0;
 atrito_obstaculo = 0.08;
 #endregion
+
+#region log efeitos em cadeia
+nome = "Obstáculo";
+#endregion

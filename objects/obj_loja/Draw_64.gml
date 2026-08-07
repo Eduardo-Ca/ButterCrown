@@ -6,8 +6,14 @@ draw_set_color(c_black);
 draw_set_alpha(0.75 * painel_escala);
 draw_rectangle(0, 0, gui_w, gui_h, false);
 
-var pw = 520 * painel_escala;
-var ph = 440 * painel_escala;
+var espacamento = 38; 
+var margem_topo = 90;
+var margem_baixo = 30;
+
+var ph_base = margem_topo + (total_upgrades * espacamento) + margem_baixo;
+var ph = ph_base * painel_escala;
+var pw = 520 * painel_escala; 
+
 var px = gui_w / 2;
 var py = gui_h / 2;
 
@@ -29,8 +35,7 @@ if (painel_escala > 0.8) {
     draw_set_color(make_color_rgb(255, 140, 0));
     draw_text(px, py - ph/2 + 55, "CAOS: " + string(global.caos));
     
-    var start_y = py - ph/2 + 95;
-    var espacamento = 42;
+    var start_y = py - ph/2 + margem_topo;
     
     for (var i = 0; i < total_upgrades; i++) {
         var upg = upgrades[i];
@@ -77,7 +82,7 @@ if (painel_escala > 0.8) {
         }
     }
     
-    var btn_jogar_y = py + ph/2 + 35;
+    var btn_jogar_y = py + ph/2 + 30;
     var mx = device_mouse_x_to_gui(0);
     var my = device_mouse_y_to_gui(0);
     var h_jogar = point_in_rectangle(mx, my, px - 100, btn_jogar_y - 20, px + 100, btn_jogar_y + 20);

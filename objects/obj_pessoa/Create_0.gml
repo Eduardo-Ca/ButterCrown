@@ -1,5 +1,7 @@
 event_inherited();
 
+nome = "Pessoa";
+
 leveza = 0.7; 
 boost_velocidade = 0.6;
 #region VARIAVEIS DE ESTADO E ANIMACAO

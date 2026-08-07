@@ -37,7 +37,7 @@ lista_spawns = [
         y_min: y_chao,
         y_max: y_chao,
         alinhado_chao: true,
-        chance: 12
+        chance: 6
     },
 	{
 	    objeto: obj_bituca,

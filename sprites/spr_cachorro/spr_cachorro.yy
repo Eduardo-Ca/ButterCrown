@@ -25,7 +25,7 @@
   ],
   "name":"spr_cachorro",
   "nineSlice":null,
-  "origin":4,
+  "origin":9,
   "parent":{
     "name":"npcs",
     "path":"folders/sprites/personagens/npcs.yy",
@@ -84,7 +84,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":31,
-    "yorigin":16,
+    "yorigin":19,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

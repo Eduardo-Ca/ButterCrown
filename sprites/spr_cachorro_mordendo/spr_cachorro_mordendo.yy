@@ -24,7 +24,7 @@
   ],
   "name":"spr_cachorro_mordendo",
   "nineSlice":null,
-  "origin":4,
+  "origin":9,
   "parent":{
     "name":"npcs",
     "path":"folders/sprites/personagens/npcs.yy",
@@ -80,7 +80,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":25,
-    "yorigin":23,
+    "yorigin":28,
   },
   "swatchColours":null,
   "swfPrecision":0.5,
