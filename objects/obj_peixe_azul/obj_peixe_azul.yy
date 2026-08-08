@@ -3,15 +3,20 @@
   "%Name":"obj_peixe_azul",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":7,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_peixe_azul",
   "overriddenProperties":[],
   "parent":{
-    "name":"boss",
-    "path":"folders/objetos/personagens/boss.yy",
+    "name":"peixe",
+    "path":"folders/objetos/personagens/boss/peixe.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_boss",
+    "path":"objects/obj_boss/obj_boss.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

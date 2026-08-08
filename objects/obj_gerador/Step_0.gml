@@ -1,7 +1,27 @@
-
 if (global.pausado) exit;
 
-#region TEMPO E SPAWN
+#region SPAWN DE BOSS
+if (global.distancia_percorrida >= proximo_boss_distancia) {
+    proximo_boss_distancia += intervalo_boss;
+    
+    var _boss_dados = lista_bosses[index_boss_atual % array_length(lista_bosses)];
+    index_boss_atual += 1;
+    
+    var _alerta = instance_create_depth(0, 0, -9999, obj_alerta_boss);
+    with (_alerta) {
+        texto_titulo = _boss_dados.titulo;
+        texto_subtitulo = _boss_dados.subtitulo;
+    }
+    
+    var _cam_x = camera_get_view_x(view_camera[0]);
+    var _cam_w = camera_get_view_width(view_camera[0]);
+    if (_cam_w == 0) _cam_w = room_width;
+    
+    instance_create_layer(_cam_x + _cam_w + 100, _boss_dados.pos_y, "Instances", _boss_dados.objeto);
+}
+#endregion
+
+#region SPAWN 
 if (global.vel_mundo > 0.5) {
     timer_spawn += 1;
     
@@ -32,7 +52,7 @@ if (global.vel_mundo > 0.5) {
             if (item_sorteado.alinhado_chao) {
                 if (instance_exists(obj_chao)) {
                     var metade_altura = sprite_get_height(object_get_sprite(item_sorteado.objeto)) / 2;
-                    pos_y = obj_chao.bbox_top - metade_altura +3;
+                    pos_y = obj_chao.bbox_top - metade_altura + 3;
                 } else {
                     pos_y = 448;
                 }

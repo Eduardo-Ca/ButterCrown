@@ -73,10 +73,10 @@ if (painel_escala > 0.01) {
         draw_text_ext(px, py + 20, "Use a energia com cuidado!", 20, 420);
         
         draw_set_color(c_lime);
-        draw_text_ext(px, py + 55, "Pule em obstaculos bons como baloes e pessoas para subir mais alto.", 18, 420);
+        draw_text_ext(px, py + 55, "Pule em obstáculos bons como balões e pessoas para subir mais alto.", 18, 420);
         
         draw_set_color(c_red);
-        draw_text_ext(px, py + 105, "Use o bater de asas para soltar vento e afastar obstaculos ruins como bombas!", 18, 420);
+        draw_text_ext(px, py + 105, "Use o bater de asas para soltar vento e afastar obstáculos ruins como bombas!", 18, 420);
         
         // BOTAO VOLTAR
         var fechar_y = py + 165;

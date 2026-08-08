@@ -5,7 +5,7 @@ if (instance_exists(obj_borboleta)) {
     
     var pos_x = 40;
     var pos_y = 50; 
-    var largura_barra = 160;
+    var largura_barra = 220;
     var altura_barra = 8;
     
     var percentual_energia = borboleta.energia_atual / borboleta.energia_maxima;

@@ -10,8 +10,8 @@ if (global.pausado) {
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
     
-    draw_text(room_width / 2, room_height / 2 - 20, "JOGO PAUSADO");
-    draw_text(room_width / 2, room_height / 2 + 20, "Pressione P para Voltar");
+    draw_text(room_width / 2, room_height / 2 - 180, "JOGO PAUSADO");
+    draw_text(room_width / 2, room_height / 2 - 160, "Pressione P para Voltar");
     
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);

@@ -6,13 +6,13 @@ draw_set_color(c_black);
 draw_set_alpha(0.75 * painel_escala);
 draw_rectangle(0, 0, gui_w, gui_h, false);
 
-var espacamento = 38; 
-var margem_topo = 90;
-var margem_baixo = 30;
+var espacamento = 48; 
+var margem_topo = 110;
+var margem_baixo = 40;
 
 var ph_base = margem_topo + (total_upgrades * espacamento) + margem_baixo;
 var ph = ph_base * painel_escala;
-var pw = 520 * painel_escala; 
+var pw = 680 * painel_escala; 
 
 var px = gui_w / 2;
 var py = gui_h / 2;
@@ -30,10 +30,10 @@ if (painel_escala > 0.8) {
     draw_set_valign(fa_middle);
     
     draw_set_color(c_yellow);
-    draw_text_transformed(px, py - ph/2 + 30, "-- LOJA DE UPGRADES --", 1.2, 1.2, 0);
+    draw_text_transformed(px, py - ph/2 + 35, "-- LOJA DE UPGRADES --", 1.2, 1.2, 0);
     
     draw_set_color(make_color_rgb(255, 140, 0));
-    draw_text(px, py - ph/2 + 55, "CAOS: " + string(global.caos));
+    draw_text(px, py - ph/2 + 68, "CAOS: " + string(global.caos));
     
     var start_y = py - ph/2 + margem_topo;
     
@@ -45,31 +45,31 @@ if (painel_escala > 0.8) {
         
         draw_set_halign(fa_left);
         draw_set_color(c_white);
-        draw_text(px - 220, item_y, upg.nome);
+        draw_text(px - 300, item_y, upg.nome);
         
-        var bar_x = px - 55;
+        var bar_x = px - 30;
         for (var b = 0; b < upg.max_lvl; b++) {
-            var bx = bar_x + (b * 18);
+            var bx = bar_x + (b * 22);
             if (b < lvl_atual) {
                 draw_set_color(c_lime);
-                draw_rectangle(bx, item_y - 8, bx + 12, item_y + 8, false);
+                draw_rectangle(bx, item_y - 10, bx + 15, item_y + 10, false);
             } else {
                 draw_set_color(c_dkgray);
-                draw_rectangle(bx, item_y - 8, bx + 12, item_y + 8, true);
+                draw_rectangle(bx, item_y - 10, bx + 15, item_y + 10, true);
             }
         }
         
         draw_set_halign(fa_center);
-        var btn_x1 = px + 130;
-        var btn_y1 = item_y - 12;
-        var btn_x2 = px + 210;
-        var btn_y2 = item_y + 12;
+        var btn_x1 = px + 210;
+        var btn_y1 = item_y - 14;
+        var btn_x2 = px + 300;
+        var btn_y2 = item_y + 14;
         
         if (lvl_atual >= upg.max_lvl) {
             draw_set_color(c_gray);
             draw_roundrect(btn_x1, btn_y1, btn_x2, btn_y2, false);
             draw_set_color(c_white);
-            draw_text(px + 170, item_y, "MAX");
+            draw_text(px + 255, item_y, "MAX");
         } else {
             var esta_hover = (hover_item == i);
             var tem_caos = (global.caos >= preco);
@@ -78,14 +78,14 @@ if (painel_escala > 0.8) {
             draw_roundrect(btn_x1, btn_y1, btn_x2, btn_y2, false);
             
             draw_set_color(c_black);
-            draw_text(px + 170, item_y, string(preco) + " C");
+            draw_text(px + 255, item_y, string(preco) + " C");
         }
     }
     
-    var btn_jogar_y = py + ph/2 + 30;
+    var btn_jogar_y = py + ph/2 + 35;
     var mx = device_mouse_x_to_gui(0);
     var my = device_mouse_y_to_gui(0);
-    var h_jogar = point_in_rectangle(mx, my, px - 100, btn_jogar_y - 20, px + 100, btn_jogar_y + 20);
+    var h_jogar = point_in_rectangle(mx, my, px - 120, btn_jogar_y - 25, px + 120, btn_jogar_y + 25);
     
     var esc_j = h_jogar ? 1.15 : 1.0;
     draw_set_color(c_black);

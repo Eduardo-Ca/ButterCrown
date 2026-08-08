@@ -27,8 +27,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"boss",
-    "path":"folders/sprites/personagens/boss.yy",
+    "name":"peixe",
+    "path":"folders/sprites/personagens/boss/peixe.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
