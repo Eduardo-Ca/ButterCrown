@@ -1,4 +1,5 @@
 #region CONFIGURACOES E AUDIO
+audio_stop_all();
 if (!audio_is_playing(snd_musica_tema_1)) {
     audio_play_sound(snd_musica_tema_1, 10, true);
 }
