@@ -50,7 +50,7 @@ if (!mostrar_controles) {
     start_escala = lerp(start_escala, 1.0, 0.1);
     ctrl_escala = lerp(ctrl_escala, 1.0, 0.1);
     
-    var fechar_y = gui_h/2 + 110;
+    var fechar_y = gui_h/2 + 165;
     var mouse_fechar = point_in_rectangle(mx, my, gui_w/2 - 80, fechar_y - 20, gui_w/2 + 80, fechar_y + 20);
     
     if ((mouse_fechar && mouse_check_button_pressed(mb_left)) || keyboard_check_pressed(vk_escape)) {

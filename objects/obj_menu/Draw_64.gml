@@ -1,5 +1,4 @@
-
-#region 
+#region DESENHO DO MENU
 var gui_w = display_get_gui_width();
 var gui_h = display_get_gui_height();
 
@@ -21,7 +20,6 @@ if (sprite_exists(spr_titulo)) {
     draw_sprite_ext(spr_titulo, -1, titulo_x, titulo_y, 3, 3, 0, c_white, 1);
 }
 
-
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
@@ -33,18 +31,18 @@ draw_text_transformed(gui_w / 2, start_y, "START", start_escala, start_escala, 0
 
 var ctrl_y = gui_h * 0.65;
 draw_set_color(c_black);
-draw_text_transformed(gui_w / 2 + 2, ctrl_y + 2, "[ CONTROLES ]", ctrl_escala, ctrl_escala, 0);
+draw_text_transformed(gui_w / 2 + 2, ctrl_y + 2, "[ TUTORIAL ]", ctrl_escala, ctrl_escala, 0);
 draw_set_color(cor_cyan);
-draw_text_transformed(gui_w / 2, ctrl_y, "[ CONTROLES ]", ctrl_escala, ctrl_escala, 0);
+draw_text_transformed(gui_w / 2, ctrl_y, "[ TUTORIAL ]", ctrl_escala, ctrl_escala, 0);
 
 if (painel_escala > 0.01) {
-    var pw = 360 * painel_escala;
-    var ph = 260 * painel_escala;
+    var pw = 480 * painel_escala;
+    var ph = 380 * painel_escala;
     var px = gui_w / 2;
     var py = gui_h / 2;
     
     draw_set_color(c_black);
-    draw_set_alpha(0.9 * painel_escala);
+    draw_set_alpha(0.92 * painel_escala);
     draw_roundrect_ext(px - pw/2, py - ph/2, px + pw/2, py + ph/2, 16, 16, false);
     
     draw_set_color(cor_cyan);
@@ -53,16 +51,35 @@ if (painel_escala > 0.01) {
     
     if (painel_escala > 0.8) {
         draw_set_color(c_yellow);
-        draw_text_transformed(px, py - 90, "-- CONTROLES --", 1.1, 1.1, 0);
+        draw_text_transformed(px, py - 150, "-- TUTORIAL --", 1.2, 1.2, 0);
+        
+        // CONTROLES
+        draw_set_color(c_white);
+        draw_text(px, py - 110, "Mouse Esquerdo : Voar");
+        draw_set_color(cor_cyan);
+        draw_text(px, py - 85, "Mouse Direito : Bater Asas");
+        draw_set_color(c_orange);
+        draw_text(px, py - 60, "Tecla P : Pausar");
+        
+        // LINHA DIVISORIA
+        draw_set_color(cor_cyan);
+        draw_line_width(px - 180, py - 35, px + 180, py - 35, 1);
+        
+        // DICAS DE GAMEPLAY
+        draw_set_color(c_yellow);
+        draw_text_transformed(px, py - 15, "COMO JOGAR:", 1.0, 1.0, 0);
         
         draw_set_color(c_white);
-        draw_text(px, py - 40, "Mouse Esquerdo : Voar");
-        draw_set_color(cor_cyan);
-        draw_text(px, py, "Mouse Direito : Bater Asas");
-        draw_set_color(c_orange);
-        draw_text(px, py + 40, "Tecla P : Pausar");
+        draw_text_ext(px, py + 20, "Use a energia com cuidado!", 20, 420);
         
-        var fechar_y = py + 95;
+        draw_set_color(c_lime);
+        draw_text_ext(px, py + 55, "Pule em obstaculos bons como baloes e pessoas para subir mais alto.", 18, 420);
+        
+        draw_set_color(c_red);
+        draw_text_ext(px, py + 105, "Use o bater de asas para soltar vento e afastar obstaculos ruins como bombas!", 18, 420);
+        
+        // BOTAO VOLTAR
+        var fechar_y = py + 165;
         var mx = device_mouse_x_to_gui(0);
         var my = device_mouse_y_to_gui(0);
         var m_fechar = point_in_rectangle(mx, my, px - 80, fechar_y - 15, px + 80, fechar_y + 15);

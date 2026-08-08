@@ -63,6 +63,7 @@ var btn_jogar_y = py + ph/2 + 30;
 if (point_in_rectangle(mx, my, px - 100, btn_jogar_y - 20, px + 100, btn_jogar_y + 20)) {
     if (mouse_check_button_pressed(mb_left)) {
         global.vel_mundo = global.vel_inicial_atual;
+		global.distancia_percorrida = 0;
         room_restart();
     }
 }
