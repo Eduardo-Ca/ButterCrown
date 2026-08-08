@@ -1,7 +1,7 @@
 #region PAUSA
 if (global.pausado) {
     image_speed = 0; 
-    exit;           
+    exit;            
 } else {
     image_speed = 1;
 }
@@ -12,19 +12,28 @@ if (cooldown_vento_timer > 0) {
 }
 
 if (!morto) {
-    
+    energia_maxima = global.energia_maxima;
     energia_atual = clamp(energia_atual, 0, energia_maxima);
 
     #region INPUT E IMPULSO
-    if ((mouse_check_button_pressed(mb_left) || keyboard_check_pressed(vk_space)) && energia_atual > 0) {
-        tocar_som(snd_pulo);
-        vel_vertical = forca_impulso;
-        energia_atual -= 1;
-        global.vel_mundo = min(global.vel_mundo + boost_por_impulso, global.velocidade_maxima);
-        image_xscale = 0.5;
-        image_yscale = 1.5;
-    }
-    if (mouse_check_button_pressed(mb_left) && energia_atual <= 0) {
+    if (energia_atual > 0) {
+        if (mouse_check_button_pressed(mb_left) || keyboard_check_pressed(vk_space)) {
+            tocar_som(snd_pulo);
+            
+            forca_impulso = global.forca_impulso;
+            vel_vertical = forca_impulso;
+            
+            tempo_flutuacao = 0;
+            energia_atual -= 1;
+            
+            boost_por_impulso = global.boost_por_impulso;
+            velocidade_maxima = global.velocidade_maxima;
+            global.vel_mundo = min(global.vel_mundo + boost_por_impulso, velocidade_maxima);
+            
+            image_xscale = 0.5;
+            image_yscale = 1.5;
+        }
+    } else if (mouse_check_button_pressed(mb_left) || keyboard_check_pressed(vk_space)) {
         tocar_som(snd_sem_energia);
     }
     #endregion
@@ -42,22 +51,26 @@ if (!morto) {
         quiques_atuais += 1;
         timer_recupera_quiques = 0;
         
-        global.vel_mundo = max(0, global.vel_mundo - global.atrito_chao * 3);
+        boost_por_impulso = global.boost_por_impulso;
+        velocidade_maxima = global.velocidade_maxima;
+        global.vel_mundo = min(global.vel_mundo + (boost_por_impulso / 3), velocidade_maxima);
         
         image_xscale = 1.5;
         image_yscale = 0.5;
         
+        quiques_maximos = global.quiques_maximos;
         if (quiques_atuais >= quiques_maximos || global.vel_mundo <= global.vel_minima_parada) {
             morto = true;
             tocar_som(snd_sem_energia);
         } else {
             tocar_som(snd_pulo);
+            forca_quique = -2.8 + (quiques_maximos / 10);
             vel_vertical = forca_quique;
         }
     } else {
         y += vel_vertical;
         
-        if (energia_atual > 0) {
+        if (energia_atual > 0 && vel_vertical >= -1) {
             tempo_flutuacao += 0.1;
             y += sin(tempo_flutuacao) * 0.5;
         }
@@ -114,58 +127,53 @@ if (!morto) {
 
     #region ROTACAO VISUAL
     if (!morto) {
-        if (energia_atual > 0 || global.vel_mundo > 2) {
+        if (energia_atual > 0) {
             var angulo_alvo = clamp(-vel_vertical * 4, -30, 45);
             image_angle = lerp(image_angle, angulo_alvo, 0.1);
         } else {
-            image_angle += 8;
+            image_angle += 8; 
         }
     }
     #endregion
 
-#region HABILIDADE 
-if (mouse_check_button_pressed(mb_right) && cooldown_vento_timer <= 0) {
-    cooldown_vento_timer = cooldown_vento_max;
-    
-    sprite_index = spr_buttercrown_batendo_asas;
-    image_index = 0;
-    image_speed = 1;
-    vento_disparado = false; 
-}
-
-if (sprite_index == spr_buttercrown_batendo_asas) {
-    
-    if (floor(image_index) == 2 && !vento_disparado) {
-        vento_disparado = true;
+    #region HABILIDADE 
+    if (mouse_check_button_pressed(mb_right) && cooldown_vento_timer <= 0) {
+        cooldown_vento_timer = cooldown_vento_max;
         
-        if (audio_exists(snd_vento)) {
-            audio_play_sound(snd_vento, 5, false);
-        }
-        
-        var dir_mouse = point_direction(x, y, mouse_x, mouse_y);
-        
-        var efx = instance_create_layer(x + 20, y, "Instances", obj_vento);
-        efx.pai = id;
-        efx.direcao = dir_mouse; 
-
-    }
-
-    if (image_index + (image_speed * sprite_get_speed(sprite_index) / game_get_speed(gamespeed_fps)) >= image_number) {
-        sprite_index = spr_buttercrown;
+        sprite_index = spr_buttercrown_batendo_asas;
         image_index = 0;
+        image_speed = 1;
+        vento_disparado = false; 
     }
-}
-#endregion
 
-}
+    if (sprite_index == spr_buttercrown_batendo_asas) {
+        if (floor(image_index) == 2 && !vento_disparado) {
+            vento_disparado = true;
+            
+            if (audio_exists(snd_vento)) {
+                audio_play_sound(snd_vento, 5, false);
+            }
+            
+            var dir_mouse = point_direction(x, y, mouse_x, mouse_y);
+            
+            var efx = instance_create_layer(x + 20, y, "Instances", obj_vento);
+            efx.pai = id;
+            efx.direcao = dir_mouse; 
+        }
 
-#region restro
-	    timer_rastro += 1;
+        var delta_frame = (image_speed * sprite_get_speed(sprite_index)) / game_get_speed(gamespeed_fps);
+        if (image_index + delta_frame >= image_number) {
+            sprite_index = spr_buttercrown;
+            image_index = 0;
+        }
+    }
+    #endregion
+
+    #region RASTRO
+    timer_rastro += 1;
     if (timer_rastro >= 3) {
         timer_rastro = 0;
-        
-         criar_rastro_dash(id, 0.05, 0.9, c_yellow);
-        
-       
+        criar_rastro_dash(id, 0.05, 0.9, c_yellow);
     }
-#endregion
+    #endregion
+}

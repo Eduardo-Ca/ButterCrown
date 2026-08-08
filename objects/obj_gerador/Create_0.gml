@@ -48,8 +48,15 @@ lista_spawns = [
     },
 	{
 	    objeto: obj_bituca,
-	    y_min: 300,  
+	    y_min: 200,  
 	    y_max: 800,  
+	    alinhado_chao: false,
+	    chance: 15
+	},
+	{
+	    objeto: obj_passaro,
+	    y_min: 300,  
+	    y_max: 900,  
 	    alinhado_chao: false,
 	    chance: 15
 	},

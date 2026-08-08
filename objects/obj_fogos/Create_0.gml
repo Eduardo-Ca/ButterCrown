@@ -18,3 +18,5 @@ part_type_alpha2(part_trilha, 0.9, 0.0);
 part_type_life(part_trilha, 20, 35);
 
 foguetes = [];
+
+tocar_som(snd_subindo);

@@ -56,7 +56,7 @@ if (painel_escala > 0.01) {
         draw_text_transformed(px, py - 90, "-- CONTROLES --", 1.1, 1.1, 0);
         
         draw_set_color(c_white);
-        draw_text(px, py - 40, "Mouse Esquerdo : Pular");
+        draw_text(px, py - 40, "Mouse Esquerdo : Voar");
         draw_set_color(cor_cyan);
         draw_text(px, py, "Mouse Direito : Bater Asas");
         draw_set_color(c_orange);

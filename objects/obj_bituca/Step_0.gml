@@ -1,6 +1,6 @@
 event_inherited();
 
-#region TRAVA DE PAUSA PERFEITA
+#region TRAVA DE PAUSA 
 if (global.pausado) {
     image_speed = 0; 
     exit;           

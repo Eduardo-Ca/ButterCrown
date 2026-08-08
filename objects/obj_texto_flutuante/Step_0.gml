@@ -1,5 +1,5 @@
 #region TRAVA DE PAUSA
-if (global.pausado) exit;
+if (global.pausado||instance_exists(obj_loja)) exit;
 #endregion
 
 #region ATUALIZACAO DO MOVIMENTO E TRANSPARENCIA

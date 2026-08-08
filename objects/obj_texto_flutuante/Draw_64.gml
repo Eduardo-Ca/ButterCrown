@@ -1,3 +1,6 @@
+#region TRAVA DE PAUSA
+if (global.pausado||instance_exists(obj_loja)) exit;
+#endregion
 #region RENDERIZACAO COM SOMBRA
 var gui_x = x - camera_get_view_x(view_camera[0]);
 var gui_y = y - camera_get_view_y(view_camera[0]);
