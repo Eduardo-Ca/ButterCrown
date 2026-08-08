@@ -32,8 +32,8 @@ global.upg_vel_inicial_nivel = 0;
 global.energia_max_base = 5;
 global.energia_max_por_nivel = 1;
 
-global.impulso_base = -2.6;
-global.impulso_por_nivel = -0.6;
+global.impulso_base = -2.5;
+global.impulso_por_nivel = -1;
 
 global.quiques_max_base = 2;
 global.quiques_max_por_nivel = 1;

@@ -1,6 +1,6 @@
 event_inherited();
 if(!assustado){
-	var caos_gerado = pontos_caos / 2;
+	var caos_gerado = 1;
     global.caos += caos_gerado;        
 	adicionar_log_cadeia("O vento acertou " + nome + ". Gerou " + string(caos_gerado) + " de caos.", 4);
 	obj_borboleta.energia_atual = min(obj_borboleta.energia_atual + +1, obj_borboleta.energia_maxima);
