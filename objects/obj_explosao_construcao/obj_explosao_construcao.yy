@@ -11,8 +11,8 @@
   "name":"obj_explosao_construcao",
   "overriddenProperties":[],
   "parent":{
-    "name":"efeitos",
-    "path":"folders/objetos/efeitos.yy",
+    "name":"explosoes",
+    "path":"folders/objetos/efeitos/explosoes.yy",
   },
   "parentObjectId":null,
   "persistent":false,

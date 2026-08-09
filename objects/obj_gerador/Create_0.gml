@@ -21,14 +21,14 @@ lista_spawns = [
     {
         objeto: obj_balao,
         y_min: 200,  
-        y_max: 800,  
+        y_max: 740,  
         alinhado_chao: false,
-        chance: 80
+        chance: 60
     },
     {
         objeto: obj_balao_bomba,
         y_min: 200,  
-        y_max: 800,  
+        y_max: 740,  
         alinhado_chao: false,
         chance: 12
     },
@@ -58,7 +58,7 @@ lista_spawns = [
         y_min: 100,  
         y_max: 900,  
         alinhado_chao: false,
-        chance: 12
+        chance: 15
     }
 ];
 
@@ -85,6 +85,15 @@ lista_bosses = [
         titulo: "REIS ABISSAIS",
         subtitulo: "A AMEAÇA DOS MARES",
         pos_y: 200
-    }
+    },
+	{
+	    objetos: [
+			{ objeto: obj_gato_gigante, offset_x: 239, offset_y: 866 },
+    
+	    ],
+	    titulo: "PROTEJA O GATO DAS",
+	    subtitulo: "BORBOLETAS DO CAOS",
+	    pos_y: 200
+	}
 ];
 #endregion

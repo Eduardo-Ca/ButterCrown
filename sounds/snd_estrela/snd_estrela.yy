@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"snd_estrela",
   "parent":{
-    "name":"musicas",
-    "path":"folders/musicas.yy",
+    "name":"efietos",
+    "path":"folders/musicas/efietos.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

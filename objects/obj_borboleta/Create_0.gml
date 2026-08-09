@@ -8,6 +8,9 @@ energia_atual = global.energia_maxima;
 
 retorno_x_velocidade = 0.04;
 boost_por_impulso = global.boost_por_impulso;
+
+afetado_por_onda = false;
+tempo_reset_onda = 20; 
 #endregion
 
 #region SISTEMA DE QUIQUES

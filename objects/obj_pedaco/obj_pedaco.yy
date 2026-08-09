@@ -9,8 +9,8 @@
   "name":"obj_pedaco",
   "overriddenProperties":[],
   "parent":{
-    "name":"efeitos",
-    "path":"folders/objetos/efeitos.yy",
+    "name":"particula",
+    "path":"folders/objetos/efeitos/particula.yy",
   },
   "parentObjectId":null,
   "persistent":false,

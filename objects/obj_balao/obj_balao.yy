@@ -13,8 +13,8 @@
   "name":"obj_balao",
   "overriddenProperties":[],
   "parent":{
-    "name":"objetos",
-    "path":"folders/objetos/cenario/objetos.yy",
+    "name":"obstaculos",
+    "path":"folders/objetos/cenario/obstaculos.yy",
   },
   "parentObjectId":{
     "name":"obj_obstaculo",

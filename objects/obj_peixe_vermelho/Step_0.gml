@@ -28,3 +28,5 @@ if (instance_exists(obj_borboleta)) {
 var _limite_topo = 270;
 y = max(y, _limite_topo);
 #endregion
+
+instance_destroy(obj_obstaculo);

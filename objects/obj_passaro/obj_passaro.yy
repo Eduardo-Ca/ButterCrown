@@ -11,8 +11,8 @@
   "name":"obj_passaro",
   "overriddenProperties":[],
   "parent":{
-    "name":"personagens",
-    "path":"folders/objetos/personagens.yy",
+    "name":"obstaculos",
+    "path":"folders/objetos/cenario/obstaculos.yy",
   },
   "parentObjectId":{
     "name":"obj_obstaculo",

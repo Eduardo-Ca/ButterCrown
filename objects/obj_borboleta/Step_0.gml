@@ -177,3 +177,14 @@ if (!morto) {
     }
     #endregion
 }
+
+#region TEMPO DE SER AFETADO PELA ONDA SONORA
+if (afetado_por_onda) {
+     tempo_reset_onda--;   
+    if (tempo_reset_onda <= 0) {
+		tempo_reset_onda = 20; 
+        afetado_por_onda = false;
+
+    }
+}
+#endregion
