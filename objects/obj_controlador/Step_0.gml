@@ -8,6 +8,10 @@ if (instance_exists(obj_borboleta) && !obj_borboleta.morto) {
     
     if (!instance_exists(obj_boss)) {
         global.distancia_percorrida += global.vel_mundo * 0.05;
+		if (global.distancia_percorrida > global.recorde_distancia) {
+		    global.recorde_distancia = floor(global.distancia_percorrida);
+		}
+		#endregion;
     }
 } else {
     global.vel_mundo = lerp(global.vel_mundo, 0, 0.1);

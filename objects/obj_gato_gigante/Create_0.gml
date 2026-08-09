@@ -3,7 +3,7 @@ event_inherited();
 x= 239;
 y = 866;
 
-max_vida = 40;
+max_vida = 30;
 vida = max_vida;
 nome_boss = "BORBOLETAS DO CAOS";
 eh_boss_secundario = false;

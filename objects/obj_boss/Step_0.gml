@@ -11,6 +11,8 @@ if (destruindo) {
     x += random_range(-2, 2);
     
     if (alpha_morte <= 0.05) {
+		global.caos += 10;
+		 adicionar_log_cadeia("Borboleta derrotou " + nome_boss + ". Gerou 10 de caos.", 4);
         instance_destroy();
     }
 }

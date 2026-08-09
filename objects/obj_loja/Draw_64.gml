@@ -1,5 +1,45 @@
-#region LOJA
+#region RECORDE
+if (!variable_global_exists("recorde_distancia")) global.recorde_distancia = 0;
+
 var gui_w = display_get_gui_width();
+var _tempo_cor = (current_time / 10) % 255;
+var _cor_brilhante = make_color_hsv(_tempo_cor, 255, 255);
+
+var _texto = "RECORDE: " + string(floor(global.recorde_distancia)) + " m";
+var _escala = 1.2;
+var _pos_x = gui_w / 2;
+var _pos_y = 60;
+
+var _largura_texto = string_width(_texto) * _escala;
+var _altura_texto = string_height(_texto) * _escala;
+var _padding_x = 16;
+var _padding_y = 8;
+
+var _x1 = _pos_x - (_largura_texto / 2) - _padding_x;
+var _y1 = _pos_y - _padding_y;
+var _x2 = _pos_x + (_largura_texto / 2) + _padding_x;
+var _y2 = _pos_y + _altura_texto + _padding_y;
+
+draw_set_color(c_black);
+draw_set_alpha(0.65);
+draw_roundrect_ext(_x1, _y1, _x2, _y2, 12, 12, false);
+
+draw_set_color(_cor_brilhante);
+draw_set_alpha(0.8);
+draw_roundrect_ext(_x1, _y1, _x2, _y2, 12, 12, true);
+
+draw_set_alpha(1.0);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+
+draw_set_color(c_black);
+draw_text_transformed(_pos_x + 2, _pos_y + 2, _texto, _escala, _escala, 0);
+
+draw_set_color(_cor_brilhante);
+draw_text_transformed(_pos_x, _pos_y, _texto, _escala, _escala, 0);
+#endregion
+
+#region LOJA
 var gui_h = display_get_gui_height();
 
 draw_set_color(c_black);

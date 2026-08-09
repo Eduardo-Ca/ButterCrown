@@ -16,14 +16,14 @@ lista_spawns = [
         y_min: y_chao,
         y_max: y_chao,
         alinhado_chao: true,
-        chance: 70
+        chance: 50
     },
     {
         objeto: obj_balao,
-        y_min: 200,  
-        y_max: 740,  
+        y_min: 150,  
+        y_max: 770,  
         alinhado_chao: false,
-        chance: 60
+        chance: 65
     },
     {
         objeto: obj_balao_bomba,
@@ -37,14 +37,14 @@ lista_spawns = [
         y_min: y_chao,
         y_max: y_chao,
         alinhado_chao: true,
-        chance: 6
+        chance: 4
     },
     {
         objeto: obj_construcao1,
         y_min: y_chao,
         y_max: y_chao,
         alinhado_chao: true,
-        chance: 10
+        chance: 7
     },
     {
         objeto: obj_bituca,
@@ -71,8 +71,8 @@ exibir_debug_chances = false;
 #endregion
 
 #region SISTEMA DE BOSSES
-intervalo_boss = 100;
-proximo_boss_distancia = 100;
+intervalo_boss = 1000;
+proximo_boss_distancia = 1000;
 index_boss_atual = 0;
 
 lista_bosses = [
@@ -91,8 +91,8 @@ lista_bosses = [
 			{ objeto: obj_gato_gigante, offset_x: 239, offset_y: 866 },
     
 	    ],
-	    titulo: "PROTEJA O GATO DAS",
-	    subtitulo: "BORBOLETAS DO CAOS",
+	    titulo: "PROTEJA O GATO DAS BORBOLETAS DO CAOS",
+	    subtitulo: "",
 	    pos_y: 200
 	}
 ];

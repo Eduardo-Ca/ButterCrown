@@ -1,3 +1,9 @@
+if(vida <= 0){
+	repeat(3){
+		tocar_som(snd_miau);
+		instance_create_depth(x+irandom_range(-55,55), y+irandom_range(-55,55), depth - 20, obj_explosao_som);
+	}
+}
 event_inherited();
 
 if(vida_real <= 0){
@@ -39,7 +45,7 @@ if(vida_real <= 0){
 	     tomar_dano(1);
 		 #region GERAR BORBOLETAS 
 
-		var _quantidade = irandom(4);
+		var _quantidade = irandom(3);
     
 		repeat (_quantidade) {
 		    var _spawn_x = obj_gato_gigante.x + random_range(200, 290);

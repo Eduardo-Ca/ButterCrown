@@ -17,9 +17,11 @@ if (instance_exists(obj_borboleta)) {
     y = lerp(y, _y_desejado, 0.08);
 }
 #endregion
-
+#region LIMITES DE TELA 
 var _limite_topo = 290;
-y = max(y, _limite_topo);
+var _limite_chao = room_height - 64; 
+
+y = clamp(y, _limite_topo, _limite_chao);
 #endregion
 
 if (!instance_exists(obj_peixe_vermelho)) {

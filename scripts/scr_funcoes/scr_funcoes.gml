@@ -24,12 +24,14 @@ function criar_rastro_dash(_instancia, _taxa_desaparecer = 0.04, _taxa_encolher 
 }
 // criar_rastro_dash(id, 0.05, 0.9, c_aqua);
 
-function criar_texto_flutuante(_x, _y, _texto, _cor = c_lime, _escala = 1.2) {
-    var inst = instance_create_depth(_x, _y, -10000, obj_texto_flutuante);
-    inst.texto = string(_texto);
-    inst.cor = _cor;
-    inst.escala = _escala;
-    return inst;
+function criar_texto_flutuante(_x, _y, _texto, _cor, _tamanho) {
+    var _inst = instance_create_layer(_x, _y, "Instances", obj_texto_flutuante); 
+    
+    if (instance_exists(_inst)) {
+        _inst.texto = string(_texto);
+        _inst.cor = _cor;
+        _inst.tamanho = _tamanho;
+    }
 }
 
 //criar_texto_flutuante(x, y - 10, "+1", c_lime, 1.2);

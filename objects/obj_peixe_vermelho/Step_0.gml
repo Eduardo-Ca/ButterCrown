@@ -24,9 +24,15 @@ if (instance_exists(obj_borboleta)) {
 
 }
 #endregion
-
+#region LIMITES DE TELA 
 var _limite_topo = 270;
-y = max(y, _limite_topo);
+var _limite_chao = room_height - 64; 
+
+y = clamp(y, _limite_topo, _limite_chao);
 #endregion
 
-instance_destroy(obj_obstaculo);
+#endregion
+instance_destroy(obj_balao);
+instance_destroy(obj_balao_bomba);
+instance_destroy(obj_passaro);
+instance_destroy(obj_bituca);

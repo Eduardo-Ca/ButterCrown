@@ -16,6 +16,7 @@ global.vel_minima_parada = 0.2;
 global.atrito_ar = 0.005;
 global.atrito_chao = 0.06;
 global.distancia_percorrida = 0;
+global.recorde_distancia = 0;
 #endregion
 
 #region upgrade
@@ -44,7 +45,7 @@ global.boost_por_nivel = 0.2;
 global.vel_max_por_nivel = 1;
 
 global.vel_inicial_base = 2.0;      
-global.vel_inicial_por_nivel = 0.5;
+global.vel_inicial_por_nivel = 1;
 #endregion
 
 #region STATUS FINAIS 
