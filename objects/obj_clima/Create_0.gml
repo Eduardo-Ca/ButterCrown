@@ -33,7 +33,7 @@ if (sorteio_clima < 20) {
 var gui_w = display_get_gui_width();
 var gui_h = display_get_gui_height() * 2;
 
-qtd_nuvens = 9;
+qtd_nuvens = 8;
 nuvens = array_create(qtd_nuvens);
 
 for (var i = 0; i < qtd_nuvens; i++) {

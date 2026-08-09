@@ -1,3 +1,4 @@
+if (global.pausado) exit;
 if (!assustado) {
     other.energia_atual = min(other.energia_atual + -1, other.energia_maxima);
     

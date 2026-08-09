@@ -1,4 +1,5 @@
 randomise();
+audio_stop_all();
 draw_set_font(Font1);
 #region AUDIO / MUSICA TEMA
 if (!audio_is_playing(snd_musica_tema_1) && !audio_is_playing(snd_musica_tema_2) && !audio_is_playing(snd_musica_tema_3)) {

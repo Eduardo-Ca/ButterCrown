@@ -7,4 +7,6 @@ if(!assustado){
 	criar_texto_flutuante(x, y - 10, "+1", c_lime, 3);
 	tocar_som(snd_up);
 	assustado = true;
+}else{
+	instance_destroy();
 }

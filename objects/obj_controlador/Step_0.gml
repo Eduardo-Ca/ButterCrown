@@ -21,3 +21,10 @@ for (var i = array_length(global.logs_eventos) - 1; i >= 0; i--) {
         array_delete(global.logs_eventos, i, 1);
     }
 }
+
+if(instance_exists(obj_loja)){
+	global.pausado = false;	
+}
+
+
+

@@ -1,3 +1,6 @@
+if(obj_borboleta.morto){
+	instance_destroy();
+}
 #region CONFIGURACOES PADRAO DO TEXTO
 texto = "+1";
 cor = c_lime;

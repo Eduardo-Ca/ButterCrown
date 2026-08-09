@@ -16,14 +16,14 @@ lista_spawns = [
         y_min: y_chao,
         y_max: y_chao,
         alinhado_chao: true,
-        chance: 90
+        chance: 70
     },
     {
         objeto: obj_balao,
         y_min: 200,  
         y_max: 800,  
         alinhado_chao: false,
-        chance: 30
+        chance: 80
     },
     {
         objeto: obj_balao_bomba,
@@ -37,7 +37,7 @@ lista_spawns = [
         y_min: y_chao,
         y_max: y_chao,
         alinhado_chao: true,
-        chance: 12
+        chance: 6
     },
     {
         objeto: obj_construcao1,
@@ -71,8 +71,8 @@ exibir_debug_chances = false;
 #endregion
 
 #region SISTEMA DE BOSSES
-intervalo_boss = 1000;
-proximo_boss_distancia = 1000;
+intervalo_boss = 100;
+proximo_boss_distancia = 100;
 index_boss_atual = 0;
 
 lista_bosses = [

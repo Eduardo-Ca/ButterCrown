@@ -1,6 +1,6 @@
 if (global.pausado) exit;
-#region MOVIMENTO DO MUNDO E AUTO-DESTRUICAO
 
+#region MOVIMENTO DO MUNDO E AUTO-DESTRUICAO
 x -= global.vel_mundo ;
 
 if (bbox_right < 0 or bbox_left < 0) {
@@ -28,3 +28,10 @@ if (abs(vel_empurrao_y) > 0) {
     vel_empurrao_y = lerp(vel_empurrao_y, 0, 0.1);
 }
 #endregion
+if (assustado) { 
+    var _cam_x = camera_get_view_x(view_camera[0]);
+    
+    if (x < _cam_x - 64 || x > _cam_x + camera_get_view_width(view_camera[0]) + 64) {
+        instance_destroy();
+    }
+}

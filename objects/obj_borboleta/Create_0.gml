@@ -1,5 +1,5 @@
 #region CONFIGURACOES E FISICA 
-posicao_x_base = 180;
+posicao_x_base = 150;
 vel_vertical = 0;
 gravidade = 0.09;      
 forca_impulso = global.forca_impulso;         

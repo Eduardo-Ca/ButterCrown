@@ -1,7 +1,7 @@
 event_inherited();
 
 event_inherited();
-max_vida = 20;
+max_vida = 25;
 vida = max_vida;
 nome_boss = "REIS ABISSAIS";
 eh_boss_secundario = false;
@@ -11,7 +11,7 @@ image_yscale = 2;
 
 #region INICIALIZACAO VERMELHO
 tempo_flutuar = random(100);
-distancia_x_borboleta = 230;
+distancia_x_borboleta = 270;
 offset_y_borboleta = -20;
 #endregion
 

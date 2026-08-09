@@ -25,6 +25,6 @@ if (instance_exists(obj_borboleta)) {
 }
 #endregion
 
-var _limite_topo = 260;
+var _limite_topo = 270;
 y = max(y, _limite_topo);
 #endregion
