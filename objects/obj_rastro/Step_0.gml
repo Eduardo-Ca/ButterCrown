@@ -1,5 +1,13 @@
-#region TRAVA DE PAUSA E DESAPARECIMENTO
-if (global.pausado) exit;
+#region TRAVA DE PAUSA 
+if (global.pausado) {
+    image_speed = 0; 
+    exit;           
+} else {
+    image_speed = 1;
+}
+#endregion
+
+#region E DESAPARECIMENTO
 
 image_alpha -= taxa_desaparecimento;
 image_xscale *= taxa_encolhimento;

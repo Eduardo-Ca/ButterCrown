@@ -1,4 +1,6 @@
 event_inherited();
+
+
 #region TRAVA DE PAUSA 
 if (global.pausado) {
     exit;           
@@ -19,4 +21,9 @@ if (instance_exists(obj_borboleta)) {
 var _limite_topo = 280;
 y = max(y, _limite_topo);
 #endregion
+
+if (!instance_exists(obj_peixe_vermelho)) {
+      iniciar_morte();
+ 
+}
 

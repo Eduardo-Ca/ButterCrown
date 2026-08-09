@@ -1,4 +1,4 @@
-tempo_vida = 150;
+tempo_vida = 230;
 tempo_pisca = 0;
 escala = 0;
 

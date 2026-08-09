@@ -1,3 +1,11 @@
+event_inherited();
+
+event_inherited();
+max_vida = 20;
+vida = max_vida;
+nome_boss = "REIS ABISSAIS";
+eh_boss_secundario = false;
+
 image_xscale = 2;
 image_yscale = 2;
 

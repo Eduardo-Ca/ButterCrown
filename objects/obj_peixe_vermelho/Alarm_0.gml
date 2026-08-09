@@ -3,6 +3,7 @@ if (global.pausado) {
     exit;           
 }
 #endregion
+tocar_som(snd_estrela);
 #region DISPARAR ESTRELAS 
 if (instance_exists(obj_borboleta) && !obj_borboleta.morto) {
     var _vel_estrela = 2.5;

@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_subindo",
+  "%Name":"snd_bolha",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.28882086,
+  "duration":0.83040816,
   "exportDir":"",
-  "name":"snd_subindo",
+  "name":"snd_bolha",
   "parent":{
     "name":"musicas",
     "path":"folders/musicas.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_subindo.wav",
-  "volume":0.4,
+  "soundFile":"snd_bolha.wav",
+  "volume":0.6,
 }

@@ -5,7 +5,10 @@ if (instance_exists(obj_borboleta) && !obj_borboleta.morto) {
     if (global.vel_mundo > 0) {
         global.vel_mundo = max(0, global.vel_mundo - global.atrito_ar);
     }
-    global.distancia_percorrida += global.vel_mundo * 0.05;
+    
+    if (!instance_exists(obj_boss)) {
+        global.distancia_percorrida += global.vel_mundo * 0.05;
+    }
 } else {
     global.vel_mundo = lerp(global.vel_mundo, 0, 0.1);
 }
@@ -18,4 +21,3 @@ for (var i = array_length(global.logs_eventos) - 1; i >= 0; i--) {
         array_delete(global.logs_eventos, i, 1);
     }
 }
-

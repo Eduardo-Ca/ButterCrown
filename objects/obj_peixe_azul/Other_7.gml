@@ -4,5 +4,6 @@ if (global.pausado) {
 }
 #endregion
 if(!obj_borboleta.morto){
+	tocar_som(snd_bolha);
 	var _bolha = instance_create_layer(x-10, y, "luz", obj_bolha);
 }

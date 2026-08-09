@@ -1,6 +1,6 @@
 if (global.pausado) exit;
 
-#region SPAWN DE BOSS
+#region CHECAGEM E SPAWN DO BOSS
 if (global.distancia_percorrida >= proximo_boss_distancia) {
     proximo_boss_distancia += intervalo_boss;
     
@@ -17,22 +17,27 @@ if (global.distancia_percorrida >= proximo_boss_distancia) {
     var _cam_w = camera_get_view_width(view_camera[0]);
     if (_cam_w == 0) _cam_w = room_width;
     
-    instance_create_layer(_cam_x + _cam_w + 100, _boss_dados.pos_y, "Instances", _boss_dados.objeto);
+    var _spawn_x = _cam_x + _cam_w + 100;
+    
+    var _lista_objs = _boss_dados.objetos;
+    for (var j = 0; j < array_length(_lista_objs); j++) {
+        var _obj_info = _lista_objs[j];
+        var _off_x = variable_struct_exists(_obj_info, "offset_x") ? _obj_info.offset_x : 0;
+        var _off_y = variable_struct_exists(_obj_info, "offset_y") ? _obj_info.offset_y : 0;
+        
+        instance_create_layer(_spawn_x + _off_x, _boss_dados.pos_y + _off_y, "Instances", _obj_info.objeto);
+    }
 }
 #endregion
 
-#region SPAWN 
-if (global.vel_mundo > 0.5) {
+#region TEMPO E SPAWN NORMAL
+
+if (global.vel_mundo > 0.5 && !instance_exists(obj_boss)) {
     timer_spawn += 1;
     
     if (timer_spawn >= tempo_atual) {
         timer_spawn = 0;
         tempo_atual = irandom_range(tempo_spawn_min, tempo_spawn_max);
-        
-        var total_peso = 0;
-        for (var i = 0; i < array_length(lista_spawns); i++) {
-            total_peso += lista_spawns[i].chance;
-        }
         
         var sorteio = irandom_range(1, total_peso);
         var acumulado = 0;
@@ -51,7 +56,9 @@ if (global.vel_mundo > 0.5) {
             
             if (item_sorteado.alinhado_chao) {
                 if (instance_exists(obj_chao)) {
-                    var metade_altura = sprite_get_height(object_get_sprite(item_sorteado.objeto)) / 2;
+                    var _spr = object_get_sprite(item_sorteado.objeto);
+                    var metade_altura = (_spr != -1) ? (sprite_get_height(_spr) / 2) : 16;
+                    
                     pos_y = obj_chao.bbox_top - metade_altura + 3;
                 } else {
                     pos_y = 448;

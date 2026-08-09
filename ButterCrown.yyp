@@ -94,6 +94,8 @@
     {"id":{"name":"scr_borboleta","path":"scripts/scr_borboleta/scr_borboleta.yy",},},
     {"id":{"name":"scr_funcoes_camera","path":"scripts/scr_funcoes_camera/scr_funcoes_camera.yy",},},
     {"id":{"name":"scr_funcoes","path":"scripts/scr_funcoes/scr_funcoes.yy",},},
+    {"id":{"name":"snd_bolha","path":"sounds/snd_bolha/snd_bolha.yy",},},
+    {"id":{"name":"snd_estrela","path":"sounds/snd_estrela/snd_estrela.yy",},},
     {"id":{"name":"snd_explosao","path":"sounds/snd_explosao/snd_explosao.yy",},},
     {"id":{"name":"snd_golpe","path":"sounds/snd_golpe/snd_golpe.yy",},},
     {"id":{"name":"snd_musica_cena","path":"sounds/snd_musica_cena/snd_musica_cena.yy",},},

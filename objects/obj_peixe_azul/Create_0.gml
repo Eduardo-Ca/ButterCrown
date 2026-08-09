@@ -1,3 +1,8 @@
+event_inherited();
+
+
+eh_boss_secundario = true;
+
 image_xscale = 1.5;
 image_yscale = 1.5;
 
