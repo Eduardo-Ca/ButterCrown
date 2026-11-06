@@ -1,69 +1,127 @@
-#region LOGICA DA LOJA
+#region ANIMACAO
 timer_loja += 0.05;
 painel_escala = lerp(painel_escala, 1.0, 0.15);
+aba_alpha = lerp(aba_alpha, 1, 0.25);
 
-var gui_w = display_get_gui_width();
-var gui_h = display_get_gui_height();
-var mx = device_mouse_x_to_gui(0);
-var my = device_mouse_y_to_gui(0);
+caos_exibido = lerp(caos_exibido, global.caos, 0.2);
+if (abs(caos_exibido - global.caos) < 0.5) caos_exibido = global.caos;
 
-var espacamento = 48;
-var margem_topo = 110;
-var margem_baixo = 40;
+if (flash_caos > 0) flash_caos--;
+for (var i = 0; i < array_length(flash_row); i++) {
+    if (flash_row[i] > 0) flash_row[i]--;
+    if (shake_row[i] > 0) shake_row[i]--;
+}
+#endregion
 
-var ph_base = margem_topo + (total_upgrades * espacamento) + margem_baixo;
-var ph = ph_base * painel_escala;
+#region ENTRADA
+var _mx = device_mouse_x_to_gui(0);
+var _my = device_mouse_y_to_gui(0);
+var _pronto = (painel_escala > 0.9);
+var _clique = mouse_check_button_pressed(mb_left);
 
-var px = gui_w / 2;
-var py = gui_h / 2;
-
-var start_y = py - ph/2 + margem_topo;
-
+hover_aba = -1;
 hover_item = -1;
+hover_botao = -1;
+hover_jogar = false;
 
-for (var i = 0; i < total_upgrades; i++) {
-    var item_y = start_y + (i * espacamento);
+if (_pronto) {
+
+    #region ABAS
+    var _qtd_abas = array_length(abas);
+    var _tab_w = ((linha_x2 - linha_x1) - tab_gap * (_qtd_abas - 1)) / _qtd_abas;
+
+    for (var i = 0; i < _qtd_abas; i++) {
+        var _tx1 = linha_x1 + i * (_tab_w + tab_gap);
+        if (point_in_rectangle(_mx, _my, _tx1, tab_y1, _tx1 + _tab_w, tab_y1 + tab_h)) {
+            hover_aba = i;
+            if (_clique && i != aba_atual) {
+                aba_atual = i;
+                aba_alpha = 0;
+                tocar_som(snd_pulo);
+            }
+        }
+    }
+
+    var _troca = 0;
+    if (keyboard_check_pressed(ord("E")) || keyboard_check_pressed(vk_right)) _troca = 1;
+    if (keyboard_check_pressed(ord("Q")) || keyboard_check_pressed(vk_left)) _troca = -1;
+
+    if (_troca != 0) {
+        aba_atual = (aba_atual + _troca + _qtd_abas) mod _qtd_abas;
+        aba_alpha = 0;
+        tocar_som(snd_pulo);
+    }
+    #endregion
     
-    var btn_x1 = px + 210;
-    var btn_y1 = item_y - 14;
-    var btn_x2 = px + 300;
-    var btn_y2 = item_y + 14;
-    
-    if (point_in_rectangle(mx, my, btn_x1, btn_y1, btn_x2, btn_y2)) {
-        hover_item = i;
-        
-        if (mouse_check_button_pressed(mb_left)) {
-            var upg = upgrades[i];
-            var lvl_atual = variable_global_get(upg.nivel_global);
-            var preco = upg.preco_base + (lvl_atual * upg.esc);
-            
-            if (global.caos >= preco && lvl_atual < upg.max_lvl) {
-                global.caos -= preco;
-                
-                variable_global_set(upg.nivel_global, lvl_atual + 1);
-                
-                global.energia_maxima     = global.energia_max_base + (global.upg_energia_nivel * global.energia_max_por_nivel);
-                global.forca_impulso      = global.impulso_base + (global.upg_impulso_nivel * global.impulso_por_nivel);
-                global.quiques_maximos    = global.quiques_max_base + (global.upg_quiques_nivel * global.quiques_max_por_nivel);
-                global.boost_por_impulso  = global.boost_base + (global.upg_boost_nivel * global.boost_por_nivel);
-                global.velocidade_maxima  = global.velocidade_maxima_base + (global.upg_limite_vel_nivel * global.vel_max_por_nivel);
-                
-                global.vel_inicial_atual  = global.vel_inicial_base + (global.upg_vel_inicial_nivel * global.vel_inicial_por_nivel);
-                
-                if (audio_exists(snd_up)) {
-                    audio_play_sound(snd_up, 8, false);
+	#region ITENS
+    var _lista = abas[aba_atual].upgrades;
+    var _total = array_length(_lista);
+    var _max_rol = max(0, _total - max_visiveis);
+    rolagem = clamp(rolagem, 0, _max_rol);
+
+    var _rol = mouse_wheel_down() - mouse_wheel_up();
+    if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"))) _rol = 1;
+    if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"))) _rol = -1;
+
+    if (_rol != 0) {
+        var _nova = clamp(rolagem + _rol, 0, _max_rol);
+        if (_nova != rolagem) {
+            rolagem = _nova;
+            aba_alpha = 0.4;
+        }
+    }
+
+    var _qtd_vis = min(_total, max_visiveis);
+
+    for (var j = 0; j < _qtd_vis; j++) {
+        var _idx = rolagem + j;
+        var _upg = _lista[_idx];
+        var _ly1 = linhas_y1 + j * (linha_h + linha_gap);
+        var _bx1 = linha_x2 - 120;
+        var _bx2 = linha_x2 - 16;
+        var _by1 = _ly1 + (linha_h - 38) / 2;
+        var _by2 = _by1 + 38;
+
+        if (point_in_rectangle(_mx, _my, linha_x1, _ly1, linha_x2, _ly1 + linha_h)) {
+            hover_item = j;
+        }
+
+        if (point_in_rectangle(_mx, _my, _bx1, _by1, _bx2, _by2)) {
+            hover_botao = j;
+
+            if (_clique) {
+                var _lvl = variable_global_get(_upg.nivel_global);
+                var _preco = _upg.preco_base + (_lvl * _upg.esc);
+
+                if (_lvl < _upg.max_lvl) {
+                    if (global.caos >= _preco) {
+                        global.caos -= _preco;
+                        variable_global_set(_upg.nivel_global, _lvl + 1);
+                        recalcular_status();
+
+                        flash_row[_idx] = 20;
+                        flash_caos = 20;
+                        tocar_som(snd_up);
+                    } else {
+                        shake_row[_idx] = 14;
+                        tocar_som(snd_sem_energia);
+                    }
                 }
             }
         }
     }
-}
+    #endregion
 
-var btn_jogar_y = py + ph/2 + 35;
-if (point_in_rectangle(mx, my, px - 120, btn_jogar_y - 25, px + 120, btn_jogar_y + 25)) {
-    if (mouse_check_button_pressed(mb_left)) {
+    #region JOGAR
+    if (point_in_rectangle(_mx, _my, jogar_x1, jogar_y1, jogar_x2, jogar_y2)) {
+        hover_jogar = true;
+    }
+
+    if ((hover_jogar && _clique) || keyboard_check_pressed(vk_enter)) {
         global.vel_mundo = global.vel_inicial_atual;
         global.distancia_percorrida = 0;
         room_restart();
     }
+    #endregion
 }
 #endregion

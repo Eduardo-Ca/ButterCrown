@@ -1,11 +1,11 @@
 #region CONFIGURACAO DO SPAWNER
-tempo_spawn_min = 8;
-tempo_spawn_max = 30;
-timer_spawn = 0;
-tempo_atual = irandom_range(tempo_spawn_min, tempo_spawn_max);
+espacamento_min = 90;
+espacamento_max = 220;
+distancia_acumulada = 0;
+proximo_espacamento = irandom_range(espacamento_min, espacamento_max);
 
 max_obstaculos = 20;
-margem_spawn_x = 80;
+margem_spawn_x = 100;
 rampa_aparicao = 60;
 sem_bonus = 0;
 exibir_debug_chances = false;
@@ -15,13 +15,13 @@ exibir_debug_chances = false;
 var y_chao = 448;
 
 lista_spawns = [
-    { objeto: obj_pessoa,      categoria: "comum",  chance: 50, dist_min: 0,   alinhado_chao: true,  y_min: y_chao, y_max: y_chao },
-    { objeto: obj_balao,       categoria: "comum",  chance: 65, dist_min: 0,   alinhado_chao: false, y_min: 150,    y_max: 770 },
-    { objeto: obj_bituca,      categoria: "comum",  chance: 15, dist_min: 0,   alinhado_chao: false, y_min: 200,    y_max: 900 },
-    { objeto: obj_construcao1, categoria: "comum",  chance: 7,  dist_min: 40,  alinhado_chao: true,  y_min: y_chao, y_max: y_chao },
-    { objeto: obj_cachorro,    categoria: "perigo", chance: 4,  dist_min: 60,  alinhado_chao: true,  y_min: y_chao, y_max: y_chao },
-    { objeto: obj_balao_bomba, categoria: "perigo", chance: 12, dist_min: 80,  alinhado_chao: false, y_min: 200,    y_max: 740 },
-    { objeto: obj_passaro,     categoria: "perigo", chance: 15, dist_min: 150, alinhado_chao: false, y_min: 100,    y_max: 900 }
+    { chave: "pessoa",      objeto: obj_pessoa,      categoria: "comum",  chance: 50, dist_min: 0,   alinhado_chao: true,  y_min: y_chao, y_max: y_chao },
+    { chave: "balao",       objeto: obj_balao,       categoria: "comum",  chance: 65, dist_min: 0,   alinhado_chao: false, y_min: 150,    y_max: 770 },
+    { chave: "bituca",      objeto: obj_bituca,      categoria: "comum",  chance: 15, dist_min: 0,   alinhado_chao: false, y_min: 200,    y_max: 900 },
+    { chave: "construcao",  objeto: obj_construcao1, categoria: "comum",  chance: 7,  dist_min: 40,  alinhado_chao: true,  y_min: y_chao, y_max: y_chao },
+    { chave: "cachorro",    objeto: obj_cachorro,    categoria: "perigo", chance: 4,  dist_min: 60,  alinhado_chao: true,  y_min: y_chao, y_max: y_chao },
+    { chave: "balao_bomba", objeto: obj_balao_bomba, categoria: "perigo", chance: 12, dist_min: 80,  alinhado_chao: false, y_min: 200,    y_max: 740 },
+    { chave: "passaro",     objeto: obj_passaro,     categoria: "perigo", chance: 15, dist_min: 150, alinhado_chao: false, y_min: 100,    y_max: 900 }
 ];
 
 debug_pesos = array_create(array_length(lista_spawns), 0);

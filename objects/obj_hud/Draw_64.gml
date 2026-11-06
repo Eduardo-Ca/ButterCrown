@@ -1,5 +1,5 @@
 #region HUD INTERFACE
-if (instance_exists(obj_borboleta)) {
+if (instance_exists(obj_borboleta) and !instance_exists(obj_loja)) {
     var borboleta = obj_borboleta;
     
     var pos_x = 40;

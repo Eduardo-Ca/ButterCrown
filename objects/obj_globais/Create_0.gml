@@ -29,6 +29,11 @@ global.upg_quiques_nivel = 0;
 global.upg_boost_nivel = 0;
 global.upg_limite_vel_nivel = 0;
 global.upg_vel_inicial_nivel = 0;
+global.upg_balao_nivel = 0;
+global.upg_pessoa_nivel = 0;
+global.upg_predio_nivel = 0;
+global.upg_perigo_nivel = 0;
+
 #endregion
 
 #region VALORES BASE E BÔNUS POR NÍVEL
@@ -56,14 +61,15 @@ global.chance_perigo_mult = 1;
 global.spawn_freq_mult = 1;
 #endregion
 
-#region STATUS FINAIS 
-global.energia_maxima = global.energia_max_base + (global.upg_energia_nivel * global.energia_max_por_nivel);
-global.forca_impulso = global.impulso_base + (global.upg_impulso_nivel * global.impulso_por_nivel);
-global.quiques_maximos = global.quiques_max_base + (global.upg_quiques_nivel * global.quiques_max_por_nivel);
-global.boost_por_impulso = global.boost_base + (global.upg_boost_nivel * global.boost_por_nivel);
-global.velocidade_maxima = global.velocidade_maxima_base + (global.upg_limite_vel_nivel * global.vel_max_por_nivel);
-global.vel_inicial_atual = global.vel_inicial_base + (global.upg_vel_inicial_nivel * global.vel_inicial_por_nivel);
-global.vel_mundo         = global.vel_inicial_atual;
+#region MODIFICADORES DE SPAWN
+global.chance_bonus_mult = 1;
+global.chance_perigo_mult = 1;
+global.spawn_freq_mult = 1;
+global.spawn_mult = {};
+#endregion
 
+#region STATUS FINAIS
+recalcular_status();
+global.vel_mundo = global.vel_inicial_atual;
 #endregion
 #endregion

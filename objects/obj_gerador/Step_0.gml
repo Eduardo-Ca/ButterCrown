@@ -37,14 +37,14 @@ if (global.distancia_percorrida >= proximo_boss_distancia) {
 #endregion
 
 #region SPAWN NORMAL
-timer_spawn += 1;
+distancia_acumulada += global.vel_mundo;
 
-if (timer_spawn >= tempo_atual) {
-    timer_spawn = 0;
+if (distancia_acumulada >= proximo_espacamento) {
+    distancia_acumulada = 0;
 
     var _dist = global.distancia_percorrida;
     var _fator_freq = global.spawn_freq_mult * (1 + _dist / 1500);
-    tempo_atual = max(4, round(irandom_range(tempo_spawn_min, tempo_spawn_max) / _fator_freq));
+    proximo_espacamento = irandom_range(espacamento_min, espacamento_max) / _fator_freq;
 
     if (instance_number(obj_obstaculo) < max_obstaculos) {
 
@@ -66,7 +66,10 @@ if (timer_spawn >= tempo_atual) {
                     _mult = global.chance_perigo_mult * (1 + _dist / 1500);
                     break;
             }
-
+			
+			if (variable_struct_exists(global.spawn_mult, _item.chave)) {
+			    _mult *= variable_struct_get(global.spawn_mult, _item.chave);
+			}
             _pesos[i] = _item.chance * _f * _mult;
             _total += _pesos[i];
         }
