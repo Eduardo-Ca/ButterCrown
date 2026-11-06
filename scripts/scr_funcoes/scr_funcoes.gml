@@ -5,7 +5,7 @@ function tocar_som(_som, _prioridade = 1, _loop = false) {
 }
 
 function criar_rastro_dash(_instancia, _taxa_desaparecer = 0.04, _taxa_encolher = 0.95, _cor = -1) {
-    if (!instance_exists(_instancia) || !object_exists(obj_rastro)) exit;
+    if (!instance_exists(_instancia) || !object_exists(obj_rastro) || instance_number(obj_rastro) > 30) exit;
 
     var rastro = instance_create_depth(_instancia.x, _instancia.y, _instancia.depth + 1, obj_rastro);
 

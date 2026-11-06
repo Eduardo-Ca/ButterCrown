@@ -19,4 +19,6 @@ part_type_life(part_trilha, 20, 35);
 
 foguetes = [];
 
-tocar_som(snd_subindo);
+if (!audio_is_playing(snd_fogos)) {
+    tocar_som(snd_fogos);
+}

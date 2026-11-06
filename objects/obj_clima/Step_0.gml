@@ -14,7 +14,7 @@ for (var i = 0; i < qtd_nuvens; i++) {
         n.x = gui_w + 300;
         n.y = random_range(20, gui_h * 0.4);
         n.subimg = irandom(2);
-        n.escala = random_range(2.5, 4.0);
+        n.escala = random_range(1.5, 2.5);
         n.vel = random_range(0.2, 0.6);
         n.alpha = random_range(0.2, 0.5);
     }

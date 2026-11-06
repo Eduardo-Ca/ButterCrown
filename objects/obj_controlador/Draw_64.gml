@@ -1,7 +1,7 @@
 
 
 #region DESENHAR MENU DE PAUSA
-if (global.pausado) {
+if (global.pausado && !(instance_exists(obj_tutorial) && obj_tutorial.em_intro)) {
 
     draw_set_alpha(0.6);
     draw_set_color(c_black);
@@ -21,7 +21,7 @@ if (global.pausado) {
 #endregion
 
 #region DRAW LOGS PAUSA
-if (global.pausado) {
+if (global.pausado && !(instance_exists(obj_tutorial) && obj_tutorial.em_intro)) {
     var gui_h = display_get_gui_height();
     
     var start_x = 40;

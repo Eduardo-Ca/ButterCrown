@@ -6,6 +6,8 @@ global.pausado = false;
 global.clima = "";
 global.periodo = "";
 global.logs_eventos = [];
+
+global.tutorial_concluido = false;
 #endregion
 
 #region CONFIGURACOES VELOCIDADE MUNDO
@@ -46,6 +48,12 @@ global.vel_max_por_nivel = 1;
 
 global.vel_inicial_base = 2.0;      
 global.vel_inicial_por_nivel = 1;
+#endregion
+
+#region MODIFICADORES DE SPAWN
+global.chance_bonus_mult = 1;
+global.chance_perigo_mult = 1;
+global.spawn_freq_mult = 1;
 #endregion
 
 #region STATUS FINAIS 

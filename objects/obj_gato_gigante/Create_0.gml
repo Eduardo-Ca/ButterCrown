@@ -16,3 +16,5 @@ intervalo_poeira = 1;
 
 vida_real = 3;
 morto = false;
+
+explosoes_criadas = false;

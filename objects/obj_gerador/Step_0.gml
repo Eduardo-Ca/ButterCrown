@@ -1,73 +1,123 @@
+#region TRAVA DE PAUSA
 if (global.pausado) exit;
+#endregion
+
+#region ATALHO DEBUG
+if (keyboard_check_pressed(vk_f2)) exibir_debug_chances = !exibir_debug_chances;
+#endregion
 
 #region CHECAGEM E SPAWN DO BOSS
 if (global.distancia_percorrida >= proximo_boss_distancia) {
-proximo_boss_distancia += intervalo_boss;
-    
-var _boss_dados = lista_bosses[index_boss_atual % array_length(lista_bosses)];
-index_boss_atual += 1;
-    
-var _alerta = instance_create_depth(0, 0, -9999, obj_alerta_boss);
-with (_alerta) {
-    texto_titulo = _boss_dados.titulo;
-    texto_subtitulo = _boss_dados.subtitulo;
-}
-    
-var _cam_x = camera_get_view_x(view_camera[0]);
-var _cam_w = camera_get_view_width(view_camera[0]);
-if (_cam_w == 0) _cam_w = room_width;
-    
-var _spawn_x = _cam_x + _cam_w + 100;
-    
-var _lista_objs = _boss_dados.objetos;
-for (var j = 0; j < array_length(_lista_objs); j++) {
-    var _obj_info = _lista_objs[j];
-    var _off_x = variable_struct_exists(_obj_info, "offset_x") ? _obj_info.offset_x : 0;
-    var _off_y = variable_struct_exists(_obj_info, "offset_y") ? _obj_info.offset_y : 0;
-        
-    instance_create_layer(_spawn_x + _off_x, _boss_dados.pos_y + _off_y, "Instances", _obj_info.objeto);
-}
+    proximo_boss_distancia += intervalo_boss;
+
+    var _boss_dados = lista_bosses[index_boss_atual % array_length(lista_bosses)];
+    index_boss_atual += 1;
+
+    var _alerta = instance_create_depth(0, 0, -9999, obj_alerta_boss);
+    with (_alerta) {
+        texto_titulo = _boss_dados.titulo;
+        texto_subtitulo = _boss_dados.subtitulo;
+    }
+
+    var _cam_x = camera_get_view_x(view_camera[0]);
+    var _cam_w = camera_get_view_width(view_camera[0]);
+    if (_cam_w == 0) _cam_w = room_width;
+
+    var _spawn_x = _cam_x + _cam_w + 100;
+
+    var _lista_objs = _boss_dados.objetos;
+    for (var j = 0; j < array_length(_lista_objs); j++) {
+        var _obj_info = _lista_objs[j];
+        var _off_x = variable_struct_exists(_obj_info, "offset_x") ? _obj_info.offset_x : 0;
+        var _off_y = variable_struct_exists(_obj_info, "offset_y") ? _obj_info.offset_y : 0;
+
+        instance_create_layer(_spawn_x + _off_x, _boss_dados.pos_y + _off_y, "Instances", _obj_info.objeto);
+    }
 }
 #endregion
 
-#region TEMPO E SPAWN NORMAL
-
+#region SPAWN NORMAL
 timer_spawn += 1;
-    
+
 if (timer_spawn >= tempo_atual) {
     timer_spawn = 0;
-    tempo_atual = irandom_range(tempo_spawn_min, tempo_spawn_max);
-        
-    var sorteio = irandom_range(1, total_peso);
-    var acumulado = 0;
-    var item_sorteado = undefined;
-        
-    for (var i = 0; i < array_length(lista_spawns); i++) {
-        acumulado += lista_spawns[i].chance;
-        if (sorteio <= acumulado) {
-            item_sorteado = lista_spawns[i];
-            break;
-        }
-    }
-        
-    if (item_sorteado != undefined) {
-        var pos_y = 0;
-            
-        if (item_sorteado.alinhado_chao) {
-            if (instance_exists(obj_chao)) {
-                var _spr = object_get_sprite(item_sorteado.objeto);
-                var metade_altura = (_spr != -1) ? (sprite_get_height(_spr) / 2) : 16;
-                    
-                pos_y = obj_chao.bbox_top - metade_altura + 3;
-            } else {
-                pos_y = 448;
+
+    var _dist = global.distancia_percorrida;
+    var _fator_freq = global.spawn_freq_mult * (1 + _dist / 1500);
+    tempo_atual = max(4, round(irandom_range(tempo_spawn_min, tempo_spawn_max) / _fator_freq));
+
+    if (instance_number(obj_obstaculo) < max_obstaculos) {
+
+        #region CALCULO DOS PESOS
+        var _qtd = array_length(lista_spawns);
+        var _pesos = array_create(_qtd, 0);
+        var _total = 0;
+
+        for (var i = 0; i < _qtd; i++) {
+            var _item = lista_spawns[i];
+            var _f = (_dist < _item.dist_min) ? 0 : clamp((_dist - _item.dist_min) / rampa_aparicao, 0.2, 1);
+
+            var _mult = 1;
+            switch (_item.categoria) {
+                case "bonus":
+                    _mult = global.chance_bonus_mult * (1 + sem_bonus * 0.15);
+                    break;
+                case "perigo":
+                    _mult = global.chance_perigo_mult * (1 + _dist / 1500);
+                    break;
             }
-        } else {
-            pos_y = irandom_range(item_sorteado.y_min, item_sorteado.y_max);
+
+            _pesos[i] = _item.chance * _f * _mult;
+            _total += _pesos[i];
         }
-            
-        instance_create_depth(x, pos_y, depth, item_sorteado.objeto);
+
+        debug_pesos = _pesos;
+        debug_total = _total;
+        #endregion
+
+        #region SORTEIO
+        if (_total > 0) {
+            var _sorteio = random(_total);
+            var _acumulado = 0;
+            var _escolhido = lista_spawns[0];
+
+            for (var i = 0; i < _qtd; i++) {
+                _acumulado += _pesos[i];
+                if (_pesos[i] > 0 && _sorteio <= _acumulado) {
+                    _escolhido = lista_spawns[i];
+                    break;
+                }
+            }
+
+            if (_escolhido.categoria == "bonus") {
+                sem_bonus = 0;
+            } else {
+                sem_bonus++;
+            }
+        #endregion
+
+            #region CRIACAO
+            var _cam_x2 = camera_get_view_x(view_camera[0]);
+            var _cam_w2 = camera_get_view_width(view_camera[0]);
+            if (_cam_w2 == 0) _cam_w2 = room_width;
+            var _spawn_x2 = _cam_x2 + _cam_w2 + margem_spawn_x;
+
+            var _pos_y = 0;
+            if (_escolhido.alinhado_chao) {
+                if (instance_exists(obj_chao)) {
+                    var _spr = object_get_sprite(_escolhido.objeto);
+                    var _metade_altura = (_spr != -1) ? (sprite_get_height(_spr) / 2) : 16;
+                    _pos_y = obj_chao.bbox_top - _metade_altura + 3;
+                } else {
+                    _pos_y = 448;
+                }
+            } else {
+                _pos_y = irandom_range(_escolhido.y_min, _escolhido.y_max);
+            }
+
+            instance_create_depth(_spawn_x2, _pos_y, depth, _escolhido.objeto);
+            #endregion
+        }
     }
 }
-
 #endregion

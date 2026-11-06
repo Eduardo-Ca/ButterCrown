@@ -147,18 +147,29 @@ if (!morto) {
     }
 
     if (sprite_index == spr_buttercrown_batendo_asas) {
-        if (floor(image_index) == 2 && !vento_disparado) {
+        if (floor(image_index) >= 1 && !vento_disparado) {
             vento_disparado = true;
-            
+
             if (audio_exists(snd_vento)) {
                 audio_play_sound(snd_vento, 5, false);
             }
-            
+
             var dir_mouse = point_direction(x, y, mouse_x, mouse_y);
-            
+
             var efx = instance_create_layer(x + 20, y, "Instances", obj_vento);
             efx.pai = id;
-            efx.direcao = dir_mouse; 
+            efx.direcao = dir_mouse;
+
+            tremer_tela(3);
+            x -= lengthdir_x(6, dir_mouse);
+
+            repeat (6) {
+                var _pf = instance_create_layer(x + 20, y, "Instances", obj_poeira);
+                _pf.cor = c_aqua;
+                _pf.direction = dir_mouse + random_range(-35, 35);
+                _pf.speed = random_range(1.5, 3);
+                _pf.tamanho_original = random_range(1.2, 2.5);
+            }
         }
 
         var delta_frame = (image_speed * sprite_get_speed(sprite_index)) / game_get_speed(gamespeed_fps);
@@ -182,9 +193,8 @@ if (!morto) {
 if (afetado_por_onda) {
      tempo_reset_onda--;   
     if (tempo_reset_onda <= 0) {
-		tempo_reset_onda = 20; 
+        tempo_reset_onda = 20; 
         afetado_por_onda = false;
-
     }
 }
 #endregion

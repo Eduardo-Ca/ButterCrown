@@ -1,8 +1,9 @@
-if(vida <= 0){
-	repeat(3){
-		tocar_som(snd_miau);
-		instance_create_depth(x+irandom_range(-55,55), y+irandom_range(-55,55), depth - 20, obj_explosao_som);
-	}
+if (vida <= 0 && !explosoes_criadas) {
+    explosoes_criadas = true;
+    repeat(3){
+        tocar_som(snd_miau);
+        instance_create_depth(x+irandom_range(-55,55), y+irandom_range(-55,55), depth - 20, obj_explosao_som);
+    }
 }
 event_inherited();
 

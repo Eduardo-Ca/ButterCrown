@@ -1,24 +1,56 @@
-#region LOGICA DO VENTO
-var raio_atracao = 180; 
-var obstaculo_proximo = instance_nearest(x, y, obj_obstaculo);
-
-if (instance_exists(obstaculo_proximo)) {
-    var dist = point_distance(x, y, obstaculo_proximo.x, obstaculo_proximo.y);
-    
-    if (dist <= raio_atracao) {
-        var dir_alvo = point_direction(x, y, obstaculo_proximo.x, obstaculo_proximo.y);
-        var diff = angle_difference(dir_alvo, direcao);
-        direcao += clamp(diff, -5, 5);
-    }
+#region TRAVA DE PAUSA
+if (global.pausado) {
+    image_speed = 0;
+    exit;
 }
+image_speed = 1;
+#endregion
 
+#region TEMPO DE VIDA
+vida--;
+var _p = 1 - (vida / vida_max);
+#endregion
+
+#region MOVIMENTO
 x += lengthdir_x(vel_vento, direcao) + global.vel_mundo;
 y += lengthdir_y(vel_vento, direcao);
+#endregion
 
+#region VISUAL
+image_angle = direcao;
+var _esc = lerp(escala_ini, escala_fim, _p);
+image_xscale = _esc;
+image_yscale = (lengthdir_x(1, direcao) < 0) ? -_esc : _esc;
+if (vida < 12) image_alpha = (vida / 12) * 0.85;
+#endregion
+
+#region RASTRO
+timer_rastro++;
+if (timer_rastro >= 2) {
+    timer_rastro = 0;
+    criar_rastro_dash(id, 0.09, 0.92, c_aqua);
+}
+#endregion
+
+#region EMPURRAR OBSTACULOS E EFEITO DE ACERTO
 with (obj_obstaculo) {
     if (place_meeting(x, y, other)) {
         vel_empurrao_x = lengthdir_x(other.forca_base_vento * leveza, other.direcao);
         vel_empurrao_y = lengthdir_y(other.forca_base_vento * leveza, other.direcao);
+
+        if (!variable_instance_exists(id, "vento_tocado")) {
+            vento_tocado = true;
+            tremer_tela(2);
+            repeat (5) {
+                var _pf = instance_create_layer(x, y, "Instances", obj_poeira);
+                _pf.cor = c_aqua;
+                _pf.tamanho_original = random_range(1.5, 3);
+            }
+        }
     }
 }
+#endregion
+
+#region DESTRUICAO
+if (vida <= 0) instance_destroy();
 #endregion

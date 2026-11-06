@@ -1,3 +1,6 @@
+surface_resize(application_surface, 1280, 720);
+display_set_gui_size(1280, 720);
+
 #region CONFIGURACOES E AUDIO
 audio_stop_all();
 if (!audio_is_playing(snd_musica_tema_1)) {
