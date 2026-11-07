@@ -18,7 +18,7 @@ if (instance_exists(obj_borboleta)) {
 }
 #endregion
 #region LIMITES DE TELA 
-var _limite_topo = 290;
+var _limite_topo = (instance_exists(obj_chao) ? obj_chao.bbox_top : room_height) - 656;
 var _limite_chao = room_height - 64; 
 
 y = clamp(y, _limite_topo, _limite_chao);

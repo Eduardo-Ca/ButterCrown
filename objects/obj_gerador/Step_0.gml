@@ -2,6 +2,10 @@
 if (global.pausado) exit;
 #endregion
 
+#region ALTURA DO CHAO
+var _chao_y = instance_exists(obj_chao) ? obj_chao.bbox_top : room_height - 15;
+#endregion
+
 #region ATALHO DEBUG
 if (keyboard_check_pressed(vk_f2)) exibir_debug_chances = !exibir_debug_chances;
 #endregion
@@ -31,7 +35,7 @@ if (global.distancia_percorrida >= proximo_boss_distancia) {
         var _off_x = variable_struct_exists(_obj_info, "offset_x") ? _obj_info.offset_x : 0;
         var _off_y = variable_struct_exists(_obj_info, "offset_y") ? _obj_info.offset_y : 0;
 
-        instance_create_layer(_spawn_x + _off_x, _boss_dados.pos_y + _off_y, "Instances", _obj_info.objeto);
+        instance_create_layer(_spawn_x + _off_x, _chao_y - _boss_dados.altura + _off_y, "Instances", _obj_info.objeto);
     }
 }
 #endregion
@@ -67,10 +71,10 @@ if (distancia_acumulada >= proximo_espacamento) {
                     _mult = global.chance_perigo_mult * (1 + _dist / 1500);
                     break;
             }
-			
-			if (variable_struct_exists(global.spawn_mult, _item.chave)) {
-			    _mult *= variable_struct_get(global.spawn_mult, _item.chave);
-			}
+
+            if (variable_struct_exists(global.spawn_mult, _item.chave)) {
+                _mult *= variable_struct_get(global.spawn_mult, _item.chave);
+            }
             _pesos[i] = _item.chance * _f * _mult;
             _total += _pesos[i];
         }
@@ -103,15 +107,11 @@ if (distancia_acumulada >= proximo_espacamento) {
         #region CRIACAO
             var _pos_y = 0;
             if (_escolhido.alinhado_chao) {
-                if (instance_exists(obj_chao)) {
-                    var _spr = object_get_sprite(_escolhido.objeto);
-                    var _metade_altura = (_spr != -1) ? (sprite_get_height(_spr) / 2) : 16;
-                    _pos_y = obj_chao.bbox_top - _metade_altura + 3;
-                } else {
-                    _pos_y = 448;
-                }
+                var _spr = object_get_sprite(_escolhido.objeto);
+                var _metade_altura = (_spr != -1) ? (sprite_get_height(_spr) / 2) : 16;
+                _pos_y = _chao_y - _metade_altura + 3;
             } else {
-                _pos_y = irandom_range(_escolhido.y_min, _escolhido.y_max);
+                _pos_y = _chao_y - irandom_range(_escolhido.alt_min, _escolhido.alt_max);
             }
 
             instance_create_depth(x, _pos_y, depth, _escolhido.objeto);

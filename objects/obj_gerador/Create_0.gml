@@ -11,17 +11,17 @@ sem_bonus = 0;
 exibir_debug_chances = false;
 #endregion
 
+
 #region TABELA DE OBJETOS
-var y_chao = 448;
 
 lista_spawns = [
-    { chave: "pessoa",      objeto: obj_pessoa,      categoria: "comum",  chance: 50, dist_min: 0,   alinhado_chao: true,  y_min: y_chao, y_max: y_chao },
-    { chave: "balao",       objeto: obj_balao,       categoria: "comum",  chance: 65, dist_min: 0,   alinhado_chao: false, y_min: 150,    y_max: 770 },
-    { chave: "bituca",      objeto: obj_bituca,      categoria: "comum",  chance: 15, dist_min: 0,   alinhado_chao: false, y_min: 200,    y_max: 900 },
-    { chave: "construcao",  objeto: obj_construcao1, categoria: "comum",  chance: 7,  dist_min: 40,  alinhado_chao: true,  y_min: y_chao, y_max: y_chao },
-    { chave: "cachorro",    objeto: obj_cachorro,    categoria: "perigo", chance: 4,  dist_min: 60,  alinhado_chao: true,  y_min: y_chao, y_max: y_chao },
-    { chave: "balao_bomba", objeto: obj_balao_bomba, categoria: "perigo", chance: 12, dist_min: 80,  alinhado_chao: false, y_min: 200,    y_max: 740 },
-    { chave: "passaro",     objeto: obj_passaro,     categoria: "perigo", chance: 15, dist_min: 150, alinhado_chao: false, y_min: 100,    y_max: 900 }
+    { chave: "pessoa",      objeto: obj_pessoa,      categoria: "comum",  chance: 50, dist_min: 0,   alinhado_chao: true,  alt_min: 0,   alt_max: 0 },
+    { chave: "balao",       objeto: obj_balao,       categoria: "comum",  chance: 65, dist_min: 0,   alinhado_chao: false, alt_min: 176, alt_max: 796 },
+    { chave: "bituca",      objeto: obj_bituca,      categoria: "comum",  chance: 15, dist_min: 0,   alinhado_chao: false, alt_min: 46,  alt_max: 746 },
+    { chave: "construcao",  objeto: obj_construcao1, categoria: "comum",  chance: 7,  dist_min: 40,  alinhado_chao: true,  alt_min: 0,   alt_max: 0 },
+    { chave: "cachorro",    objeto: obj_cachorro,    categoria: "perigo", chance: 4,  dist_min: 60,  alinhado_chao: true,  alt_min: 0,   alt_max: 0 },
+    { chave: "balao_bomba", objeto: obj_balao_bomba, categoria: "perigo", chance: 12, dist_min: 80,  alinhado_chao: false, alt_min: 206, alt_max: 746 },
+    { chave: "passaro",     objeto: obj_passaro,     categoria: "perigo", chance: 15, dist_min: 150, alinhado_chao: false, alt_min: 46,  alt_max: 846 }
 ];
 
 debug_pesos = array_create(array_length(lista_spawns), 0);
@@ -41,15 +41,15 @@ lista_bosses = [
         ],
         titulo: "REIS ABISSAIS",
         subtitulo: "A AMEAÇA DOS MARES",
-        pos_y: 200
+        altura: 746
     },
     {
         objetos: [
-            { objeto: obj_gato_gigante, offset_x: 239, offset_y: 866 }
+            { objeto: obj_gato_gigante, offset_x: 239, offset_y: 0 }
         ],
         titulo: "PROTEJA O GATO DAS BORBOLETAS DO CAOS",
         subtitulo: "",
-        pos_y: 200
+        altura: 0
     }
 ];
 #endregion

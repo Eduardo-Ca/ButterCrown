@@ -1,7 +1,12 @@
 event_inherited();
 
-x= 239;
-y = 866;
+x = 239;
+// pes do gato encostados no chao, qualquer que seja a altura da room
+if (instance_exists(obj_chao)) {
+    y = obj_chao.bbox_top - (sprite_get_height(sprite_index) - sprite_get_yoffset(sprite_index)) * image_yscale;
+} else {
+    y = room_height - 100;
+}
 
 max_vida = 30;
 vida = max_vida;
