@@ -62,3 +62,24 @@ function iniciar_dobra() {
         instance_create_depth(0, 0, 500, obj_dobra);
     }
 }
+
+function invocar_sapo() {
+    if (!instance_exists(obj_borboleta) || obj_borboleta.morto) return false;
+    if (instance_exists(obj_sapo_mago)) return false;
+
+    var _b = obj_borboleta;
+    var _s = instance_create_layer(_b.x - 45, _b.y - 40, "Instances", obj_sapo_mago);
+
+    repeat (20) {
+        var _p = instance_create_layer(_s.x, _s.y, "Instances", obj_poeira);
+        _p.cor = choose(make_color_rgb(190, 90, 255), c_fuchsia, c_lime);
+        _p.direction = random(360);
+        _p.speed = random_range(1.5, 4);
+        _p.tamanho_original = random_range(1, 2.5);
+    }
+
+    tocar_som(snd_estrela);
+    tremer_tela(4);
+    zoom_punch(-0.06);
+    return true;
+}

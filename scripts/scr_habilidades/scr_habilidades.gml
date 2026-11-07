@@ -1,8 +1,9 @@
 #region HABILIDADES DA LOJA
 function habilidades_definir() {
-    global.habilidades = [
+       global.habilidades = [
         { id: "meteoro", nome: "Meteoro", sprite: spr_meteoro, cor: make_color_rgb(255, 140, 0), nivel_global: "hab_meteoro_nivel" },
-		{ id: "dobra", nome: "Dobra", sprite: spr_dobra, cor: make_color_rgb(150, 90, 255), nivel_global: "hab_dobra_nivel" }
+		{ id: "dobra", nome: "Dobra", sprite: spr_dobra, cor: make_color_rgb(150, 90, 255), nivel_global: "hab_dobra_nivel" },
+		{ id: "sapo", nome: "Sapo Mago", sprite: spr_sapo_mago, cor: make_color_rgb(190, 90, 255), nivel_global: "hab_sapo_nivel" }
     ];
     global.hab_slots = [];
     global.hab_cargas = array_create(array_length(global.habilidades), 0);
@@ -43,6 +44,8 @@ function ativar_habilidade(_id) {
             if (obj_borboleta.modo_meteoro || obj_borboleta.modo_foguete || obj_borboleta.modo_dobra) return false;
             iniciar_dobra();
             return obj_borboleta.modo_dobra;
+		case "sapo":
+            return invocar_sapo();
     }
     return false;
 }
@@ -64,6 +67,7 @@ function habilidade_ativa(_id) {
     switch (_id) {
         case "meteoro": return instance_exists(obj_borboleta) && obj_borboleta.modo_meteoro;
 		case "dobra": return instance_exists(obj_borboleta) && obj_borboleta.modo_dobra;
+		case "sapo": return instance_exists(obj_sapo_mago);
 		
     }
     return false;

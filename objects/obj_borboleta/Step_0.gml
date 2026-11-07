@@ -485,5 +485,5 @@ if (afetado_por_onda) {
 #endregion
 
     #region TESTE
-    if (keyboard_check_pressed(ord("N"))) iniciar_dobra();
+   if (keyboard_check_pressed(ord("M"))) invocar_sapo();
     #endregion

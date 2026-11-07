@@ -43,7 +43,7 @@ timer_rastro = 0;
 #region MODO FOGUETE
 modo_foguete = false;
 timer_foguete = 0;
-foguete_duracao = 110;
+foguete_duracao = 65;
 foguete_lancamento = 15;
 foguete_vel_max = 11;
 foguete_vel_mundo = 1.4;

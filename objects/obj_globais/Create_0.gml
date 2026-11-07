@@ -37,6 +37,7 @@ global.upg_perigo_nivel = 0;
 
 global.hab_meteoro_nivel = 0;
 global.hab_dobra_nivel = 0;
+global.hab_sapo_nivel = 0;
 #endregion
 
 #region VALORES BASE E BÔNUS POR NÍVEL
