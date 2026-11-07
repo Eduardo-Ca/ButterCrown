@@ -37,6 +37,7 @@ if (global.distancia_percorrida >= proximo_boss_distancia) {
 #endregion
 
 #region SPAWN NORMAL
+if (instance_exists(obj_gato_gigante)) exit;
 distancia_acumulada += global.vel_mundo;
 
 if (distancia_acumulada >= proximo_espacamento) {
@@ -99,12 +100,7 @@ if (distancia_acumulada >= proximo_espacamento) {
             }
         #endregion
 
-            #region CRIACAO
-            var _cam_x2 = camera_get_view_x(view_camera[0]);
-            var _cam_w2 = camera_get_view_width(view_camera[0]);
-            if (_cam_w2 == 0) _cam_w2 = room_width;
-            var _spawn_x2 = _cam_x2 + _cam_w2 + margem_spawn_x;
-
+        #region CRIACAO
             var _pos_y = 0;
             if (_escolhido.alinhado_chao) {
                 if (instance_exists(obj_chao)) {
@@ -118,7 +114,7 @@ if (distancia_acumulada >= proximo_espacamento) {
                 _pos_y = irandom_range(_escolhido.y_min, _escolhido.y_max);
             }
 
-            instance_create_depth(_spawn_x2, _pos_y, depth, _escolhido.objeto);
+            instance_create_depth(x, _pos_y, depth, _escolhido.objeto);
             #endregion
         }
     }

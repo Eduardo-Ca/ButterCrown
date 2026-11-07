@@ -1,7 +1,22 @@
 
 event_inherited();
+
 instance_create_layer(x, y, "Instances", obj_explosao_construcao);
 
+#region ATIVAR FOGUETE
+with (other) {
+	modo_dobra = false;
+    modo_foguete = true;
+    timer_foguete = 0;
+    y_foguete_ini = y;
+    ang_foguete = 0;
+    vel_vertical = -6;
+    sprite_index = spr_buttercrown;
+    image_index = 0;
+}
+tremer_tela(12);
+zoom_punch(-0.1);
+#endregion
 
 var qtd_fogos = 5;
 var inst_fogo = instance_create_layer(0, 0, "Instances", obj_fogos);

@@ -1,7 +1,7 @@
 randomise();
 
 #region VARIAVEIS GLOBAIS DO MUNDO
-global.caos = 0;
+global.caos = 99999;
 global.pausado = false;
 global.clima = "";
 global.periodo = "";
@@ -19,6 +19,7 @@ global.atrito_ar = 0.005;
 global.atrito_chao = 0.06;
 global.distancia_percorrida = 0;
 global.recorde_distancia = 0;
+
 #endregion
 
 #region upgrade
@@ -34,6 +35,8 @@ global.upg_pessoa_nivel = 0;
 global.upg_predio_nivel = 0;
 global.upg_perigo_nivel = 0;
 
+global.hab_meteoro_nivel = 0;
+global.hab_dobra_nivel = 0;
 #endregion
 
 #region VALORES BASE E BÔNUS POR NÍVEL
@@ -69,7 +72,9 @@ global.spawn_mult = {};
 #endregion
 
 #region STATUS FINAIS
+habilidades_definir();
 recalcular_status();
 global.vel_mundo = global.vel_inicial_atual;
 #endregion
+
 #endregion

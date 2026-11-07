@@ -7,8 +7,8 @@ etapa_intro = 3;
 timer_intro = frames_por_numero;
 primeiro_passo = true;
 y_inicial = 0;
-
-tocar_som(snd_up);
+lancou = false;
+habilidades_iniciar_partida();
 #endregion
 
 #region CONFIGURACAO TUTORIAL

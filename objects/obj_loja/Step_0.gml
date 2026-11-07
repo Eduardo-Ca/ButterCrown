@@ -1,3 +1,4 @@
+global.pausado = false;
 #region ANIMACAO
 timer_loja += 0.05;
 painel_escala = lerp(painel_escala, 1.0, 0.15);

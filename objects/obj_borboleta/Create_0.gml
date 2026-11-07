@@ -11,6 +11,10 @@ boost_por_impulso = global.boost_por_impulso;
 
 afetado_por_onda = false;
 tempo_reset_onda = 20; 
+
+#region AVISO DE ENERGIA
+energia_anterior = energia_atual;
+#endregion
 #endregion
 
 #region SISTEMA DE QUIQUES
@@ -32,4 +36,40 @@ cooldown_vento_max = 40;
 cooldown_vento_timer = 0;
 vento_disparado = false;
 timer_rastro = 0;
+#endregion
+
+#region poderes obstaculos
+
+#region MODO FOGUETE
+modo_foguete = false;
+timer_foguete = 0;
+foguete_duracao = 110;
+foguete_lancamento = 15;
+foguete_vel_max = 11;
+foguete_vel_mundo = 1.4;
+y_foguete_ini = 0;
+ang_foguete = 0;
+#endregion
+
+#region MODO METEORO
+modo_meteoro = false;
+timer_meteoro = 0;
+meteoro_vel_max = 22;
+meteoro_raio = 420;
+meteoro_quique = -9;
+meteoro_alvo = noone;
+#endregion
+
+#region MODO DOBRA
+modo_dobra = false;
+timer_dobra = 0;
+dobra_duracao = 150;
+dobra_vel_mundo = 3;
+dobra_y_base = 0;
+dobra_off = 0;
+dobra_off_alvo = 0;
+dobra_troca = 0;
+dobra_amplitude = 70;
+#endregion
+
 #endregion

@@ -16,3 +16,7 @@ if (destruindo) {
         instance_destroy();
     }
 }
+
+if(instance_exists(obj_loja)){
+	instance_destroy();
+}

@@ -8,6 +8,3 @@ if (!audio_is_playing(snd_musica_tema_1) && !audio_is_playing(snd_musica_tema_2)
 }
 #endregion
 
-surface_resize(application_surface, 576, 324);
-display_set_gui_size(1280, 720);
-

@@ -15,10 +15,6 @@ abas = [
             { nome: "Força do Impulso", desc: "Altura de cada batida de asa", nivel_global: "upg_impulso_nivel", max_lvl: 4, preco_base: 15, esc: 33,
               valor: function(_n) { return string_format(abs(global.impulso_base + _n * global.impulso_por_nivel), 1, 1); } },
             { nome: "Impulso Inicial", desc: "Velocidade ao começar o voo", nivel_global: "upg_vel_inicial_nivel", max_lvl: 4, preco_base: 25, esc: 33,
-              valor: function(_n) { return string((global.vel_inicial_base + _n * global.vel_inicial_por_nivel) * 10) + " km/h"; } },
-			       { nome: "Impulso Inicial", desc: "Velocidade ao começar o voo", nivel_global: "upg_vel_inicial_nivel", max_lvl: 4, preco_base: 25, esc: 33,
-              valor: function(_n) { return string((global.vel_inicial_base + _n * global.vel_inicial_por_nivel) * 10) + " km/h"; } },
-			       { nome: "Impulso Inicial", desc: "Velocidade ao começar o voo", nivel_global: "upg_vel_inicial_nivel", max_lvl: 4, preco_base: 25, esc: 33,
               valor: function(_n) { return string((global.vel_inicial_base + _n * global.vel_inicial_por_nivel) * 10) + " km/h"; } }
         ]
     },
@@ -39,7 +35,13 @@ abas = [
 	{
 	    nome: "HABILIDADES",
 	    cor: make_color_rgb(190, 120, 255),
-	    upgrades: []
+	    upgrades: [
+		    { nome: "Meteoro", desc: "Mergulha e destrói tudo", nivel_global: "hab_meteoro_nivel", max_lvl: 5, preco_base: 60, esc: 80,
+		      valor: function(_n) { return string(_n) + ((_n == 1) ? " uso" : " usos"); } },
+			{ nome: "Dobra", desc: "Dash dimensional que esmaga tudo", nivel_global: "hab_dobra_nivel", max_lvl: 5, preco_base: 80, esc: 100,
+			  valor: function(_n) { return string(_n) + ((_n == 1) ? " uso" : " usos"); } }
+			  
+		]
 	}
 ];
 #endregion

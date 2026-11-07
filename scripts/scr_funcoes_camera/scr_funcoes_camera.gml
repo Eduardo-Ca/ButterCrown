@@ -5,3 +5,11 @@ function tremer_tela(_forca) {
     }
 }
 #endregion
+
+#region ZOOM
+function zoom_punch(_forca) {
+    if (instance_exists(obj_camera)) {
+        obj_camera.zoom_impacto = clamp(obj_camera.zoom_impacto + _forca, -0.15, 0.25);
+    }
+}
+#endregion

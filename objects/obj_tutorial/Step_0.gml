@@ -11,21 +11,43 @@ if (em_intro) {
         camera_set_view_pos(view_camera[0], _tx, _ty);
     }
 
-    obj_borboleta.y = y_inicial + sin(current_time * 0.006) * 4;
-    obj_borboleta.image_index = (obj_borboleta.image_index + 0.2) mod obj_borboleta.image_number;
+    if (!lancou) {
+        obj_borboleta.y = y_inicial + sin(current_time * 0.006) * 4;
+        obj_borboleta.image_index = (obj_borboleta.image_index + 0.2) mod obj_borboleta.image_number;
+    }
 
     timer_intro--;
     if (timer_intro <= 0) {
         etapa_intro--;
         if (etapa_intro > 0) {
             timer_intro = frames_por_numero;
-            tocar_som(snd_up);
+         
         } else if (etapa_intro == 0) {
             timer_intro = 25;
-            tocar_som(snd_vento);
-        } else {
-            obj_borboleta.y = y_inicial;
+            lancou = true;
             global.pausado = false;
+            tocar_som(snd_vento);
+            tocar_som(snd_subindo);
+
+            with (obj_borboleta) {
+                y = other.y_inicial;
+                vel_vertical = -4.5;
+                image_xscale = 0.5;
+                image_yscale = 1.5;
+            }
+
+            global.vel_mundo = min(global.vel_mundo + 1.5, global.velocidade_maxima);
+            tremer_tela(8);
+            zoom_punch(-0.08);
+
+            repeat (16) {
+                var _pf = instance_create_layer(obj_borboleta.x, obj_borboleta.y + 8, "Instances", obj_poeira);
+                _pf.cor = c_white;
+                _pf.direction = random_range(215, 325);
+                _pf.speed = random_range(2, 5);
+                _pf.tamanho_original = random_range(1.5, 3);
+            }
+        } else {
             em_intro = false;
         }
     }

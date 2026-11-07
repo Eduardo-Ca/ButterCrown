@@ -16,6 +16,7 @@ function recalcular_status() {
 	global.spawn_mult.balao = mult_balao(global.upg_balao_nivel);
 	global.spawn_mult.pessoa = mult_pessoa(global.upg_pessoa_nivel);
 	global.spawn_mult.construcao = mult_fogos(global.upg_predio_nivel);
+	habilidades_atualizar_slots();
 
 }
 #endregion

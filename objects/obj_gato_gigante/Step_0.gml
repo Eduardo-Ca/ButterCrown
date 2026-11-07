@@ -65,3 +65,7 @@ if(vida_real <= 0){
 	instance_destroy(obj_obstaculo);
 
 }
+
+#region TEMPO DO AVISO
+if (!global.pausado && timer_aviso > 0) timer_aviso--;
+#endregion

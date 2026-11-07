@@ -8,5 +8,11 @@ shake_intensidade = 0;
 shake_tempo = 0;
 #endregion
 
-//tremer_tela(6);
-
+#region ZOOM
+zoom_base = 1;
+zoom_impacto = 0;
+zoom_velocidade = 0.05;
+view_w_atual = largura_base;
+view_h_atual = altura_base;
+zoom_morte = 0.75;
+#endregion

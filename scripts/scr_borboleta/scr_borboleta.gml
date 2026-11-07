@@ -22,3 +22,43 @@ function reagir_impacto_borboleta(_inst_obstaculo, _inst_borboleta, _boost_vel, 
         }
     }
 }
+
+
+function iniciar_meteoro() {
+	if (morto || modo_meteoro || modo_foguete || modo_dobra) exit;
+    with (obj_borboleta) {
+        if (morto || modo_meteoro || modo_foguete) exit;
+
+        modo_meteoro = true;
+        timer_meteoro = 0;
+        vel_vertical = 6;
+        sprite_index = spr_buttercrown;
+        image_index = 0;
+
+        tocar_som(snd_estrela);
+        tremer_tela(4);
+        zoom_punch(-0.06);
+    }
+}
+
+function iniciar_dobra() {
+    with (obj_borboleta) {
+        if (morto || modo_meteoro || modo_foguete || modo_dobra) exit;
+
+        modo_dobra = true;
+        timer_dobra = 0;
+        vel_vertical = 0;
+        sprite_index = spr_buttercrown;
+        image_index = 0;
+        image_angle = 0;
+		dobra_y_base = y;
+        dobra_off = 0;
+        dobra_off_alvo = 0;
+        dobra_troca = 0;
+
+        tocar_som(snd_estrela);
+        tremer_tela(6);
+        zoom_punch(-0.12);
+        instance_create_depth(0, 0, 500, obj_dobra);
+    }
+}

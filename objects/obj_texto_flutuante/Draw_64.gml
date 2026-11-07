@@ -2,8 +2,12 @@
 if (global.pausado||instance_exists(obj_loja)) exit;
 #endregion
 #region RENDERIZACAO COM SOMBRA
-var gui_x = x - camera_get_view_x(view_camera[0]);
-var gui_y = y - camera_get_view_y(view_camera[0]);
+var _vx = camera_get_view_x(view_camera[0]);
+var _vy = camera_get_view_y(view_camera[0]);
+var _vw = camera_get_view_width(view_camera[0]);
+var _vh = camera_get_view_height(view_camera[0]);
+var gui_x = (x - _vx) * display_get_gui_width() / _vw;
+var gui_y = (y - _vy) * display_get_gui_height() / _vh;
 
  
 draw_set_halign(fa_center);
