@@ -10,8 +10,8 @@
   "name":"obj_vento",
   "overriddenProperties":[],
   "parent":{
-    "name":"efeitos",
-    "path":"folders/objetos/efeitos.yy",
+    "name":"poderes",
+    "path":"folders/objetos/poderes.yy",
   },
   "parentObjectId":null,
   "persistent":false,

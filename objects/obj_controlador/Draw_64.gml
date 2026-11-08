@@ -2,19 +2,28 @@
 
 #region DESENHAR MENU DE PAUSA
 if (global.pausado && !(instance_exists(obj_tutorial) && obj_tutorial.em_intro)) {
+    var _gw = display_get_gui_width();
+    var _gh = display_get_gui_height();
 
     draw_set_alpha(0.6);
     draw_set_color(c_black);
-    draw_rectangle(0, 0, room_width, room_height, false);
-    
+    draw_rectangle(0, 0, _gw, _gh, false);
+
     draw_set_alpha(1);
-    draw_set_color(c_white);
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
-    
-    draw_text(room_width / 2, room_height / 2 - 180, "JOGO PAUSADO");
-    draw_text(room_width / 2, room_height / 2 - 160, "Pressione P para Voltar");
-    
+
+    // sombra + titulo
+    draw_set_color(c_black);
+    draw_text_transformed(_gw / 2 + 3, _gh / 2 - 37, "JOGO PAUSADO", 2.5, 2.5, 0);
+    draw_set_color(c_white);
+    draw_text_transformed(_gw / 2, _gh / 2 - 40, "JOGO PAUSADO", 2.5, 2.5, 0);
+
+    // piscando
+    draw_set_alpha(0.6 + sin(current_time * 0.005) * 0.4);
+    draw_text(_gw / 2, _gh / 2 + 10, "Pressione P para Voltar");
+
+    draw_set_alpha(1);
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
 }
@@ -62,12 +71,8 @@ if (global.pausado && !(instance_exists(obj_tutorial) && obj_tutorial.em_intro))
 if(!instance_exists(obj_loja) || global.distancia_percorrida < global.recorde_distancia){
 	exit;
 }
-
-var _cam_x = camera_get_view_x(view_camera[0]);
-var _cam_w = camera_get_view_width(view_camera[0]);
-
-var _pos_x = _cam_x + (_cam_w / 2);
-var _pos_y = camera_get_view_y(view_camera[0]) + 30;
+var _pos_x = display_get_gui_width() / 2;
+var _pos_y = 30;
 
 var _escala = 1.1 + sin(current_time * 0.004) * 0.08;
 var _angulo = sin(current_time * 0.002) * 2;

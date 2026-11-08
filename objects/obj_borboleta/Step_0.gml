@@ -482,8 +482,32 @@ if (afetado_por_onda) {
     for (var s = 0; s < array_length(global.hab_slots); s++) {
         if (keyboard_check_pressed(ord("1") + s)) usar_habilidade(s);
     }
-#endregion
+	
+#region TORNADOS (FURIA DOS VENTOS)
+if (modo_tornado) {
+    timer_tornado++;
 
-    #region TESTE
-   if (keyboard_check_pressed(ord("M"))) iniciar_dobra();
-    #endregion
+    // solta os 3 ventos uma unica vez
+    if (timer_tornado == tornado_carga) {
+        var _dir = point_direction(x, y, mouse_x, mouse_y);
+
+        for (var k = -1; k <= 1; k++) {
+            var _v = instance_create_layer(x + 20, y, "Instances", obj_vento);
+            _v.pai = id;
+            _v.direcao = _dir + k * tornado_espaco;
+            _v.da_energia = true;
+        }
+
+        tocar_som(snd_vento);
+        tremer_tela(6);
+        zoom_punch(0.06);
+        x -= lengthdir_x(8, _dir);
+    }
+
+    if (timer_tornado >= tornado_duracao) {
+        modo_tornado = false;
+    }
+}
+escala_poder = lerp(escala_poder, modo_tornado ? 2 : 1, 0.15);
+#endregion
+#endregion

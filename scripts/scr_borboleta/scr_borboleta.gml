@@ -83,3 +83,28 @@ function invocar_sapo() {
     zoom_punch(-0.06);
     return true;
 }
+
+function iniciar_tornados() {
+    if (!instance_exists(obj_borboleta)) return false;
+    var _b = obj_borboleta;
+    if (_b.morto || _b.modo_meteoro || _b.modo_foguete || _b.modo_dobra || _b.modo_tornado) return false;
+
+    with (_b) {
+        modo_tornado = true;
+        timer_tornado = 0;
+        vel_vertical = min(vel_vertical, -2);
+
+        repeat (20) {
+            var _p = instance_create_layer(x, y, "Instances", obj_poeira);
+            _p.cor = choose(c_aqua, c_white);
+            _p.direction = random(360);
+            _p.speed = random_range(2, 4);
+            _p.tamanho_original = random_range(1, 2);
+        }
+    }
+
+    tocar_som(snd_up);
+    tremer_tela(8);
+    zoom_punch(-0.1);
+    return true;
+}

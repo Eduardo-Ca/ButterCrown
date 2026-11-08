@@ -72,4 +72,12 @@ dobra_troca = 0;
 dobra_amplitude = 70;
 #endregion
 
+#region MODO TORNADO
+modo_tornado = false;
+timer_tornado = 0;
+tornado_carga = 20;      // frames crescendo antes de soltar
+tornado_duracao = 60;    // tempo total grande
+tornado_espaco = 30;     // angulo entre os 3 ventos
+escala_poder = 1;
+#endregion
 #endregion

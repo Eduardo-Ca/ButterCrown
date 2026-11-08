@@ -37,6 +37,17 @@ with (obj_obstaculo) {
     if (place_meeting(x, y, other)) {
         vel_empurrao_x = lengthdir_x(other.forca_base_vento * leveza, other.direcao);
         vel_empurrao_y = lengthdir_y(other.forca_base_vento * leveza, other.direcao);
+		
+
+        if (other.da_energia && !other.deu_energia) {
+            other.deu_energia = true;
+            with (obj_borboleta) {
+                if (energia_atual < energia_maxima) {
+                    energia_atual++;
+                    criar_texto_flutuante(x, y - 20, "+1", c_aqua, 2);
+                }
+            }
+        }
 
         if (!variable_instance_exists(id, "vento_tocado")) {
             vento_tocado = true;

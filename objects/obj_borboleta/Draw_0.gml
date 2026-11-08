@@ -1,6 +1,36 @@
-#region BARRA DE COOLDOWN
-draw_self();
+#region AURA DA FURIA DOS VENTOS
+if (modo_tornado && !morto) {
+    var _pul = 1 + sin(current_time * 0.015) * 0.1;
+    gpu_set_blendmode(bm_add);
 
+    draw_set_color(c_aqua);
+    draw_set_alpha(0.18);
+    draw_circle(x, y, 20 * escala_poder * _pul, false);
+    draw_set_alpha(0.10);
+    draw_circle(x, y, 30 * escala_poder * _pul, false);
+
+    draw_set_color(c_white);
+    draw_set_alpha(0.6);
+    var _r = 22 * escala_poder;
+    for (var k = 0; k < 3; k++) {
+        var _a0 = current_time * 0.4 + k * 120;
+        for (var s = 0; s < 6; s++) {
+            var _a1 = _a0 + s * 8;
+            var _a2 = _a1 + 8;
+            draw_line_width(x + lengthdir_x(_r, _a1), y + lengthdir_y(_r * 0.5, _a1),
+                            x + lengthdir_x(_r, _a2), y + lengthdir_y(_r * 0.5, _a2), 1.5);
+        }
+    }
+
+    gpu_set_blendmode(bm_normal);
+    draw_set_alpha(1);
+    draw_set_color(c_white);
+}
+#endregion
+
+draw_sprite_ext(sprite_index, image_index, x, y, image_xscale * escala_poder, image_yscale * escala_poder, image_angle, image_blend, image_alpha);
+
+#region BARRA DE COOLDOWN
 if (cooldown_vento_timer > 0 && !morto) {
     var pct = 1 - (cooldown_vento_timer / cooldown_vento_max);
     
@@ -88,3 +118,4 @@ if (modo_dobra && !morto) {
     draw_set_color(c_white);
 }
 #endregion
+

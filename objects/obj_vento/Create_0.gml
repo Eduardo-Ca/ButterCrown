@@ -10,3 +10,6 @@ escala_fim = 1.7;
 image_xscale = escala_ini;
 image_yscale = escala_ini;
 timer_rastro = 0;
+
+da_energia = false;
+deu_energia = false;
