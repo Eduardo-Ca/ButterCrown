@@ -24,6 +24,7 @@
     {"name":"inst_C39CB8E","path":"rooms/jogo/jogo.yy",},
     {"name":"inst_5C49350F","path":"rooms/jogo/jogo.yy",},
     {"name":"inst_2CAA0039","path":"rooms/jogo/jogo.yy",},
+    {"name":"inst_1D7B6EE6","path":"rooms/jogo/jogo.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -35,6 +36,7 @@
         {"$GMRInstance":"v4","%Name":"inst_62C8F6CB","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_62C8F6CB","objectId":{"name":"obj_clima","path":"objects/obj_clima/obj_clima.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":29.5,"y":884.0,},
         {"$GMRInstance":"v4","%Name":"inst_5C49350F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5C49350F","objectId":{"name":"obj_tutorial","path":"objects/obj_tutorial/obj_tutorial.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":12.5,"y":860.0,},
         {"$GMRInstance":"v4","%Name":"inst_2CAA0039","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2CAA0039","objectId":{"name":"obj_fases","path":"objects/obj_fases/obj_fases.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":70.0,"y":774.0,},
+        {"$GMRInstance":"v4","%Name":"inst_1D7B6EE6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1D7B6EE6","objectId":{"name":"obj_tanque","path":"objects/obj_tanque/obj_tanque.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":197.0,"y":1737.0,},
       ],"layers":[],"name":"controles","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"luz","depth":100,"effectEnabled":true,"effectType":"_effect_glow","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_C39CB8E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_C39CB8E","objectId":{"name":"obj_borboleta","path":"objects/obj_borboleta/obj_borboleta.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.2,"scaleY":1.0,"x":240.4,"y":899.5,},

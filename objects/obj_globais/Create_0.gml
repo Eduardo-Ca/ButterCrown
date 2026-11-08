@@ -1,13 +1,14 @@
 randomise();
 
 #region VARIAVEIS GLOBAIS DO MUNDO
-global.caos = 99999;
+global.caos = 0;
 global.pausado = false;
 global.clima = "";
 global.periodo = "";
 global.logs_eventos = [];
 
 global.tutorial_concluido = false;
+global.cena_bomba = false;
 #endregion
 
 #region CONFIGURACOES VELOCIDADE MUNDO

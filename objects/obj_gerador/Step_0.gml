@@ -1,6 +1,7 @@
 #region TRAVA DE PAUSA
 if (global.pausado) exit;
 #endregion
+if (global.cena_bomba) exit;
 
 #region ALTURA DO CHAO
 var _chao_y = instance_exists(obj_chao) ? obj_chao.bbox_top : room_height - 15;

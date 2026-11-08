@@ -29,6 +29,7 @@ tempo_flutuacao = 0;
 
 #region ESTADO GERAL
 morto = false;
+tempo_atordoada = 0;
 #endregion
 
 #region COOLDOWN HABILIDADE VENTO

@@ -137,3 +137,20 @@ function matar_borboleta() {
     tremer_tela(12);
     zoom_punch(0.15);
 }
+
+function atordoar_borboleta(_frames) {
+    if (!instance_exists(obj_borboleta)) return;
+
+    with (obj_borboleta) {
+        if (morto || modo_meteoro || modo_foguete || modo_dobra) exit;
+
+        tempo_atordoada = max(tempo_atordoada, _frames);
+        vel_vertical = max(vel_vertical, 1);
+        image_xscale = 1.4;
+        image_yscale = 0.6;
+
+        tocar_som(snd_sem_energia);
+        tremer_tela(8);
+        criar_texto_flutuante(x, y - 20, "SEM VOAR!", c_red, 2);
+    }
+}

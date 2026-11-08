@@ -11,9 +11,12 @@ if (cooldown_vento_timer > 0) {
     cooldown_vento_timer--;
 }
 
+if (tempo_atordoada > 0) tempo_atordoada--;
+
 if (!morto) {
     energia_maxima = global.energia_maxima;
     energia_atual = clamp(energia_atual, 0, energia_maxima);
+
 
     #region PODERES 
     
@@ -294,7 +297,9 @@ if (!morto) {
     #endregion
 
     #region INPUT E IMPULSO
-    if (energia_atual > 0) {
+     if (tempo_atordoada > 0) {
+        if (mouse_check_button_pressed(mb_left) || keyboard_check_pressed(vk_space)) tocar_som(snd_sem_energia);
+    } else if (energia_atual > 0) {
         if (mouse_check_button_pressed(mb_left) || keyboard_check_pressed(vk_space)) {
             tocar_som(snd_pulo);
             
@@ -530,3 +535,9 @@ if (morto) {
     image_yscale = lerp(image_yscale, 1, 0.15);
 }
 #endregion
+
+if (keyboard_check_pressed(ord("B"))) iniciar_cena_bomba();
+
+if(instance_exists(obj_cena_bomba)){
+ energia_atual += 1;
+}

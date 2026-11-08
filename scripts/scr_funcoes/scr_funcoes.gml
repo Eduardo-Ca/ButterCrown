@@ -43,3 +43,9 @@ function adicionar_log_cadeia(_texto, _tempo_duracao_segundos = 4) {
     });
 }
 //adicionar_log_cadeia(other.nome + " acertou " + nome + ". Gerou " + string(pontos_caos) + " de caos.", 10);
+
+
+function iniciar_cena_bomba() {
+    if (instance_exists(obj_cena_bomba)) return;
+    instance_create_depth(0, 0, -10000, obj_cena_bomba);
+}

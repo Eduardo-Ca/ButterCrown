@@ -119,3 +119,14 @@ if (modo_dobra && !morto) {
 }
 #endregion
 
+#region ATORDOADA
+if (tempo_atordoada > 0 && !morto) {
+    draw_set_color(c_yellow);
+    for (var k = 0; k < 3; k++) {
+        var _a = current_time * 0.4 + k * 120;
+        draw_circle(x + lengthdir_x(16, _a), y - 18 + lengthdir_y(5, _a), 2, false);
+    }
+    draw_set_color(c_white);
+}
+#endregion
+
