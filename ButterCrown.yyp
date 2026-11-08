@@ -20,7 +20,7 @@
     {"$GMFolder":"","%Name":"obstaculos","folderPath":"folders/objetos/cenario/obstaculos.yy","name":"obstaculos","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"boss","folderPath":"folders/objetos/cenario/obstaculos/boss.yy","name":"boss","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"gato_gigante","folderPath":"folders/objetos/cenario/obstaculos/boss/gato_gigante.yy","name":"gato_gigante","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"peixe","folderPath":"folders/objetos/cenario/obstaculos/boss/gato_gigante/peixe.yy","name":"peixe","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"peixe","folderPath":"folders/objetos/cenario/obstaculos/boss/peixe.yy","name":"peixe","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"efeitos","folderPath":"folders/objetos/efeitos.yy","name":"efeitos","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"explosoes","folderPath":"folders/objetos/efeitos/explosoes.yy","name":"explosoes","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"particula","folderPath":"folders/objetos/efeitos/particula.yy","name":"particula","resourceType":"GMFolder","resourceVersion":"2.0",},

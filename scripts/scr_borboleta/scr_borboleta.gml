@@ -108,3 +108,32 @@ function iniciar_tornados() {
     zoom_punch(-0.1);
     return true;
 }
+
+function matar_borboleta() {
+    if (!instance_exists(obj_borboleta)) return;
+
+    with (obj_borboleta) {
+        if (morto) exit;
+        morto = true;
+
+        // cancela todos os poderes
+        modo_meteoro = false;
+        modo_foguete = false;
+        modo_dobra = false;
+        if (variable_instance_exists(id, "modo_tornado")) modo_tornado = false;
+
+        energia_atual = 0;
+        vel_vertical = 0;
+
+        sprite_index = spr_buttercrown_caido;
+        image_angle = 0;
+        image_xscale = 1;
+        image_yscale = 1;
+        if (variable_instance_exists(id, "escala_poder")) escala_poder = 1;
+    }
+
+    global.vel_mundo = 0;
+    tocar_som(snd_sem_energia);
+    tremer_tela(12);
+    zoom_punch(0.15);
+}

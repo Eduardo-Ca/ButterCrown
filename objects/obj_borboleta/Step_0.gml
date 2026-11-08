@@ -511,3 +511,22 @@ if (modo_tornado) {
 escala_poder = lerp(escala_poder, modo_tornado ? 2 : 1, 0.15);
 #endregion
 #endregion
+
+#region QUEDA DEPOIS DE MORRER
+if (morto && !place_meeting(x, y + 1, obj_chao)) {
+    vel_vertical = min(vel_vertical + 0.4, 10);
+    if (place_meeting(x, y + vel_vertical, obj_chao)) {
+        while (!place_meeting(x, y + 1, obj_chao)) y += 1;
+        vel_vertical = 0;
+        image_xscale = 1.4;
+        image_yscale = 0.6;
+        tremer_tela(4);
+    } else {
+        y += vel_vertical;
+    }
+}
+if (morto) {
+    image_xscale = lerp(image_xscale, 1, 0.15);
+    image_yscale = lerp(image_yscale, 1, 0.15);
+}
+#endregion

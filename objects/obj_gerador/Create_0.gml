@@ -29,8 +29,8 @@ debug_total = 0;
 #endregion
 
 #region SISTEMA DE BOSSES
-intervalo_boss = 100;
-proximo_boss_distancia = 100;
+intervalo_boss = 1000;
+proximo_boss_distancia = 1000;
 index_boss_atual = 0;
 
 lista_bosses = [

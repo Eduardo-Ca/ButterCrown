@@ -23,9 +23,13 @@ if (onda_banner > 0) onda_banner--;
 
 if (vida_real <= 0) {
     if (!morto) {
+		repeat(2){
+			instance_create_depth(x, y, depth - 20, obj_explosao_som);
+		}		
         image_index = 0;
         sprite_index = spr_gato_gigante_morrendo;
         morto = true;
+        matar_borboleta();
     }
 } else {
 
@@ -69,7 +73,7 @@ if (vida_real <= 0) {
                 if (onda >= 5 && onda mod 2 == 1 && i == 0) _tipo = "rainha";
 
 				var _px = clamp(x + random_range(240, 340), _cx + _cw * 0.5, _cx + _cw - 25);
-				var _py = y - random_range(400, 600);
+				var _py = y - random_range(500, 600);
                 instance_create_layer(_px, _py, "luz", obj_portal_maligno, { tipo: _tipo, atraso: i * 12 });
             }
         }

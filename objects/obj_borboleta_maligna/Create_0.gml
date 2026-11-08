@@ -33,7 +33,7 @@ dir = 180;
 dist_mergulho = 90;
 timer_mira = 0;
 mergulho_dir = 0;
-mergulho_vel = (tipo == "rapida") ? 8 : 6;
+mergulho_vel = (tipo == "rapida") ? 7 : 6;
 timer_mergulho = 0;
 timer_rastro = 0;
 

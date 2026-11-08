@@ -8,7 +8,7 @@ if (instance_exists(obj_chao)) {
     y = room_height - 100;
 }
 
-max_vida = 20;
+max_vida = 15;
 vida = max_vida;
 nome_boss = "BORBOLETAS DO CAOS";
 eh_boss_secundario = false;
@@ -19,7 +19,7 @@ tempo_poeira = 0;
 intervalo_poeira = 1;
 #endregion
 
-vida_real = 3;
+vida_real = 5;
 morto = false;
 
 explosoes_criadas = false;
