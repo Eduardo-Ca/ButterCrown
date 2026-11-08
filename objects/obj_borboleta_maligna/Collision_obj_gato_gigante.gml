@@ -1,2 +1,2 @@
-other.vida_real -= 1;
+other.levar_golpe();
 instance_destroy();

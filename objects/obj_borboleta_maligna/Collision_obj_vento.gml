@@ -1,2 +1,2 @@
-instance_destroy();
+levar_dano();
 instance_destroy(other);

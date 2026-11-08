@@ -13,7 +13,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"peixe",
-    "path":"folders/objetos/cenario/obstaculos/boss/peixe.yy",
+    "path":"folders/objetos/cenario/obstaculos/boss/gato_gigante/peixe.yy",
   },
   "parentObjectId":{
     "name":"obj_boss",
