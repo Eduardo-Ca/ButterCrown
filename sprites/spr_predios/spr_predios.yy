@@ -33,7 +33,7 @@
   ],
   "name":"spr_predios",
   "nineSlice":null,
-  "origin":4,
+  "origin":9,
   "parent":{
     "name":"cenario",
     "path":"folders/sprites/cenario.yy",
@@ -116,7 +116,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":67,
-    "yorigin":94,
+    "yorigin":161,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

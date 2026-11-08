@@ -10,8 +10,8 @@
   "name":"obj_fundo_predios",
   "overriddenProperties":[],
   "parent":{
-    "name":"controle",
-    "path":"folders/objetos/cenario/controle.yy",
+    "name":"cenario",
+    "path":"folders/objetos/cenario.yy",
   },
   "parentObjectId":null,
   "persistent":false,

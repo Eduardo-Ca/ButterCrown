@@ -75,6 +75,8 @@ if (distancia_acumulada >= proximo_espacamento) {
             if (variable_struct_exists(global.spawn_mult, _item.chave)) {
                 _mult *= variable_struct_get(global.spawn_mult, _item.chave);
             }
+			        
+            if (variable_global_exists("fase") && global.fase == "praia" && _item.chave == "construcao") _mult = 0;
             _pesos[i] = _item.chance * _f * _mult;
             _total += _pesos[i];
         }

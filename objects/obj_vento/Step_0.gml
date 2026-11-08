@@ -44,7 +44,7 @@ with (obj_obstaculo) {
             with (obj_borboleta) {
                 if (energia_atual < energia_maxima) {
                     energia_atual++;
-                    criar_texto_flutuante(x, y - 20, "+1", c_aqua, 2);
+                    criar_texto_flutuante(x, y - 20, "+1", c_lime, 2);
                 }
             }
         }
