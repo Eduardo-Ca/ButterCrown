@@ -42,7 +42,7 @@ if (global.distancia_percorrida >= proximo_boss_distancia) {
 #endregion
 
 #region SPAWN NORMAL
-if (instance_exists(obj_gato_gigante)) exit;
+if (instance_exists(obj_gato_gigante) || instance_exists(obj_tanque)) exit;
 distancia_acumulada += global.vel_mundo;
 
 if (distancia_acumulada >= proximo_espacamento) {

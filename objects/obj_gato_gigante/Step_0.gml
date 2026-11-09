@@ -69,12 +69,12 @@ if (vida_real <= 0) {
 
             for (var i = 0; i < _qtd; i++) {
                 var _tipo = "normal";
-                if (onda >= 3 && random(1) < 0.35) _tipo = "rapida";
+                if (onda >= 4 && random(1) < 0.35) _tipo = "rapida";
                 if (onda >= 5 && onda mod 2 == 1 && i == 0) _tipo = "rainha";
 
 				var _px = clamp(x + random_range(240, 340), _cx + _cw * 0.5, _cx + _cw - 25);
 				var _py = y - random_range(500, 600);
-                instance_create_layer(_px, _py, "luz", obj_portal_maligno, { tipo: _tipo, atraso: i * 12 });
+                instance_create_layer(_px, _py-60, "luz", obj_portal_maligno, { tipo: _tipo, atraso: i * 12 });
             }
         }
     }

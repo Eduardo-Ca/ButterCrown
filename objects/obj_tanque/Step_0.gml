@@ -10,8 +10,22 @@ if (global.pausado) {
 if (destruindo) {
     image_speed = 0;
     tiros = [];
+
+    if (!cena_chamada) {
+        cena_chamada = true;
+
+        with (obj_helicoptero) {
+            instance_create_layer(x, y, "Instances", obj_explosao_construcao);
+            instance_destroy();
+        }
+
+        if (instance_exists(obj_borboleta) && !obj_borboleta.morto) {
+            iniciar_cena_bomba();
+        }
+    }
     exit;
 }
+
 image_speed = 0.5;
 recuo = lerp(recuo, 0, 0.15);
 
@@ -25,6 +39,38 @@ if (instance_exists(obj_borboleta) && !obj_borboleta.morto) {
             var _hy = obj_borboleta.y;
             if (instance_exists(obj_chao)) _hy = min(_hy, obj_chao.bbox_top - 70);
             instance_create_layer(obj_borboleta.posicao_x_base + 420, _hy, "Instances", obj_helicoptero);
+        }
+    }
+}
+#endregion
+
+#region SOLTAR SOLDADOS
+if (instance_exists(obj_borboleta) && !obj_borboleta.morto) {
+    timer_soldado--;
+    if (timer_soldado <= 0) {
+        timer_soldado = irandom_range(soldado_min, soldado_max);
+
+        var _cam_x = camera_get_view_x(view_camera[0]);
+        var _cam_y = camera_get_view_y(view_camera[0]);
+        var _cam_w = camera_get_view_width(view_camera[0]);
+        var _cam_h = camera_get_view_height(view_camera[0]);
+
+        repeat (irandom_range(2, 4)) {
+            if (instance_number(obj_soldado_paraquedas) < max_soldados) {
+                var _sx, _sy;
+
+                if (random(1) < 0.5) {
+                    // de cima, em qualquer ponto da tela
+                    _sx = random_range(max(20, _cam_x + _cam_w * 0.2), _cam_x + _cam_w);
+                    _sy = _cam_y - random_range(30, 160);
+                } else {
+                    // da direita, em qualquer altura
+                    _sx = _cam_x + _cam_w + random_range(40, 500);
+                    _sy = random_range(_cam_y - 160, _cam_y + _cam_h * 0.8);
+                }
+
+                instance_create_layer(_sx, _sy, "Instances", obj_soldado_paraquedas);
+            }
         }
     }
 }

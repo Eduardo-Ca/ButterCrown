@@ -1,5 +1,5 @@
 if (global.pausado) exit;
-
+if(instance_exists(obj_loja)){instance_destroy();};
 t++;
 
 #region SIRENE E ESCURIDAO

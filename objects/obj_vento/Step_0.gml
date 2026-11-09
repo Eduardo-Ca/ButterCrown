@@ -12,7 +12,7 @@ var _p = 1 - (vida / vida_max);
 #endregion
 
 #region MOVIMENTO
-x += lengthdir_x(vel_vento, direcao) + global.vel_mundo;
+x += lengthdir_x(vel_vento, direcao);
 y += lengthdir_y(vel_vento, direcao);
 #endregion
 

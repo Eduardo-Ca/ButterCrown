@@ -130,3 +130,29 @@ if (tempo_atordoada > 0 && !morto) {
 }
 #endregion
 
+#region MIRA DO VENTO
+if (!morto && !modo_meteoro && !modo_foguete && !modo_dobra) {
+    var _pronto = (cooldown_vento_timer <= 0);
+    var _dir = point_direction(x, y, mouse_x, mouse_y);
+    var _dist = min(point_distance(x, y, mouse_x, mouse_y), 320);
+    var _esp = 14;
+    var _mov = (current_time * 0.03) mod _esp;
+
+    draw_set_color(_pronto ? c_aqua : c_gray);
+
+    for (var d = 24 + _mov; d < _dist; d += _esp) {
+        draw_set_alpha((_pronto ? 0.55 : 0.2) * (1 - d / 400));
+        draw_circle(x + lengthdir_x(d, _dir), y + lengthdir_y(d, _dir), 1.2, false);
+    }
+
+    var _px = x + lengthdir_x(_dist, _dir);
+    var _py = y + lengthdir_y(_dist, _dir);
+
+    draw_set_alpha(_pronto ? 0.8 : 0.3);
+    draw_circle(_px, _py, _pronto ? 5 + sin(current_time * 0.012) : 4, true);
+
+    draw_set_alpha(1);
+    draw_set_color(c_white);
+}
+#endregion
+

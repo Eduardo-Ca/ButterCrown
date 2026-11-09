@@ -50,6 +50,14 @@ lista_bosses = [
         titulo: "PROTEJA O GATO DAS BORBOLETAS DO CAOS",
         subtitulo: "",
         altura: 0
+    },
+    {
+        objetos: [
+            { objeto: obj_tanque, offset_x: 0, offset_y: 0 }
+        ],
+        titulo: "O EXERCITO CHEGOU",
+        subtitulo: "DERRUBE OS HELICOPTEROS",
+        altura: 0
     }
 ];
 #endregion

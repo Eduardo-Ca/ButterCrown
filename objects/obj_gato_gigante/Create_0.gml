@@ -19,7 +19,7 @@ tempo_poeira = 0;
 intervalo_poeira = 1;
 #endregion
 
-vida_real = 5;
+vida_real = 3;
 morto = false;
 
 explosoes_criadas = false;

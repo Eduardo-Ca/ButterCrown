@@ -106,7 +106,7 @@ if (letra_index < _len) {
 
             if (_c != " " && _atual mod 2 == 0) {
                 var _pitch = (cena_atual >= 2) ? random_range(0.6, 0.8) : random_range(1.0, 1.3);
-                audio_play_sound(snd_pulo, 1, false, 0.35, 0, _pitch);
+                audio_play_sound(snd_pulo, 1, false, 1, 0, _pitch);
             }
         }
     }

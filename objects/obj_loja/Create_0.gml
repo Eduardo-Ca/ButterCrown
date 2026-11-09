@@ -38,7 +38,7 @@ abas = [
 	    upgrades: [
 		    { nome: "Meteoro", desc: "Mergulha e destrói tudo", nivel_global: "hab_meteoro_nivel", max_lvl: 5, preco_base: 60, esc: 80,
 		      valor: function(_n) { return string(_n) + ((_n == 1) ? " uso" : " usos"); } },
-			{ nome: "Dobra", desc: "Dash dimensional que esmaga tudo", nivel_global: "hab_dobra_nivel", max_lvl: 10, preco_base: 80, esc: 100,
+			{ nome: "Dobra", desc: "Dash dimensional que esmaga tudo", nivel_global: "hab_dobra_nivel", max_lvl: 5, preco_base: 80, esc: 100,
 			  valor: function(_n) { return string(_n) + ((_n == 1) ? " uso" : " usos"); } },
 			{ nome: "Sapo Mago", desc: "Invoca um amigo que cria nuvens", nivel_global: "hab_sapo_nivel", max_lvl: 5, preco_base: 100, esc: 120,
 			  valor: function(_n) { return string(_n) + ((_n == 1) ? " uso" : " usos"); } },

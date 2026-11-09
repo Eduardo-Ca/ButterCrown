@@ -419,42 +419,40 @@ if (!morto) {
     }
     #endregion
 
-    #region HABILIDADE 
+       #region HABILIDADE 
     if (mouse_check_button_pressed(mb_right) && cooldown_vento_timer <= 0) {
         cooldown_vento_timer = cooldown_vento_max;
-        
+
         sprite_index = spr_buttercrown_batendo_asas;
         image_index = 0;
         image_speed = 1;
-        vento_disparado = false; 
+
+        if (audio_exists(snd_vento)) {
+            audio_play_sound(snd_vento, 5, false);
+        }
+
+        var dir_mouse = point_direction(x, y, mouse_x, mouse_y);
+        var _sx = x + lengthdir_x(20, dir_mouse);
+        var _sy = y + lengthdir_y(20, dir_mouse);
+
+        var efx = instance_create_layer(_sx, _sy, "Instances", obj_vento);
+        efx.pai = id;
+        efx.direcao = dir_mouse;
+        efx.image_angle = dir_mouse;
+
+        tremer_tela(3);
+        x -= lengthdir_x(6, dir_mouse);
+
+        repeat (6) {
+            var _pf = instance_create_layer(_sx, _sy, "Instances", obj_poeira);
+            _pf.cor = c_aqua;
+            _pf.direction = dir_mouse + random_range(-35, 35);
+            _pf.speed = random_range(1.5, 3);
+            _pf.tamanho_original = random_range(1.2, 2.5);
+        }
     }
 
     if (sprite_index == spr_buttercrown_batendo_asas) {
-        if (floor(image_index) >= 1 && !vento_disparado) {
-            vento_disparado = true;
-
-            if (audio_exists(snd_vento)) {
-                audio_play_sound(snd_vento, 5, false);
-            }
-
-            var dir_mouse = point_direction(x, y, mouse_x, mouse_y);
-
-            var efx = instance_create_layer(x + 20, y, "Instances", obj_vento);
-            efx.pai = id;
-            efx.direcao = dir_mouse;
-
-            tremer_tela(3);
-            x -= lengthdir_x(6, dir_mouse);
-
-            repeat (6) {
-                var _pf = instance_create_layer(x + 20, y, "Instances", obj_poeira);
-                _pf.cor = c_aqua;
-                _pf.direction = dir_mouse + random_range(-35, 35);
-                _pf.speed = random_range(1.5, 3);
-                _pf.tamanho_original = random_range(1.2, 2.5);
-            }
-        }
-
         var delta_frame = (image_speed * sprite_get_speed(sprite_index)) / game_get_speed(gamespeed_fps);
         if (image_index + delta_frame >= image_number) {
             sprite_index = spr_buttercrown;
@@ -497,7 +495,7 @@ if (modo_tornado) {
         var _dir = point_direction(x, y, mouse_x, mouse_y);
 
         for (var k = -1; k <= 1; k++) {
-            var _v = instance_create_layer(x + 20, y, "Instances", obj_vento);
+            var _v = instance_create_layer(x + lengthdir_x(20, _dir + k * tornado_espaco), y + lengthdir_y(20, _dir + k * tornado_espaco), "Instances", obj_vento);
             _v.pai = id;
             _v.direcao = _dir + k * tornado_espaco;
             _v.da_energia = true;

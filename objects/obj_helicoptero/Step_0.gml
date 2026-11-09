@@ -42,9 +42,13 @@ if (_v != noone) {
         tocar_som(snd_explosao);
         tremer_tela(12);
         zoom_punch(0.1);
-        global.caos += 3;
-        criar_texto_flutuante(x, y - 30, "+3", c_lime, 3);
+       global.caos += 3;
+		criar_texto_flutuante(x, y - 30, "+2", c_lime, 3);
 
+		if (instance_exists(obj_borboleta)) {
+		    obj_borboleta.energia_atual = min(obj_borboleta.energia_atual + 2, obj_borboleta.energia_maxima);
+		}
+		
         if (instance_exists(obj_tanque)) obj_tanque.tomar_dano(1);
         instance_destroy();
         exit;

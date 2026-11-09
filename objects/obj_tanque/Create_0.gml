@@ -1,7 +1,10 @@
 event_inherited();
+image_xscale = 2;
+image_yscale = 2;
+cena_chamada = false;
 
 #region BOSS EXERCITO
-max_vida = 5;
+max_vida = 10;
 vida = max_vida;
 vida_exibida = max_vida;
 nome_boss = "EXERCITO";
@@ -19,8 +22,8 @@ sprite_index = spr_tanque;
 image_speed = 0;
 
 vel_tanque = 0.9;
-dist_min = 140;
-dist_max = 175;
+dist_min = 265;
+dist_max = 285;
 timer_troca = 0;
 alvo_offset = dist_max;
 
@@ -30,8 +33,15 @@ aviso_tiro = 40;
 timer_tiro = 120;
 recuo = 0;
 
-MORTEIRO_X = -77;
-MORTEIRO_Y = -64;
+MORTEIRO_X = -202;
+MORTEIRO_Y = -70;
+#endregion
+
+#region SOLDADOS
+soldado_min = 10;
+soldado_max = 15;
+max_soldados = 7;
+timer_soldado = 180;
 #endregion
 
 #region TIROS
@@ -57,7 +67,11 @@ explodir_tiro = function(_tx, _ty) {
 #endregion
 
 #region COLOCAR NO CHAO
+afundar = 8;
+
 if (instance_exists(obj_chao)) {
-    y = (obj_chao.bbox_top - (sprite_get_bbox_bottom(sprite_index) + 1 - sprite_get_yoffset(sprite_index))) +11;
+    var _base = (sprite_get_bbox_bottom(sprite_index) + 1 - sprite_get_yoffset(sprite_index)) * image_yscale;
+    y = obj_chao.bbox_top - _base + afundar;
+    depth = obj_chao.depth + 1;
 }
 #endregion
