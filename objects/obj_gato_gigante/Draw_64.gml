@@ -48,9 +48,9 @@ if (onda_banner > 0 && timer_aviso <= 0) {
     draw_set_valign(fa_middle);
     draw_set_alpha(_a);
     draw_set_color(c_black);
-    draw_text_transformed(_gw / 2 + 2, 132, "ONDA " + string(onda), 1.6, 1.6, 0);
+    draw_text_transformed(_gw / 2 + 2, 132, tr("ONDA ") + string(onda), 1.6, 1.6, 0);
     draw_set_color(make_color_rgb(255, 120, 200));
-    draw_text_transformed(_gw / 2, 130, "ONDA " + string(onda), 1.6, 1.6, 0);
+    draw_text_transformed(_gw / 2, 130, tr("ONDA ") + string(onda), 1.6, 1.6, 0);
     draw_set_alpha(1);
     draw_set_color(c_white);
     draw_set_halign(fa_left);

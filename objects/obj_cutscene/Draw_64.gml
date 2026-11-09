@@ -208,7 +208,7 @@ draw_set_halign(fa_right);
 draw_set_valign(fa_middle);
 draw_set_color(c_white);
 draw_set_alpha(0.5 + segurar_esc * 0.5);
-draw_text(_rx - 24, _ry, "Segure ESC para pular");
+draw_text(_rx - 24, _ry, tr("Segure ESC para pular"));
 
 draw_set_alpha(0.3);
 draw_circle(_rx, _ry, 12, true);

@@ -169,6 +169,10 @@ for (var i = 0; i < qtd_botoes; i++) {
     var _ix = _x1 + 36 * _e;
     draw_set_color(_cor_txt);
     switch (_b.acao) {
+        case "novo":
+            draw_text_transformed(_ix, _by, "+", 2 * _e, 2 * _e, 0);
+            break;
+        case "continuar":
         case "jogar":
             draw_triangle(_ix - 8 * _e, _by - 10 * _e, _ix - 8 * _e, _by + 10 * _e, _ix + 10 * _e, _by, false);
             break;
@@ -184,10 +188,10 @@ for (var i = 0; i < qtd_botoes; i++) {
     // texto
     if (!_sel) {
         draw_set_color(c_black);
-        draw_text_transformed(gw / 2 + 14 * _e + 2, _by + 2, _b.texto, 2 * _e, 2 * _e, 0);
+        draw_text_transformed(gw / 2 + 14 * _e + 2, _by + 2, tr(_b.texto), 2 * _e, 2 * _e, 0);
     }
     draw_set_color(_cor_txt);
-    draw_text_transformed(gw / 2 + 14 * _e, _by, _b.texto, 2 * _e, 2 * _e, 0);
+    draw_text_transformed(gw / 2 + 14 * _e, _by, tr(_b.texto), 2 * _e, 2 * _e, 0);
 }
 #endregion
 
@@ -206,7 +210,7 @@ draw_set_alpha(1);
 #region RODAPE
 if (global.recorde_distancia > 0) {
     draw_set_color(make_color_hsv((tempo * 2) mod 256, 150, 255));
-    draw_text_transformed(gw / 2, gh - 30, "RECORDE: " + string(floor(global.recorde_distancia)) + " m", 1.2, 1.2, 0);
+    draw_text_transformed(gw / 2, gh - 30, tr("RECORDE: ") + string(floor(global.recorde_distancia)) + " m", 1.2, 1.2, 0);
 }
 draw_set_halign(fa_right);
 draw_set_color(c_white);
@@ -214,6 +218,37 @@ draw_set_alpha(0.5);
 draw_text(gw - 20, gh - 20, "W/S + ENTER");
 draw_set_alpha(1);
 draw_set_halign(fa_center);
+#endregion
+
+#region BOTAO DE IDIOMA
+var _lcx = 72;
+var _lcy = gh - 36;
+var _lw = 56 * idioma_esc;
+var _lh = 20 * idioma_esc;
+var _en = (tr("JOGAR") == "PLAY");
+
+draw_set_color(c_black);
+draw_set_alpha(0.45);
+draw_roundrect_ext(_lcx - _lw + 3, _lcy - _lh + 4, _lcx + _lw + 3, _lcy + _lh + 4, 12, 12, false);
+
+draw_set_alpha(0.92);
+draw_set_color(make_color_rgb(35, 30, 60));
+draw_roundrect_ext(_lcx - _lw, _lcy - _lh, _lcx + _lw, _lcy + _lh, 12, 12, false);
+
+draw_set_alpha(1);
+draw_set_color(make_color_rgb(255, 210, 60));
+if (_en) draw_roundrect_ext(_lcx + 1, _lcy - _lh + 3, _lcx + _lw - 3, _lcy + _lh - 3, 9, 9, false);
+else     draw_roundrect_ext(_lcx - _lw + 3, _lcy - _lh + 3, _lcx - 1, _lcy + _lh - 3, 9, 9, false);
+
+draw_set_color(c_white);
+draw_roundrect_ext(_lcx - _lw, _lcy - _lh, _lcx + _lw, _lcy + _lh, 12, 12, true);
+
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_set_color(_en ? c_white : make_color_rgb(40, 20, 50));
+draw_text(_lcx - _lw / 2, _lcy, "PT");
+draw_set_color(_en ? make_color_rgb(40, 20, 50) : c_white);
+draw_text(_lcx + _lw / 2, _lcy, "EN");
 #endregion
 
 #region PAINEL DO TUTORIAL
@@ -260,9 +295,9 @@ if (painel_escala > 0.01) {
         #region TITULO
         var _ty = _y1 + 36;
         draw_set_color(c_black);
-        draw_text_transformed(px + 3, _ty + 3, "COMO JOGAR", 2.2, 2.2, 0);
+        draw_text_transformed(px + 3, _ty + 3, tr("COMO JOGAR"), 2.2, 2.2, 0);
         draw_set_color(c_yellow);
-        draw_text_transformed(px, _ty, "COMO JOGAR", 2.2, 2.2, 0);
+        draw_text_transformed(px, _ty, tr("COMO JOGAR"), 2.2, 2.2, 0);
 
         var _bal = sin(tempo * 0.1) * 4;
         draw_sprite_ext(spr_buttercrown, (tempo div 6) mod 3, px - 200, _ty + _bal, 2, 2, 0, c_white, 1);
@@ -278,7 +313,7 @@ if (painel_escala > 0.01) {
         #region COLUNA ESQUERDA: CONTROLES
         var _lx = px - 340;
         draw_set_color(cor_cyan);
-        draw_text_transformed(px - 190, _y1 + 105, "CONTROLES", 1.4, 1.4, 0);
+        draw_text_transformed(px - 190, _y1 + 105, tr("CONTROLES"), 1.4, 1.4, 0);
 
         var _ry = _y1 + 160;
         var _esp = 62;
@@ -288,21 +323,21 @@ if (painel_escala > 0.01) {
         desenhar_mouse(_lx + 15, _ry + sin(tempo * 0.08) * 2, -1, c_yellow);
         draw_set_color(c_white);
         draw_set_valign(fa_middle);
-        draw_text(_lx + 50, _ry, "Voar / dar impulso");
+        draw_text(_lx + 50, _ry, tr("Voar / dar impulso"));
 
         _ry += _esp;
         desenhar_mouse(_lx + 15, _ry + sin(tempo * 0.08 + 1) * 2, 1, cor_cyan);
         draw_set_color(c_white);
         draw_set_halign(fa_left);
         draw_set_valign(fa_middle);
-        draw_text(_lx + 50, _ry, "Bater asas (vento)");
+        draw_text(_lx + 50, _ry, tr("Bater asas (vento)"));
 
         _ry += _esp;
-        desenhar_tecla(_lx + 15, _ry, "P");
+        desenhar_tecla(_lx + 15, _ry, "ESC", 24);
         draw_set_color(c_white);
         draw_set_halign(fa_left);
         draw_set_valign(fa_middle);
-        draw_text(_lx + 50, _ry, "Pausar");
+        draw_text(_lx + 50, _ry, tr("Pausar"));
 
         _ry += _esp;
         desenhar_tecla(_lx + 15, _ry, "1");
@@ -311,13 +346,13 @@ if (painel_escala > 0.01) {
         draw_set_color(c_white);
         draw_set_halign(fa_left);
         draw_set_valign(fa_middle);
-        draw_text(_lx + 120, _ry, "Usar poderes");
+        draw_text(_lx + 120, _ry, tr("Usar poderes"));
         #endregion
 
         #region COLUNA DIREITA: DICAS
         draw_set_halign(fa_center);
         draw_set_color(c_yellow);
-        draw_text_transformed(px + 190, _y1 + 105, "DICAS", 1.4, 1.4, 0);
+        draw_text_transformed(px + 190, _y1 + 105, tr("DICAS"), 1.4, 1.4, 0);
 
         var _rx = px + 40;
         var _dy = _y1 + 160;
@@ -337,7 +372,7 @@ if (painel_escala > 0.01) {
             draw_set_color(_d.cor);
             draw_set_halign(fa_left);
             draw_set_valign(fa_middle);
-            draw_text_ext(_rx + 45, _iy, _d.txt, 18, _w_txt);
+            draw_text_ext(_rx + 45, _iy, tr(_d.txt), 18, _w_txt);
         }
         #endregion
 
@@ -365,7 +400,7 @@ if (painel_escala > 0.01) {
         draw_set_halign(fa_center);
         draw_set_valign(fa_middle);
         draw_set_color(make_color_rgb(30, 50, 30));
-        draw_text_transformed(_bxc, _byc, "ENTENDI!", 1.6 * _eb, 1.6 * _eb, 0);
+        draw_text_transformed(_bxc, _byc, tr("ENTENDI!"), 1.6 * _eb, 1.6 * _eb, 0);
 
         draw_set_color(c_white);
         draw_set_alpha(0.5);
@@ -373,6 +408,51 @@ if (painel_escala > 0.01) {
         draw_set_alpha(1);
         #endregion
     }
+}
+#endregion
+
+#region CONFIRMAR NOVO JOGO
+if (confirmar_novo) {
+    draw_set_color(c_black);
+    draw_set_alpha(0.6);
+    draw_rectangle(-600, -300, gw + 600, gh + 300, false);
+
+    var _pw = 290;
+    var _ph = 130;
+    var _pcy = gh / 2;
+
+    draw_set_alpha(0.97);
+    draw_set_color(make_color_rgb(35, 25, 65));
+    draw_roundrect_ext(gw / 2 - _pw, _pcy - _ph, gw / 2 + _pw, _pcy + _ph, 20, 20, false);
+    draw_set_alpha(1);
+    draw_set_color(make_color_rgb(255, 90, 100));
+    draw_roundrect_ext(gw / 2 - _pw, _pcy - _ph, gw / 2 + _pw, _pcy + _ph, 20, 20, true);
+
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    draw_set_color(c_white);
+    draw_text_transformed(gw / 2, _pcy - 78, tr("Começar um novo jogo?"), 1.5, 1.5, 0);
+    draw_set_color(make_color_rgb(255, 170, 170));
+    draw_text(gw / 2, _pcy - 32, tr("Seu progresso atual será apagado."));
+
+    var _rot = [tr("SIM, APAGAR"), tr("CANCELAR")];
+    for (var i = 0; i < 2; i++) {
+        var _cx = gw / 2 + ((i == 0) ? -130 : 130);
+        var _cy = _pcy + 45;
+        var _ativo = (i == confirmar_sel);
+        var _cor = (i == 0) ? make_color_rgb(255, 90, 100) : make_color_rgb(80, 220, 255);
+
+        draw_set_color(_ativo ? _cor : make_color_rgb(55, 45, 90));
+        draw_roundrect_ext(_cx - 115, _cy - 24, _cx + 115, _cy + 24, 14, 14, false);
+        draw_set_color(_ativo ? c_white : _cor);
+        draw_roundrect_ext(_cx - 115, _cy - 24, _cx + 115, _cy + 24, 14, 14, true);
+        draw_set_color(_ativo ? make_color_rgb(40, 20, 50) : c_white);
+        draw_text(_cx, _cy, _rot[i]);
+    }
+
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+    draw_set_color(c_white);
 }
 #endregion
 

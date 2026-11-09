@@ -3,7 +3,7 @@ if (em_intro) {
     var _ix = display_get_gui_width() / 2;
     var _iy = display_get_gui_height() * 0.35;
 
-    var _itexto = (etapa_intro > 0) ? string(etapa_intro) : "VOAR!";
+    var _itexto = (etapa_intro > 0) ? string(etapa_intro) : tr("VOAR!");
     var _total = (etapa_intro > 0) ? frames_por_numero : 25;
     var _t = 1 - (timer_intro / _total);
     var _iesc = (etapa_intro > 0) ? (4 - _t * 1.5) : (3 + _t * 1.5);
@@ -40,7 +40,7 @@ if (alpha < 0.02) exit;
 var _x = display_get_gui_width() / 2;
 var _y = display_get_gui_height() - 70 + (1 - alpha) * 10;
 
-var _texto = (timer_feedback > 0) ? "BOA!" : textos[passo];
+var _texto = (timer_feedback > 0) ? tr("BOA!") : textos[passo];
 var _cor = (timer_feedback > 0) ? c_lime : c_white;
 var _esc = 1.1 + sin(current_time * 0.005) * 0.02;
 

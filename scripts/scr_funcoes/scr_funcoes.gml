@@ -28,7 +28,7 @@ function criar_texto_flutuante(_x, _y, _texto, _cor, _tamanho) {
     var _inst = instance_create_layer(_x, _y, "Instances", obj_texto_flutuante); 
     
     if (instance_exists(_inst)) {
-        _inst.texto = string(_texto);
+        _inst.texto = tr(string(_texto));
         _inst.cor = _cor;
         _inst.tamanho = _tamanho;
     }
@@ -38,7 +38,7 @@ function criar_texto_flutuante(_x, _y, _texto, _cor, _tamanho) {
 
 function adicionar_log_cadeia(_texto, _tempo_duracao_segundos = 4) {
     array_push(global.logs_eventos, {
-        texto: _texto,
+        texto: tr_log(_texto),
         timer: _tempo_duracao_segundos * game_get_speed(gamespeed_fps)
     });
 }

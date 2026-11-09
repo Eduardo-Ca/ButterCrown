@@ -74,6 +74,10 @@ global.spawn_freq_mult = 1;
 global.spawn_mult = {};
 #endregion
 
+#region CARREGAR SAVE
+carregar_jogo();
+#endregion
+
 #region STATUS FINAIS
 habilidades_definir();
 recalcular_status();

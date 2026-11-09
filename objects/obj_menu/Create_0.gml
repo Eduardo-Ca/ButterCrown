@@ -77,18 +77,25 @@ titulo_y = -150;
 titulo_vy = 0;
 titulo_squash = 0;
 titulo_pousou = false;
+
+idioma_esc = 1;
 #endregion
 
 #region BOTOES
-botoes = [
-    { texto: "JOGAR",    acao: "jogar",    cor: make_color_rgb(255, 210, 60) },
-    { texto: "TUTORIAL", acao: "tutorial", cor: make_color_rgb(80, 220, 255) },
-    { texto: "SAIR",     acao: "sair",     cor: make_color_rgb(255, 90, 100) }
-];
+tem_save = save_existe();
+botoes = [];
+if (tem_save) {
+    array_push(botoes, { texto: "CONTINUAR", acao: "continuar", cor: make_color_rgb(255, 210, 60) });
+    array_push(botoes, { texto: "NOVO JOGO", acao: "novo",      cor: make_color_rgb(120, 230, 130) });
+} else {
+    array_push(botoes, { texto: "JOGAR",     acao: "jogar",     cor: make_color_rgb(255, 210, 60) });
+}
+array_push(botoes, { texto: "TUTORIAL", acao: "tutorial", cor: make_color_rgb(80, 220, 255) });
+array_push(botoes, { texto: "SAIR",     acao: "sair",     cor: make_color_rgb(255, 90, 100) });
 qtd_botoes = array_length(botoes);
 botao_esc = array_create(qtd_botoes, 0);
-botao_y0 = gh * 0.5;
-botao_esp = 78;
+botao_y0 = tem_save ? gh * 0.46 : gh * 0.5;
+botao_esp = tem_save ? 70 : 78;
 botao_w = 300;
 botao_h = 58;
 sel = 0;
@@ -101,11 +108,21 @@ mostrar_controles = false;
 painel_escala = 0;
 tutorial_abriu = 0;
 
+confirmar_novo = false;
+confirmar_sel = 1;
+confirmar_abriu = 0;
+
 acionar_botao = function(_i) {
     tocar_som(snd_estrela);
     botao_esc[_i] = 1.4;
     switch (botoes[_i].acao) {
-        case "jogar":    saindo = true; break;
+        case "jogar":
+        case "continuar": saindo = true; break;
+        case "novo":
+            confirmar_novo = true;
+            confirmar_sel = 1;
+            confirmar_abriu = tempo;
+            break;
         case "tutorial": mostrar_controles = true; tutorial_abriu = tempo; break;
         case "sair":     game_end(); break;
     }
@@ -139,12 +156,12 @@ desenhar_mouse = function(_x, _y, _lado, _cor) {
     draw_roundrect_ext(_x - _w, _y - _h, _x + _w, _y + _h, 12, 12, true);
 };
 
-desenhar_tecla = function(_x, _y, _txt) {
+desenhar_tecla = function(_x, _y, _txt, _larg = 15) {
     draw_set_alpha(1);
     draw_set_color(make_color_rgb(120, 120, 150));
-    draw_roundrect_ext(_x - 15, _y - 13, _x + 15, _y + 17, 6, 6, false);
+    draw_roundrect_ext(_x - _larg, _y - 13, _x + _larg, _y + 17, 6, 6, false);
     draw_set_color(make_color_rgb(235, 235, 245));
-    draw_roundrect_ext(_x - 15, _y - 17, _x + 15, _y + 12, 6, 6, false);
+    draw_roundrect_ext(_x - _larg, _y - 17, _x + _larg, _y + 12, 6, 6, false);
     draw_set_color(make_color_rgb(40, 30, 60));
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);

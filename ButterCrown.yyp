@@ -121,6 +121,7 @@
     {"id":{"name":"scr_funcoes_camera","path":"scripts/scr_funcoes_camera/scr_funcoes_camera.yy",},},
     {"id":{"name":"scr_funcoes","path":"scripts/scr_funcoes/scr_funcoes.yy",},},
     {"id":{"name":"scr_habilidades","path":"scripts/scr_habilidades/scr_habilidades.yy",},},
+    {"id":{"name":"scr_idioma","path":"scripts/scr_idioma/scr_idioma.yy",},},
     {"id":{"name":"scr_loja","path":"scripts/scr_loja/scr_loja.yy",},},
     {"id":{"name":"src_saves","path":"scripts/src_saves/src_saves.yy",},},
     {"id":{"name":"snd_bolha","path":"sounds/snd_bolha/snd_bolha.yy",},},

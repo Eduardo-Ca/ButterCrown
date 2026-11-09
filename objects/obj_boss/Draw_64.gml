@@ -6,7 +6,7 @@ if (_gui_w == 0) _gui_w = room_width;
 var _total_vida = 0;
 var _total_max_vida = 0;
 var _total_vida_exibida = 0;
-var _nome = nome_boss;
+var _nome = tr(nome_boss);
 
 with (obj_boss) {
     _total_vida += vida;

@@ -134,9 +134,9 @@ if (t >= T_TITULO) {
 
     draw_set_alpha(_a);
     draw_set_color(c_black);
-    draw_text_transformed(_tx + 5, _ty + 5, "APOCALIPSE", _esc, _esc, 0);
+    draw_text_transformed(_tx + 5, _ty + 5, tr("APOCALIPSE"), _esc, _esc, 0);
     draw_set_color(make_color_rgb(220, 30, 20));
-    draw_text_transformed(_tx, _ty, "APOCALIPSE", _esc, _esc, 0);
+    draw_text_transformed(_tx, _ty, tr("APOCALIPSE"), _esc, _esc, 0);
 
 }
 #endregion

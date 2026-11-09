@@ -53,19 +53,19 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_alpha(_a);
 draw_set_color(c_black);
-draw_text_transformed(px + 3, _ty + 3, "LOJA DE UPGRADES", 1.6, 1.6, 0);
+draw_text_transformed(px + 3, _ty + 3, tr("LOJA DE UPGRADES"), 1.6, 1.6, 0);
 draw_set_color(c_white);
-draw_text_transformed(px, _ty, "LOJA DE UPGRADES", 1.6, 1.6, 0);
+draw_text_transformed(px, _ty, tr("LOJA DE UPGRADES"), 1.6, 1.6, 0);
 
 draw_set_halign(fa_left);
 draw_set_color(make_color_rgb(140, 150, 185));
-draw_text_transformed(_x1 + margem, _ty - 10, "ÚLTIMA: " + string(floor(global.distancia_percorrida)) + " m", 0.8, 0.8, 0);
-draw_text_transformed(_x1 + margem, _ty + 10, "RECORDE: " + string(floor(global.recorde_distancia)) + " m", 0.8, 0.8, 0);
+draw_text_transformed(_x1 + margem, _ty - 10, tr("ÚLTIMA: ") + string(floor(global.distancia_percorrida)) + " m", 0.8, 0.8, 0);
+draw_text_transformed(_x1 + margem, _ty + 10, tr("RECORDE: ") + string(floor(global.recorde_distancia)) + " m", 0.8, 0.8, 0);
 
 if (global.distancia_percorrida > 0 && global.distancia_percorrida >= global.recorde_distancia) {
     draw_set_halign(fa_center);
     draw_set_color(make_color_hsv((current_time / 8) mod 255, 200, 255));
-    draw_text_transformed(px, _y1 + 60, "NOVO RECORDE!", 0.8, 0.8, 0);
+    draw_text_transformed(px, _y1 + 60, tr("NOVO RECORDE!"), 0.8, 0.8, 0);
 }
 
 draw_set_halign(fa_right);
@@ -74,7 +74,7 @@ var _cor_caos = (flash_caos > 0 && (flash_caos mod 4) < 2) ? c_red : make_color_
 var _larg_caos = string_width(_txt_caos) * 1.3;
 
 draw_set_color(make_color_rgb(140, 150, 185));
-draw_text_transformed(_x2 - margem, _ty - 14, "CAOS", 0.7, 0.7, 0);
+draw_text_transformed(_x2 - margem, _ty - 14, tr("CAOS"), 0.7, 0.7, 0);
 draw_set_color(c_black);
 draw_text_transformed(_x2 - margem + 2, _ty + 10, _txt_caos, 1.3, 1.3, 0);
 draw_set_color(_cor_caos);
@@ -194,13 +194,13 @@ for (var j = 0; j < _qtd_vis; j++) {
     if (_max) {
         draw_set_color(make_color_rgb(255, 210, 70));
         draw_set_alpha(_aa);
-        draw_text_transformed(_rx1 + 640, _meio, _upg.valor(_lvl), 0.8, 0.8, 0);
+        draw_text_transformed(_rx1 + 640, _meio, tr_log(_upg.valor(_lvl)), 0.8, 0.8, 0);
     } else {
         draw_set_color(make_color_rgb(140, 150, 185));
         draw_set_alpha(_aa);
-        draw_text_transformed(_rx1 + 640, _meio - 9, _upg.valor(_lvl), 0.8, 0.8, 0);
+        draw_text_transformed(_rx1 + 640, _meio - 9, tr_log(_upg.valor(_lvl)), 0.8, 0.8, 0);
         draw_set_color(make_color_rgb(120, 255, 150));
-        draw_text_transformed(_rx1 + 640, _meio + 9, "> " + _upg.valor(_lvl + 1), 0.8, 0.8, 0);
+        draw_text_transformed(_rx1 + 640, _meio + 9, "> " + tr_log(_upg.valor(_lvl + 1)), 0.8, 0.8, 0);
     }
     #endregion
 
@@ -220,7 +220,7 @@ for (var j = 0; j < _qtd_vis; j++) {
         draw_set_alpha(_aa);
         draw_roundrect_ext(_bx1, _by1, _bx2, _by2, 8, 8, false);
         draw_set_color(c_black);
-        draw_text((_bx1 + _bx2) / 2, (_by1 + _by2) / 2, "MÁX");
+        draw_text((_bx1 + _bx2) / 2, (_by1 + _by2) / 2, tr("MÁX"));
     } else if (_pode) {
         draw_set_color(_hb ? make_color_rgb(110, 255, 140) : make_color_rgb(50, 200, 100));
         draw_set_alpha(_aa);
@@ -267,8 +267,8 @@ if (_total == 0) {
     draw_set_valign(fa_middle);
     draw_set_alpha(_aa);
     draw_set_color(make_color_rgb(140, 150, 185));
-    draw_text_transformed(px, linhas_y1 + _oy + 130, "EM BREVE", 1.4, 1.4, 0);
-    draw_text_transformed(px, linhas_y1 + _oy + 165, "Novas habilidades chegando", 0.8, 0.8, 0);
+    draw_text_transformed(px, linhas_y1 + _oy + 130, tr("EM BREVE"), 1.4, 1.4, 0);
+    draw_text_transformed(px, linhas_y1 + _oy + 165, tr("Novas habilidades chegando"), 0.8, 0.8, 0);
 }
 #endregion
 #endregion
@@ -292,14 +292,14 @@ draw_set_alpha(_a);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_black);
-draw_text_transformed(px, (_jy1 + _jy2) / 2, "JOGAR NOVAMENTE", 1.1, 1.1, 0);
+draw_text_transformed(px, (_jy1 + _jy2) / 2, tr("JOGAR NOVAMENTE"), 1.1, 1.1, 0);
 
 draw_set_color(make_color_rgb(140, 150, 185));
 draw_set_halign(fa_left);
-var _hint = (array_length(_aba.upgrades) > max_visiveis) ? "Q / E ABA   RODA: ROLAR" : "Q / E  TROCAR ABA";
+var _hint = (array_length(_aba.upgrades) > max_visiveis) ? tr("Q / E ABA   RODA: ROLAR") : tr("Q / E  TROCAR ABA");
 draw_text_transformed(linha_x1, (_jy1 + _jy2) / 2, _hint, 0.8, 0.8, 0);
 draw_set_halign(fa_right);
-draw_text_transformed(linha_x2, (_jy1 + _jy2) / 2, "ENTER  JOGAR", 0.8, 0.8, 0);
+draw_text_transformed(linha_x2, (_jy1 + _jy2) / 2, tr("ENTER  JOGAR"), 0.8, 0.8, 0);
 #endregion
 
 #region RESET

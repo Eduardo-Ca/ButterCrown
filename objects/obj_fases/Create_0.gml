@@ -58,7 +58,7 @@ reiniciar_fases = function() {
     alpha_praia = (global.fase == "praia") ? 1 : 0;
     banner_max = 180;
     banner_timer = banner_max;
-    banner_titulo = "FASE 1";
+    banner_titulo = tr("FASE ") + "1";
     banner_nome = fases[0].nome;
     banner_cor = fases[0].cor;
     ultima_dist = 0;

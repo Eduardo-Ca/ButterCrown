@@ -23,4 +23,5 @@ textos = [
     "MOUSE DIREITO solta um vento na direção do mouse",
     "Acerte obstáculos para gerar CAOS e compre upgrades"
 ];
+for (var i = 0; i < array_length(textos); i++) textos[i] = tr(textos[i]);
 #endregion

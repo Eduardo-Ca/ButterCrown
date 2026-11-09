@@ -15,13 +15,37 @@ if (global.pausado && !(instance_exists(obj_tutorial) && obj_tutorial.em_intro))
 
     // sombra + titulo
     draw_set_color(c_black);
-    draw_text_transformed(_gw / 2 + 3, _gh / 2 - 37, "JOGO PAUSADO", 2.5, 2.5, 0);
+    draw_text_transformed(_gw / 2 + 3, _gh / 2 - 107, tr("JOGO PAUSADO"), 2.5, 2.5, 0);
     draw_set_color(c_white);
-    draw_text_transformed(_gw / 2, _gh / 2 - 40, "JOGO PAUSADO", 2.5, 2.5, 0);
+    draw_text_transformed(_gw / 2, _gh / 2 - 110, tr("JOGO PAUSADO"), 2.5, 2.5, 0);
 
     // piscando
     draw_set_alpha(0.6 + sin(current_time * 0.005) * 0.4);
-    draw_text(_gw / 2, _gh / 2 + 10, "Pressione P para Voltar");
+    draw_text(_gw / 2, _gh / 2 - 62, tr("Pressione ESC para Voltar"));
+
+    // botoes
+    for (var i = 0; i < 2; i++) {
+        var _sel = (i == pausa_sel);
+        var _by = pausa_y(i);
+        var _w = pausa_w * pausa_esc[i] / 2;
+        var _h = pausa_h * pausa_esc[i] / 2;
+        var _cor = (i == 0) ? make_color_rgb(255, 210, 60) : make_color_rgb(80, 220, 255);
+
+        draw_set_color(c_black);
+        draw_set_alpha(0.4);
+        draw_roundrect_ext(_gw / 2 - _w + 5, _by - _h + 5, _gw / 2 + _w + 5, _by + _h + 5, 18, 18, false);
+
+        draw_set_alpha(0.95);
+        draw_set_color(_sel ? _cor : make_color_rgb(35, 30, 60));
+        draw_roundrect_ext(_gw / 2 - _w, _by - _h, _gw / 2 + _w, _by + _h, 18, 18, false);
+
+        draw_set_alpha(1);
+        draw_set_color(_sel ? c_white : _cor);
+        draw_roundrect_ext(_gw / 2 - _w, _by - _h, _gw / 2 + _w, _by + _h, 18, 18, true);
+
+        draw_set_color(_sel ? make_color_rgb(40, 20, 50) : c_white);
+        draw_text_transformed(_gw / 2, _by, tr(pausa_opcoes[i]), 1.5 * pausa_esc[i], 1.5 * pausa_esc[i], 0);
+    }
 
     draw_set_alpha(1);
     draw_set_halign(fa_left);
@@ -44,7 +68,7 @@ if (global.pausado && !(instance_exists(obj_tutorial) && obj_tutorial.em_intro))
     
     if (total > 0) {
         draw_set_color(c_yellow);
-        draw_text(start_x, start_y - (total * espacamento) - 10, "--- REAÇÕES EM CADEIA ---");
+        draw_text(start_x, start_y - (total * espacamento) - 10, tr("--- REAÇÕES EM CADEIA ---"));
         
         for (var i = 0; i < total; i++) {
             var item = global.logs_eventos[i];
@@ -78,7 +102,7 @@ var _escala = 1.1 + sin(current_time * 0.004) * 0.08;
 var _angulo = sin(current_time * 0.002) * 2;
 var _cor_arcoiris = make_color_hsv((current_time / 12) % 255, 255, 255);
 
-var _texto = "RECORDE: " + string(floor(global.recorde_distancia)) + "m";
+var _texto = tr("RECORDE: ") + string(floor(global.recorde_distancia)) + "m";
 
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);

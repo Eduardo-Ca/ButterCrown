@@ -15,14 +15,14 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
 draw_set_color(c_black);
-draw_text_transformed(_centro_x + 3, _centro_y + 3, "ALERTA DE BOSS!", 2 * escala, 2 * escala, 0);
+draw_text_transformed(_centro_x + 3, _centro_y + 3, tr("ALERTA DE BOSS!"), 2 * escala, 2 * escala, 0);
 
 draw_set_color(c_red);
 draw_set_alpha(_alpha);
-draw_text_transformed(_centro_x, _centro_y, "ALERTA DE BOSS!", 2 * escala, 2 * escala, 0);
+draw_text_transformed(_centro_x, _centro_y, tr("ALERTA DE BOSS!"), 2 * escala, 2 * escala, 0);
 
 draw_set_color(c_yellow);
-draw_text_transformed(_centro_x, _centro_y + 35, string(texto_titulo), 1.2 * escala, 1.2 * escala, 0);
+draw_text_transformed(_centro_x, _centro_y + 35, tr(string(texto_titulo)), 1.2 * escala, 1.2 * escala, 0);
 
 draw_set_alpha(1.0);
 draw_set_color(c_white);

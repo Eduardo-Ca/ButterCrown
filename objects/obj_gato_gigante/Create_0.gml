@@ -27,7 +27,7 @@ explosoes_criadas = false;
 #region AVISO DO CHEFE
 timer_aviso_max = game_get_speed(gamespeed_fps) * 4;
 timer_aviso = timer_aviso_max;
-texto_aviso = "PROTEJA O GATO DAS FADAS!";
+texto_aviso = tr("PROTEJA O GATO DAS FADAS!");
 #endregion
 
 #region CORACOES

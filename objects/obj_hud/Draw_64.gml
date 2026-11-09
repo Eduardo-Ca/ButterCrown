@@ -83,7 +83,7 @@ if (instance_exists(obj_borboleta) && !obj_borboleta.morto) {
     }
     caos_escala = lerp(caos_escala, 1, 0.1); 
 
-    var texto_caos = "CAOS: " + string(floor(caos_exibido));
+    var texto_caos = tr("CAOS: ") + string(floor(caos_exibido));
     var caos_x = 40;
     var caos_y = 18;
 

@@ -96,9 +96,53 @@ if (!titulo_pousou) {
 }
 titulo_squash = lerp(titulo_squash, 0, 0.15);
 #endregion
+#region BOTAO DE IDIOMA
+var _lang_over = point_in_rectangle(mx, my, 16, gh - 56, 128, gh - 16);
+idioma_esc = lerp(idioma_esc, _lang_over ? 1.1 : 1, 0.2);
+
+if (!mostrar_controles && !saindo && !confirmar_novo) {
+    if ((_lang_over && mouse_check_button_pressed(mb_left)) || keyboard_check_pressed(ord("L"))) {
+        idioma_alternar();
+        tocar_som(snd_estrela);
+    }
+}
+#endregion
+#region CONFIRMAR NOVO JOGO
+if (confirmar_novo && tempo > confirmar_abriu + 1) {
+    var _cy = gh / 2 + 45;
+    var _cover = -1;
+
+    for (var i = 0; i < 2; i++) {
+        var _cx = gw / 2 + ((i == 0) ? -130 : 130);
+        if (point_in_rectangle(mx, my, _cx - 115, _cy - 24, _cx + 115, _cy + 24)) _cover = i;
+    }
+
+    if ((mx != mouse_ant_x || my != mouse_ant_y) && _cover != -1 && _cover != confirmar_sel) {
+        confirmar_sel = _cover;
+        tocar_som(snd_golpe);
+    }
+    if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(ord("A")) || keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D"))) {
+        confirmar_sel = 1 - confirmar_sel;
+        tocar_som(snd_golpe);
+    }
+
+    if (keyboard_check_pressed(vk_escape)) {
+        confirmar_novo = false;
+        tocar_som(snd_golpe);
+    } else if ((_cover != -1 && mouse_check_button_pressed(mb_left)) || keyboard_check_pressed(vk_enter)) {
+        if (_cover != -1 && mouse_check_button_pressed(mb_left)) confirmar_sel = _cover;
+        tocar_som(snd_estrela);
+        confirmar_novo = false;
+        if (confirmar_sel == 0) {
+            apagar_progresso();
+            saindo = true;
+        }
+    }
+}
+#endregion
 
 #region BOTOES
-if (!mostrar_controles && !saindo) {
+if (!mostrar_controles && !saindo && !confirmar_novo) {
     var _mexeu = (mx != mouse_ant_x || my != mouse_ant_y);
     var _hover = -1;
     for (var i = 0; i < qtd_botoes; i++) {
@@ -106,15 +150,15 @@ if (!mostrar_controles && !saindo) {
         if (point_in_rectangle(mx, my, gw / 2 - botao_w / 2, _by - botao_h / 2, gw / 2 + botao_w / 2, _by + botao_h / 2)) _hover = i;
     }
 
-    if (_mexeu && _hover != -1 && _hover != sel) { sel = _hover; tocar_som(snd_bolha); }
+    if (_mexeu && _hover != -1 && _hover != sel) { sel = _hover; tocar_som(snd_golpe); }
 
     if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"))) {
         sel = (sel - 1 + qtd_botoes) mod qtd_botoes;
-        tocar_som(snd_bolha);
+        tocar_som(snd_golpe);
     }
     if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"))) {
         sel = (sel + 1) mod qtd_botoes;
-        tocar_som(snd_bolha);
+        tocar_som(snd_golpe);
     }
 
     if (mouse_check_button_pressed(mb_left) && _hover != -1) {
@@ -158,7 +202,7 @@ if (mostrar_controles && tempo > tutorial_abriu + 1) {
         || keyboard_check_pressed(vk_escape)
         || keyboard_check_pressed(vk_enter)) {
         mostrar_controles = false;
-        tocar_som(snd_bolha);
+        tocar_som(snd_golpe);
     }
 }
 painel_escala = lerp(painel_escala, mostrar_controles ? 1.0 : 0.0, 0.25);

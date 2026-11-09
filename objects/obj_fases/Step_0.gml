@@ -17,7 +17,7 @@ if (global.distancia_percorrida >= proxima_troca) {
     proxima_troca += _f.distancia;
 
     banner_timer = banner_max;
-    banner_titulo = "FASE " + string(numero_fase);
+    banner_titulo = tr("FASE ") + string(numero_fase);
     banner_nome = _f.nome;
     banner_cor = _f.cor;
     tocar_som(snd_up);

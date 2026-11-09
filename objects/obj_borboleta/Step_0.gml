@@ -534,7 +534,6 @@ if (morto) {
 }
 #endregion
 
-if (keyboard_check_pressed(ord("B"))) iniciar_cena_bomba();
 
 if(instance_exists(obj_cena_bomba)){
  energia_atual += 1;

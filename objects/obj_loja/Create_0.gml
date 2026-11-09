@@ -22,13 +22,13 @@ abas = [
         nome: "SORTE",
         cor: make_color_rgb(100, 225, 130),
         upgrades: [
-            { nome: "Mais Balões", desc: "Balões aparecem com mais frequência", nivel_global: "upg_balao_nivel", max_lvl: 3, preco_base: 20, esc: 30,
+            { nome: "Mais Balões", desc: "Balões aparecem com mais frequência", nivel_global: "upg_balao_nivel", max_lvl: 5, preco_base: 20, esc: 25,
               valor: function(_n) { return "+" + string(round((mult_balao(_n) - 1) * 100)) + "%"; } },
-            { nome: "Mais Pessoas", desc: "Mais pessoas para quicar no chão", nivel_global: "upg_pessoa_nivel", max_lvl: 3, preco_base: 20, esc: 30,
+            { nome: "Mais Pessoas", desc: "Mais pessoas para quicar no chão", nivel_global: "upg_pessoa_nivel", max_lvl: 5, preco_base: 20, esc: 25,
               valor: function(_n) { return "+" + string(round((mult_pessoa(_n) - 1) * 100)) + "%"; } },
-            { nome: "Mais Lojas de Fogos", desc: "Lojas de fogos dão grande impulso", nivel_global: "upg_predio_nivel", max_lvl: 3, preco_base: 25, esc: 35,
+            { nome: "Mais Lojas de Fogos", desc: "Lojas de fogos dão grande impulso", nivel_global: "upg_predio_nivel", max_lvl: 5, preco_base: 25, esc: 30,
               valor: function(_n) { return "+" + string(round((mult_fogos(_n) - 1) * 100)) + "%"; } },
-            { nome: "Perigos Raros", desc: "Menos bombas, pássaros e cachorros", nivel_global: "upg_perigo_nivel", max_lvl: 3, preco_base: 30, esc: 40,
+            { nome: "Perigos Raros", desc: "Menos bombas, pássaros e cachorros", nivel_global: "upg_perigo_nivel", max_lvl: 5, preco_base: 30, esc: 30,
               valor: function(_n) { return "-" + string(round((1 - mult_perigo(_n)) * 100)) + "%"; } }
         ]
     },
@@ -36,18 +36,27 @@ abas = [
 	    nome: "HABILIDADES",
 	    cor: make_color_rgb(190, 120, 255),
 	    upgrades: [
-		    { nome: "Meteoro", desc: "Mergulha e destrói tudo", nivel_global: "hab_meteoro_nivel", max_lvl: 5, preco_base: 60, esc: 80,
+		    { nome: "Meteoro", desc: "Mergulha e destrói tudo", nivel_global: "hab_meteoro_nivel", max_lvl: 5, preco_base: 50, esc: 70,
 		      valor: function(_n) { return string(_n) + ((_n == 1) ? " uso" : " usos"); } },
-			{ nome: "Dobra", desc: "Dash dimensional que esmaga tudo", nivel_global: "hab_dobra_nivel", max_lvl: 5, preco_base: 80, esc: 100,
+			{ nome: "Dobra", desc: "Dash dimensional que esmaga tudo", nivel_global: "hab_dobra_nivel", max_lvl: 5, preco_base: 70, esc: 80,
 			  valor: function(_n) { return string(_n) + ((_n == 1) ? " uso" : " usos"); } },
-			{ nome: "Sapo Mago", desc: "Invoca um amigo que cria nuvens", nivel_global: "hab_sapo_nivel", max_lvl: 5, preco_base: 100, esc: 120,
+			{ nome: "Sapo Mago", desc: "Invoca um amigo que cria nuvens", nivel_global: "hab_sapo_nivel", max_lvl: 5, preco_base: 80, esc: 90,
 			  valor: function(_n) { return string(_n) + ((_n == 1) ? " uso" : " usos"); } },
-			{ nome: "Fúria dos Ventos", desc: "Cresce e solta vários tornados", nivel_global: "hab_tornado_nivel", max_lvl: 5, preco_base: 120, esc: 140,
+			{ nome: "Fúria dos Ventos", desc: "Cresce e solta vários tornados", nivel_global: "hab_tornado_nivel", max_lvl: 5, preco_base: 50, esc: 50,
              valor: function(_n) { return string(_n) + ((_n == 1) ? " uso" : " usos"); } }
 			  
 		]
 	}
 ];
+for (var a = 0; a < array_length(abas); a++) {
+    abas[a].nome = tr(abas[a].nome);
+    for (var u = 0; u < array_length(abas[a].upgrades); u++) {
+        abas[a].upgrades[u].nome = tr(abas[a].upgrades[u].nome);
+        abas[a].upgrades[u].desc = tr(abas[a].upgrades[u].desc);
+    }
+}
+
+salvar_jogo();
 #endregion
 
 #region ESTADO

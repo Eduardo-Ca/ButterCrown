@@ -1,4 +1,11 @@
 draw_set_font(Font1);
+if (variable_global_exists("pular_cutscene") && global.pular_cutscene) {
+    global.pular_cutscene = false;
+    instance_create_layer(0, 0, "Instances", obj_menu);
+    instance_destroy();
+    exit;
+}
+
 if (!audio_is_playing(snd_coral)) {
     audio_play_sound(snd_coral, 5, true);
 }
@@ -10,9 +17,10 @@ textos = [
     "Minhas candidatas... Vocês foram escolhidas para espalhar o caos supremo por todo o multiverso!",
     "Aquele que causar a maior destruição e subir mais alto... herdará a Coroa e se tornará o REI DO CAOS!"
 ];
+for (var i = 0; i < array_length(textos); i++) textos[i] = tr(textos[i]);
 total_cenas = array_length(textos);
 
-falantes = ["NARRADOR", "NARRADOR", "???", "???"];
+falantes = [tr("NARRADOR"), tr("NARRADOR"), "???", "???"];
 cores_falante = [
     make_color_rgb(0, 255, 220), make_color_rgb(0, 255, 220),
     make_color_rgb(200, 90, 255), make_color_rgb(200, 90, 255)
@@ -26,7 +34,7 @@ kb = [
     { z0: 4.2, z1: 4.7, px:  10, py:  10 }
 ];
 
-palavras_destaque = ["CAOS", "COROA", "REI", "SUPREMO", "SOMBRIO", "TORNADO", "MULTIVERSO"];
+palavras_destaque = ["CAOS", "COROA", "REI", "SUPREMO", "SOMBRIO", "TORNADO", "MULTIVERSO", "CHAOS", "CROWN", "KING", "SUPREME", "DARKER", "MULTIVERSE"];
 #endregion
 
 #region TEXTO
@@ -64,9 +72,10 @@ montar_layout = function(_txt) {
 
         var _limpa = string_upper(string_letters(_p));
         var _dest = array_contains(palavras_destaque, _limpa);
-        if (_limpa == "DO" && i > 0 && string_upper(string_letters(_palavras[i - 1])) == "REI") _dest = true;
-        if (_limpa == "REI" && climax_ini == -1) climax_ini = _ini;
-        var _ouro = _dest && (_limpa == "COROA" || _limpa == "REI" || _limpa == "DO");
+        var _ant = (i > 0) ? string_upper(string_letters(_palavras[i - 1])) : "";
+        if ((_limpa == "DO" && _ant == "REI") || (_limpa == "OF" && _ant == "KING")) _dest = true;
+        if ((_limpa == "REI" || _limpa == "KING") && climax_ini == -1) climax_ini = _ini;
+        var _ouro = _dest && (_limpa == "COROA" || _limpa == "REI" || _limpa == "DO" || _limpa == "CROWN" || _limpa == "KING" || _limpa == "OF");
 
         array_push(_linha, { txt: _p, x: _w, ini: _ini, dest: _dest, ouro: _ouro });
         _w += _pw + _esp;

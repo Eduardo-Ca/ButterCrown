@@ -99,6 +99,7 @@ if (_pronto) {
                         global.caos -= _preco;
                         variable_global_set(_upg.nivel_global, _lvl + 1);
                         recalcular_status();
+                        salvar_jogo();
 
                         flash_row[_idx] = 20;
                         flash_caos = 20;

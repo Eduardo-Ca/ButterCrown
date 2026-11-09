@@ -17,9 +17,9 @@ if (banner_timer > 0) {
     draw_text_transformed(_gw / 2, _y - 20, banner_titulo, 1.2, 1.2, 0);
 
     draw_set_color(c_black);
-    draw_text_transformed(_gw / 2 + 3, _y + 15 + 3, banner_nome, 2.5, 2.5, 0);
+    draw_text_transformed(_gw / 2 + 3, _y + 15 + 3, tr(banner_nome), 2.5, 2.5, 0);
     draw_set_color(banner_cor);
-    draw_text_transformed(_gw / 2, _y + 15, banner_nome, 2.5, 2.5, 0);
+    draw_text_transformed(_gw / 2, _y + 15, tr(banner_nome), 2.5, 2.5, 0);
 
     draw_set_alpha(1);
     draw_set_color(c_white);
